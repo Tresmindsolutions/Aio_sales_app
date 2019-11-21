@@ -3,6 +3,7 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import Login from "./Login";
 import Signup from "./Signup";
+import Signup2 from "./Signup2";
 
 const AppNavigator = createStackNavigator(
   {
@@ -17,11 +18,17 @@ const AppNavigator = createStackNavigator(
       navigationOptions: () => ({
         header: null
       })
+    },
+    Signup2: {
+      screen: Signup2,
+      navigationOptions: () => ({
+        header: null
+      })
     }
   },
 
   {
-    initialRouteName: "Signup"
+    initialRouteName: "Signup2"
   }
 );
 

@@ -116,7 +116,9 @@ export default class Login extends Component {
               <Text style={{ fontSize: 16, color: FontColor.grayDark }}>
                 Not a user?{" "}
               </Text>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate("Signup")}
+              >
                 <Text style={{ fontSize: 16, color: FontColor.blue }}>
                   Register now
                 </Text>
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
 
-    backgroundColor: "#ffffff"
+    backgroundColor: "#f1f1f1"
   },
   main: {
     justifyContent: "center",
@@ -142,7 +144,7 @@ const styles = StyleSheet.create({
   },
   mainSec: {
     // borderWidth: 1,
-    width: "85%",
+    width: "90%",
     alignSelf: "center",
     marginBottom: 15
   },

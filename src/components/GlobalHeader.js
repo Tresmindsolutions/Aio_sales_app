@@ -3,6 +3,8 @@ import { TouchableOpacity, StyleSheet, Text, Platform } from "react-native";
 
 import { Header, Left, Body, Right } from "native-base";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+
 import { FontColor, theme } from "./constant/theme";
 
 export default class GlobalHeader extends Component {
@@ -19,7 +21,7 @@ export default class GlobalHeader extends Component {
         style={{
           backgroundColor: this.props.backgroundColor
             ? this.props.backgroundColor
-            : "white",
+            : "transparent",
           elevation: this.props.elevation
         }}
       >
@@ -32,10 +34,18 @@ export default class GlobalHeader extends Component {
           }}
         >
           {this.props.leftArrow == true ? (
-            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-              <MaterialIcons
+            <TouchableOpacity
+              style={{}}
+              onPress={() => this.props.navigation.goBack()}
+            >
+              <FontAwesome5
                 name="chevron-left"
-                style={{ color: theme.green, fontSize: 34 }}
+                style={{
+                  color: theme.blue,
+                  fontSize: 30,
+                  marginLeft: 2,
+                  marginTop: 10
+                }}
               />
             </TouchableOpacity>
           ) : this.props.leftCross == true ? (

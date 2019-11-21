@@ -13,11 +13,12 @@ import {
 import GlobalHeader from "../components/GlobalHeader";
 import Entypo from "react-native-vector-icons/Entypo";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 import { Content } from "native-base";
 
 import { theme, FontColor } from "../components/constant/theme";
-export default class Signup extends Component {
+export default class Signup2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,21 +60,21 @@ export default class Signup extends Component {
                   Sign Up
                 </Text>
               </View>
-              {/* ===Full Name=== */}
+              {/* ===Business Name=== */}
               <View style={styles.email}>
-                <Text style={styles.emailTxt}>Full Name</Text>
+                <Text style={styles.emailTxt}>Business Name</Text>
               </View>
               <View style={styles.emailCont}>
                 <View style={styles.img}>
                   <Image
-                    source={require("../../assets/icons/user.png")}
-                    style={{ height: 20, width: 20, marginLeft: 5 }}
+                    source={require("../../assets/icons/store.png")}
+                    style={{ height: 22, width: 22, marginLeft: 5 }}
                     resizeMode={"contain"}
                   />
                 </View>
                 <View style={{ width: "83%" }}>
                   <TextInput
-                    placeholder={"Please Enter Name"}
+                    placeholder={"Please Enter Business Name"}
                     style={{ height: 40, borderColor: "gray" }}
                     // onChangeText={name => onChangeText(name)}
                     //   value={value}
@@ -81,89 +82,136 @@ export default class Signup extends Component {
                 </View>
               </View>
 
-              {/* ===Phone Number=== */}
+              {/* ===DBA=== */}
 
               <View style={styles.email}>
-                <Text style={styles.emailTxt}>Phone Number</Text>
+                <Text style={styles.emailTxt}>DBA</Text>
               </View>
               <View style={styles.emailCont}>
                 <View style={styles.img}>
-                  {/* <Image
+                  <Image
                     source={require("../../assets/icons/user.png")}
-                    style={{ height: 20, width: 20 }}
+                    style={{ height: 20, width: 20, marginLeft: 5 }}
                     resizeMode={"contain"}
-                  /> */}
-                  <Entypo name="phone" size={20} color={FontColor.blue} />
+                  />
+                  {/* <Entypo name="phone" size={20} color={FontColor.blue} /> */}
                 </View>
                 <View style={{ width: "83%" }}>
                   <TextInput
-                    placeholder={"Please Enter Phone Number"}
+                    placeholder={"Please Enter DBA"}
                     style={{ height: 40, borderColor: "gray" }}
-                    keyboardType={"numeric"}
                     // onChangeText={phoneNO => onChangeText(phoneNo)}
                     //   value={value}
                   />
                 </View>
               </View>
 
-              {/* ===Email Address=== */}
+              {/* ===Card Number=== */}
               <View style={styles.email}>
-                <Text style={styles.emailTxt}>Email Address</Text>
+                <Text style={styles.emailTxt}>Card Number</Text>
               </View>
               <View style={styles.emailCont}>
                 <View style={styles.img}>
-                  <Image
+                  {/* <Image
                     source={require("../../assets/icons/user.png")}
                     style={{ height: 20, width: 20, marginLeft: 5 }}
                     resizeMode={"contain"}
+                  /> */}
+                  <FontAwesome
+                    name="credit-card-alt"
+                    size={16}
+                    color={FontColor.blue}
                   />
                 </View>
                 <View style={{ width: "83%" }}>
                   <TextInput
-                    placeholder={"Please Enter Email Address"}
+                    placeholder={"Please Enter Card Number"}
                     style={{ height: 40, borderColor: "gray" }}
+                    keyboardType={"numeric"}
+
                     // onChangeText={email => onChangeText(email)}
                     //   value={value}
                   />
                 </View>
               </View>
 
-              {/* ===Password=== */}
+              {/* ===City=== */}
 
               <View style={styles.email}>
-                <Text style={styles.emailTxt}>Password</Text>
+                <Text style={styles.emailTxt}>City</Text>
               </View>
               <View style={styles.emailCont}>
-                <View style={styles.lockImg}>
+                <View style={styles.img}>
                   <Image
-                    source={require("../../assets/icons/lock.png")}
+                    source={require("../../assets/icons/city.png")}
                     style={{ height: 20, width: 20, marginLeft: 5 }}
                     resizeMode={"contain"}
                   />
+                  {/* <FontAwesome
+                    name="credit-card-alt"
+                    size={16}
+                    color={FontColor.blue}
+                  /> */}
                 </View>
-                <View style={{ width: "73%" }}>
+                <View style={{ width: "83%" }}>
                   <TextInput
-                    placeholder={"Please Enter Password"}
-                    secureTextEntry={this.state.hidden}
+                    placeholder={"Please Enter City"}
                     style={{ height: 40, borderColor: "gray" }}
-                    // onChangeText={password => onChangeText(password)}
+                    keyboardType={"numeric"}
+
+                    // onChangeText={email => onChangeText(email)}
                     //   value={value}
                   />
                 </View>
+              </View>
 
-                <View style={styles.eyeImg}>
-                  <TouchableOpacity
-                    style={{}}
-                    onPress={() =>
-                      this.setState({ hidden: !this.state.hidden })
-                    }
-                  >
-                    {this.state.hidden ? (
-                      <MaterialIcons name={"remove-red-eye"} size={22} />
-                    ) : (
-                      <Entypo name={"eye-with-line"} size={22} />
-                    )}
-                  </TouchableOpacity>
+              {/* ===Expiry=== */}
+
+              <View
+                style={{
+                  //   borderWidth: 1,
+                  flexDirection: "row",
+                  width: "92%",
+                  alignSelf: "center"
+                }}
+              >
+                <View style={{ borderWidth: 0, width: "50%" }}>
+                  <Text style={{ fontSize: 14, color: FontColor.gray }}>
+                    Expiry
+                  </Text>
+                </View>
+                <View style={{ borderWidth: 0, width: "50%" }}>
+                  <Text style={{ fontSize: 14, color: FontColor.gray }}>
+                    CVC
+                  </Text>
+                </View>
+              </View>
+
+              <View style={styles.email}>
+                <Text style={styles.emailTxt}>Expiry</Text>
+              </View>
+              <View style={styles.emailCont}>
+                <View style={styles.img}>
+                  {/* <Image
+                    source={require("../../assets/icons/user.png")}
+                    style={{ height: 20, width: 20, marginLeft: 5 }}
+                    resizeMode={"contain"}
+                  /> */}
+                  {/* <FontAwesome
+                    name="credit-card-alt"
+                    size={16}
+                    color={FontColor.blue}
+                  /> */}
+                </View>
+                <View style={{ width: "83%" }}>
+                  <TextInput
+                    placeholder={"Please Enter City"}
+                    style={{ height: 40, borderColor: "gray" }}
+                    keyboardType={"numeric"}
+
+                    // onChangeText={email => onChangeText(email)}
+                    //   value={value}
+                  />
                 </View>
               </View>
             </View>
@@ -177,14 +225,12 @@ export default class Signup extends Component {
                 marginBottom: 10
               }}
             >
-              <View style={{ marginBottom: 10 }}>
-                <Text style={{ fontSize: 14, color: FontColor.gray }}>
-                  By creating an account you agree to our
-                </Text>
-                <Text style={{ fontSize: 14, color: FontColor.gray }}>
-                  Terms of Service and Privacy Policy
-                </Text>
-              </View>
+              <Text style={{ fontSize: 14, color: FontColor.gray }}>
+                By creating an account you agree to our
+              </Text>
+              <Text style={{ fontSize: 14, color: FontColor.gray }}>
+                Terms of Service and Privacy Policy
+              </Text>
               <View style={styles.loginBtn}>
                 <Text style={styles.loginBtnTxt}>Next</Text>
               </View>
