@@ -41,7 +41,6 @@ export default class Home extends Component {
             leftSetting={true}
             navigation={this.props.navigation}
           />
-          <Text>Home</Text>
 
           <RBSheet
             ref={ref => {
@@ -79,8 +78,11 @@ export default class Home extends Component {
               justifyContent: "center",
               alignItems: "center"
             }}
+            // onPress={() => {
+            //   this.RBSheet.open();
+            // }}
             onPress={() => {
-              this.RBSheet.open();
+              this.props.navigation.navigate("Order");
             }}
           >
             <Text style={{ color: FontColor.white, fontSize: 16 }}>

@@ -31,6 +31,7 @@ export default class GlobalHeader extends Component {
       //     order="order"
       //     name="name"
       //     rightThreeIcons = {true}
+      //     deleteRight={true}
       //     navigation={this.props.navigation}
       //   />
       <Header
@@ -38,7 +39,8 @@ export default class GlobalHeader extends Component {
           backgroundColor: this.props.backgroundColor
             ? this.props.backgroundColor
             : "transparent",
-          elevation: this.props.elevation
+          elevation: this.props.elevation,
+          height: 70
         }}
       >
         <Left
@@ -93,7 +95,8 @@ export default class GlobalHeader extends Component {
               ? {
                   flex: 1,
                   justifyContent: "center",
-                  borderWidth: 1,
+                  // borderWidth: 1,
+
                   // backgroundColor: "red",
                   alignItems: "center"
                 }
@@ -116,7 +119,6 @@ export default class GlobalHeader extends Component {
                     textAlign: "center"
                   }}
                 >
-                  {" "}
                   {this.props.HeadingText}{" "}
                 </Text>
               ) : null}
@@ -139,7 +141,7 @@ export default class GlobalHeader extends Component {
                 <Text
                   style={{
                     fontSize: 14,
-                    color: FontColor.black
+                    color: FontColor.grayDark
                   }}
                 >
                   {this.props.name}
@@ -215,6 +217,14 @@ export default class GlobalHeader extends Component {
                   </Text>
                 </View>
               </TouchableOpacity>
+            </View>
+          ) : this.props.deleteRight == true ? (
+            <View style={{ flexDirection: "row" }}>
+              <Image
+                source={require("../../assets/icons/delete.png")}
+                style={{ height: 25, width: 25 }}
+                resizeMode={"contain"}
+              />
             </View>
           ) : null}
         </Right>

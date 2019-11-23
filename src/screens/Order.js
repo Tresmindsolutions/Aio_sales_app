@@ -46,15 +46,8 @@ export default class Order extends Component {
           rightThreeIcons={true}
           navigation={this.props.navigation}
         />
-        <ScrollView horizontal={true}>
-          <View
-            style={{
-              height: 40,
-              flexDirection: "row",
-              backgroundColor: "#F1F1F1",
-              marginTop: 10
-            }}
-          >
+        <ScrollView horizontal={true} style={{ height: 0 }}>
+          <View style={styles.main}>
             {/* ===Trending=== */}
 
             <TouchableOpacity
@@ -223,8 +216,14 @@ export default class Order extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0.3,
 
     backgroundColor: "#ffffff"
+  },
+  main: {
+    height: 40,
+    flexDirection: "row",
+    backgroundColor: "#F1F1F1",
+    marginTop: 10
   }
 });

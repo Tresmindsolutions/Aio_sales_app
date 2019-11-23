@@ -9,7 +9,8 @@ export const theme = {
   //   green: "#4ac24e",
   //   orange: "#d99900",
   white: "#fff",
-  grayDark: "#707070"
+  grayDark: "#707070",
+  red: "#EF0000"
 };
 export const FontColor = {
   gray: "#BBBBBB",

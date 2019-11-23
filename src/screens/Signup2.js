@@ -254,7 +254,9 @@ export default class Signup2 extends Component {
                   Terms of Service and Privacy Policy
                 </Text>
               </View>
-              <TouchableOpacity style={styles.loginBtn}>
+              <TouchableOpacity style={styles.loginBtn}
+               onPress={() => this.props.navigation.navigate("Home")}
+              >
                 <Text style={styles.loginBtnTxt}>Sign up</Text>
               </TouchableOpacity>
             </View>

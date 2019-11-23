@@ -7,6 +7,9 @@ import Signup2 from "./Signup2";
 import Home from "./Home";
 import Account from "./Account";
 import Order from "./Order";
+import ItemDetails from "./ItemDetails";
+import OrderSummary from "./OrderSummary";
+
 import Category1 from "../components/order/Category1";
 
 const AppNavigator = createStackNavigator(
@@ -47,6 +50,18 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
+    ItemDetails: {
+      screen: ItemDetails,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    OrderSummary: {
+      screen: OrderSummary,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
     Order: {
       screen: Order,
       navigationOptions: () => ({
@@ -56,7 +71,7 @@ const AppNavigator = createStackNavigator(
   },
 
   {
-    initialRouteName: "Order"
+    initialRouteName: "OrderSummary"
   }
 );
 

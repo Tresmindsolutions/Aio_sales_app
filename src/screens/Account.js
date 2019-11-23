@@ -95,7 +95,10 @@ export default class Account extends Component {
         <ScrollView>
           {this.state.arr.map((item, index) => {
             return (
-              <View style={styles.main}>
+              <TouchableOpacity
+                style={styles.main}
+                onPress={() => this.props.navigation.navigate("Order")}
+              >
                 <View style={styles.start}>
                   <Text style={{ fontSize: 18, color: FontColor.grayDark }}>
                     {item.name}
@@ -118,7 +121,7 @@ export default class Account extends Component {
                     ${item.amount}
                   </Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             );
           })}
         </ScrollView>

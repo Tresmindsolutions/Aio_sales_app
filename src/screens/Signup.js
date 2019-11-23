@@ -185,9 +185,12 @@ export default class Signup extends Component {
                   Terms of Service and Privacy Policy
                 </Text>
               </View>
-              <View style={styles.loginBtn}>
+              <TouchableOpacity
+                style={styles.loginBtn}
+                onPress={() => this.props.navigation.navigate("Signup2")}
+              >
                 <Text style={styles.loginBtnTxt}>Next</Text>
-              </View>
+              </TouchableOpacity>
               <View style={styles.bottomTxt}>
                 <Text style={{ fontSize: 16, color: FontColor.grayDark }}>
                   Already a user?{" "}
