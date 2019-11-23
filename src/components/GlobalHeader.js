@@ -1,20 +1,36 @@
 import React, { Component } from "react";
-import { TouchableOpacity, StyleSheet, Text, Platform } from "react-native";
+import {
+  TouchableOpacity,
+  StyleSheet,
+  Text,
+  Platform,
+  View,
+  Image
+} from "react-native";
 
 import { Header, Left, Body, Right } from "native-base";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 import { FontColor, theme } from "./constant/theme";
 
 export default class GlobalHeader extends Component {
   render() {
     return (
-      //     <GlobalHeader
-      //   backgroundColor={transparent}
+      //   <GlobalHeader
+      //     backgroundColor={"transparent"}
       //     leftArrow={true}
+      //     leftSetting={true}
+      //     OneHeadingEnable = {true}
       //     HeadingText="Summary"
       //     elevation={4}
+      //     leftArrowSmall={true}
+      //     rightSearchAdd={false}
+      //     TwoHeadingEnable = {true}
+      //     order="order"
+      //     name="name"
+      //     rightThreeIcons = {true}
       //     navigation={this.props.navigation}
       //   />
       <Header
@@ -48,18 +64,24 @@ export default class GlobalHeader extends Component {
                 }}
               />
             </TouchableOpacity>
-          ) : this.props.leftCross == true ? (
+          ) : this.props.leftSetting == true ? (
             <TouchableOpacity>
-              <MaterialIcons
-                name="clear"
-                style={{ color: "#727272", fontSize: 26, paddingLeft: 3 }}
+              <FontAwesome
+                name="gear"
+                size={30}
+                style={{ color: theme.blue }}
               />
             </TouchableOpacity>
-          ) : this.props.leftMenu == true ? (
-            <TouchableOpacity>
-              <MaterialIcons
-                name="menu"
-                style={{ color: "#727272", fontSize: 28, paddingLeft: 3 }}
+          ) : this.props.leftArrowSmall == true ? (
+            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+              <FontAwesome5
+                name="chevron-left"
+                style={{
+                  color: theme.grayDark,
+                  fontSize: 25,
+                  marginLeft: 2,
+                  marginTop: 0
+                }}
               />
             </TouchableOpacity>
           ) : null}
@@ -71,29 +93,59 @@ export default class GlobalHeader extends Component {
               ? {
                   flex: 1,
                   justifyContent: "center",
-                  // borderWidth: 1,
+                  borderWidth: 1,
+                  // backgroundColor: "red",
                   alignItems: "center"
                 }
               : {
                   flex: 4,
-                  borderWidth: 0,
-                  justifyContent: "center",
-                  alignItems: "center"
+                  borderWidth: 0
+                  // justifyContent: "center",
+                  // alignItems: "center"
                 }
           }
         >
-          {this.props.HeadingText !== "" ? (
-            <Text
-              style={{
-                color: FontColor.green,
-                fontSize: 20,
-                textAlignVertical: "center",
-                textAlign: "center"
-              }}
-            >
-              {" "}
-              {this.props.HeadingText}{" "}
-            </Text>
+          {this.props.OneHeadingEnable == true ? (
+            <View>
+              {this.props.HeadingText !== "" ? (
+                <Text
+                  style={{
+                    color: FontColor.grayDark,
+                    fontSize: 26,
+                    textAlignVertical: "center",
+                    textAlign: "center"
+                  }}
+                >
+                  {" "}
+                  {this.props.HeadingText}{" "}
+                </Text>
+              ) : null}
+            </View>
+          ) : null}
+
+          {this.props.TwoHeadingEnable == true ? (
+            <View style={{ borderWidth: 0, left: 0 }}>
+              {this.props.order !== "" ? (
+                <Text
+                  style={{
+                    fontSize: 26,
+                    color: FontColor.grayDark
+                  }}
+                >
+                  {this.props.order}
+                </Text>
+              ) : null}
+              {this.props.name !== "" ? (
+                <Text
+                  style={{
+                    fontSize: 14,
+                    color: FontColor.black
+                  }}
+                >
+                  {this.props.name}
+                </Text>
+              ) : null}
+            </View>
           ) : null}
         </Body>
 
@@ -105,10 +157,65 @@ export default class GlobalHeader extends Component {
             paddingRight: 5
           }}
         >
-          {this.props.rightMore == true ? (
-            <TouchableOpacity>
-              <MaterialIcons name="more-vert" size={26} color="grey" />
-            </TouchableOpacity>
+          {this.props.rightSearchAdd == true ? (
+            <View style={{ flexDirection: "row" }}>
+              <TouchableOpacity style={{ borderWidth: 0, marginRight: 5 }}>
+                <MaterialIcons
+                  name="search"
+                  size={30}
+                  color={FontColor.grayDark}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity style={{ borderWidth: 0 }}>
+                <MaterialIcons
+                  name="add"
+                  size={32}
+                  color={FontColor.grayDark}
+                />
+              </TouchableOpacity>
+            </View>
+          ) : this.props.rightThreeIcons == true ? (
+            <View style={{ flexDirection: "row" }}>
+              <TouchableOpacity
+                style={{ borderWidth: 0, marginRight: 5, marginTop: 5 }}
+              >
+                <Image
+                  source={require("../../assets/icons/qr2.png")}
+                  style={{ height: 20, width: 20, marginRight: 3 }}
+                  resizeMode={"contain"}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity style={{ borderWidth: 0, marginRight: 2 }}>
+                <MaterialIcons
+                  name="search"
+                  size={30}
+                  color={FontColor.grayDark}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity style={{ borderWidth: 0 }}>
+                <MaterialIcons
+                  name="shopping-cart"
+                  size={32}
+                  color={FontColor.grayDark}
+                />
+                <View
+                  style={{
+                    height: 15,
+                    width: 15,
+                    backgroundColor: FontColor.blue,
+                    borderRadius: 10,
+                    left: 10,
+                    position: "absolute",
+                    justifyContent: "center",
+                    alignItems: "center"
+                  }}
+                >
+                  <Text style={{ color: FontColor.white, fontSize: 12 }}>
+                    4
+                  </Text>
+                </View>
+              </TouchableOpacity>
+            </View>
           ) : null}
         </Right>
       </Header>

@@ -15,6 +15,8 @@ import Entypo from "react-native-vector-icons/Entypo";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
+import DatePicker from "react-native-datepicker";
+
 import { Content } from "native-base";
 
 import { theme, FontColor } from "../components/constant/theme";
@@ -26,7 +28,8 @@ export default class Signup2 extends Component {
       name: "",
       phoneNo: "",
       email: "",
-      password: ""
+      password: "",
+      date: ""
     };
   }
   render() {
@@ -147,18 +150,16 @@ export default class Signup2 extends Component {
                     style={{ height: 20, width: 20, marginLeft: 5 }}
                     resizeMode={"contain"}
                   />
-                  {/* <FontAwesome
-                    name="credit-card-alt"
-                    size={16}
-                    color={FontColor.blue}
-                  /> */}
                 </View>
                 <View style={{ width: "83%" }}>
                   <TextInput
                     placeholder={"Please Enter City"}
-                    style={{ height: 40, borderColor: "gray" }}
-                    keyboardType={"numeric"}
-
+                    style={{
+                      height: 40,
+                      borderColor: "gray",
+                      fontSize: 14,
+                      paddingVertical: 0
+                    }}
                     // onChangeText={email => onChangeText(email)}
                     //   value={value}
                   />
@@ -167,85 +168,95 @@ export default class Signup2 extends Component {
 
               {/* ===Expiry=== */}
 
-              <View
-                style={{
-                  //   borderWidth: 1,
-                  flexDirection: "row",
-                  width: "92%",
-                  alignSelf: "center"
-                }}
-              >
-                <View style={{ borderWidth: 0, width: "50%" }}>
-                  <Text style={{ fontSize: 14, color: FontColor.gray }}>
-                    Expiry
-                  </Text>
+              <View style={styles.expiryMain}>
+                <View style={{ width: "55%" }}>
+                  <Text style={styles.expiryTxt}>Expiry</Text>
                 </View>
-                <View style={{ borderWidth: 0, width: "50%" }}>
-                  <Text style={{ fontSize: 14, color: FontColor.gray }}>
-                    CVC
-                  </Text>
+                <View style={{ width: "45%" }}>
+                  <Text style={styles.expiryTxt}>CVC</Text>
                 </View>
               </View>
 
-              <View style={styles.email}>
-                <Text style={styles.emailTxt}>Expiry</Text>
-              </View>
-              <View style={styles.emailCont}>
-                <View style={styles.img}>
-                  {/* <Image
-                    source={require("../../assets/icons/user.png")}
-                    style={{ height: 20, width: 20, marginLeft: 5 }}
-                    resizeMode={"contain"}
-                  /> */}
-                  {/* <FontAwesome
-                    name="credit-card-alt"
-                    size={16}
-                    color={FontColor.blue}
-                  /> */}
-                </View>
-                <View style={{ width: "83%" }}>
-                  <TextInput
-                    placeholder={"Please Enter City"}
-                    style={{ height: 40, borderColor: "gray" }}
-                    keyboardType={"numeric"}
+              <View style={styles.expireBtm}>
+                <View style={styles.dateStart}>
+                  <DatePicker
+                    style={{ width: "90%" }}
+                    date={this.state.date}
+                    mode="date"
+                    placeholder="Select date"
+                    format="HH:mm"
+                    //  is24Hour={false}
+                    confirmBtnText="Confirm"
+                    cancelBtnText="Cancel"
+                    // minuteInterval={10}
 
-                    // onChangeText={email => onChangeText(email)}
-                    //   value={value}
+                    customStyles={{
+                      dateIcon: {
+                        position: "absolute",
+                        left: 0,
+                        top: 8,
+                        marginLeft: 12,
+
+                        width: 25,
+                        height: 25
+                      },
+
+                      dateInput: {
+                        marginLeft: 45,
+                        borderWidth: 0,
+                        alignItems: "flex-start"
+                      },
+                      placeholderText: {
+                        fontSize: 14,
+                        borderWidth: 0,
+
+                        color: FontColor.grayDark
+                      },
+                      dateText: {
+                        fontSize: 14,
+                        color: FontColor.black
+                      }
+                      // ... You can check the source to find the other keys.
+                    }}
+                    onDateChange={date => {
+                      this.setState({ date: date });
+                    }}
                   />
+                </View>
+                <View style={styles.cvc}>
+                  <View style={styles.cvcBody}>
+                    <Image
+                      source={require("../../assets/icons/creditcard.png")}
+                      style={{ height: 20, width: 20, marginLeft: 5 }}
+                      resizeMode={"contain"}
+                    />
+                  </View>
+                  <View style={{ width: "72%" }}>
+                    <TextInput
+                      placeholder={"Enter CVC"}
+                      style={{ height: 40, borderColor: "gray" }}
+                      keyboardType={"numeric"}
+
+                      // onChangeText={email => onChangeText(email)}
+                      //   value={value}
+                    />
+                  </View>
                 </View>
               </View>
             </View>
 
-            <View
-              style={{
-                // borderWidth: 1,
-                marginTop: 50,
-                justifyContent: "center",
-                alignItems: "center",
-                marginBottom: 10
-              }}
-            >
-              <Text style={{ fontSize: 14, color: FontColor.gray }}>
-                By creating an account you agree to our
-              </Text>
-              <Text style={{ fontSize: 14, color: FontColor.gray }}>
-                Terms of Service and Privacy Policy
-              </Text>
-              <View style={styles.loginBtn}>
-                <Text style={styles.loginBtnTxt}>Next</Text>
-              </View>
-              <View style={styles.bottomTxt}>
-                <Text style={{ fontSize: 16, color: FontColor.grayDark }}>
-                  Already a user?{" "}
+            <View style={styles.bottom}>
+              <View style={{ marginBottom: 10 }}>
+                <Text style={{ fontSize: 14, color: FontColor.gray }}>
+                  By creating an account you agree to our
                 </Text>
-                <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate("Login")}
-                >
-                  <Text style={{ fontSize: 16, color: FontColor.blue }}>
-                    Login
-                  </Text>
-                </TouchableOpacity>
+                <Text style={{ fontSize: 14, color: FontColor.gray }}>
+                  Terms of Service and Privacy Policy
+                </Text>
               </View>
+              <TouchableOpacity style={styles.loginBtn}>
+                <Text style={styles.loginBtnTxt}>Sign up</Text>
+              </TouchableOpacity>
             </View>
           </Content>
         </ImageBackground>
@@ -335,5 +346,62 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 5
+  },
+  expiryMain: {
+    borderWidth: 0,
+    flexDirection: "row",
+    width: "100%",
+    alignSelf: "center",
+    marginTop: 8
+  },
+  expiryTxt: {
+    fontSize: 14,
+    color: FontColor.gray,
+    marginLeft: 12
+  },
+  expireBtm: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+  dateStart: {
+    width: "45%",
+    backgroundColor: theme.white,
+    justifyContent: "center",
+    borderRadius: 7,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3
+  },
+  cvc: {
+    width: "45%",
+    backgroundColor: theme.white,
+    alignItems: "center",
+    borderRadius: 7,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+    flexDirection: "row"
+  },
+  cvcBody: {
+    width: "28%",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  bottom: {
+    marginTop: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 10
   }
 });

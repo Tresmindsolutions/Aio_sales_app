@@ -18,5 +18,6 @@ export const FontColor = {
   //   lightGreen: "#7cc242",
   blue: "#148BFF",
   black: "#000",
-  white: "#ffffff"
+  white: "#ffffff",
+  red: "#EF0000"
 };

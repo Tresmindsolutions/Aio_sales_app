@@ -4,6 +4,10 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import Login from "./Login";
 import Signup from "./Signup";
 import Signup2 from "./Signup2";
+import Home from "./Home";
+import Account from "./Account";
+import Order from "./Order";
+import Category1 from "../components/order/Category1";
 
 const AppNavigator = createStackNavigator(
   {
@@ -19,8 +23,32 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
+    Home: {
+      screen: Home,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
     Signup2: {
       screen: Signup2,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    Account: {
+      screen: Account,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    Category1: {
+      screen: Category1,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    Order: {
+      screen: Order,
       navigationOptions: () => ({
         header: null
       })
@@ -28,7 +56,7 @@ const AppNavigator = createStackNavigator(
   },
 
   {
-    initialRouteName: "Signup2"
+    initialRouteName: "Order"
   }
 );
 
