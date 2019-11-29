@@ -3,6 +3,7 @@ package com.aio_sales_app;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.bottomsheetbehavior.BottomSheetBehaviorPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
@@ -25,6 +26,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new BottomSheetBehaviorPackage(),
             new RNGestureHandlerPackage(),
             new VectorIconsPackage()
       );

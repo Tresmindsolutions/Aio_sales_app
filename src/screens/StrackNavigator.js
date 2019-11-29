@@ -10,7 +10,7 @@ import Order from "./Order";
 import ItemDetails from "./ItemDetails";
 import OrderSummary from "./OrderSummary";
 
-import Category1 from "../components/order/Category1";
+// import Category1 from "../components/order/Category1";
 
 const AppNavigator = createStackNavigator(
   {
@@ -44,12 +44,12 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
-    Category1: {
-      screen: Category1,
-      navigationOptions: () => ({
-        header: null
-      })
-    },
+    // Category1: {
+    //   screen: Category1,
+    //   navigationOptions: () => ({
+    //     header: null
+    //   })
+    // },
     ItemDetails: {
       screen: ItemDetails,
       navigationOptions: () => ({
@@ -71,7 +71,7 @@ const AppNavigator = createStackNavigator(
   },
 
   {
-    initialRouteName: "OrderSummary"
+    initialRouteName: "Order"
   }
 );
 

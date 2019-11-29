@@ -46,7 +46,12 @@ export default class Order extends Component {
           rightThreeIcons={true}
           navigation={this.props.navigation}
         />
-        <ScrollView horizontal={true} style={{ height: 0 }}>
+        <ScrollView
+          horizontal={true}
+          style={{ height: 0 }}
+          showsVerticalScrollIndicator={false}
+          // showsHorizontalScrollIndicator={false}
+        >
           <View style={styles.main}>
             {/* ===Trending=== */}
 
