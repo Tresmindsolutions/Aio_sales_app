@@ -7,18 +7,25 @@ import {
   TouchableOpacity,
   ImageBackground,
   Image,
+  TouchableHighlight,
   TextInput,
   ScrollView
 } from "react-native";
-
+import { Overlay } from "react-native-elements";
+import SignatureCapture from "react-native-signature-capture";
 import GlobalHeader from "../components/GlobalHeader";
-
-import { theme, FontColor } from "../components/constant/theme";
+import { Textarea } from "native-base";
+import { theme, FontColor, Shadow } from "../components/constant/theme";
 import Swipeout from "react-native-swipeout";
 export default class ItemDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      notes: "Add Notes",
+      noteText: "Note",
+      isVisible: false,
+      isVisibleSign: false,
+      imagePath: null,
       arr: [
         {
           img: require("../../assets/icons/RectangleWatch.png"),
@@ -60,7 +67,25 @@ export default class ItemDetails extends Component {
     };
   }
 
+  _onSaveEvent = result => {
+    result.encoded;
+    //  - for the base64 encoded png
+    console.log("location", result.pathName);
+    // - for the file path name
+    console.log(result);
+    this.setState({ imagePath: result.pathName.toString() });
+  };
+
+  handleTextChange = (name, value) => {
+    this.setState({ [name]: value });
+  };
+
+  handleSave = () => {
+    this.setState({ notes: this.state.noteText, isVisible: false });
+  };
+
   render() {
+    console.log("pathnameNew", this.state.imagePath);
     var swipeoutBtns = [
       {
         backgroundColor: "#ffffff",
@@ -228,37 +253,247 @@ export default class ItemDetails extends Component {
             style={{
               // borderWidth: 1,
               marginTop: 10,
-              height: 35,
+              height: "auto",
+              paddingHorizontal: 15,
+              paddingVertical: 10,
               backgroundColor: "#F1F1F1",
               width: "90%",
               alignSelf: "center",
               justifyContent: "center",
               alignItems: "center"
             }}
+            onPress={() => this.setState({ isVisible: true })}
           >
             <Text style={{ color: FontColor.grayDark, fontSize: 18 }}>
-              Add a note
+              {this.state.notes}
             </Text>
           </TouchableOpacity>
+
+          <Overlay
+            isVisible={this.state.isVisible}
+            height={245}
+            onBackdropPress={() => this.setState({ isVisible: false })}
+          >
+            <View style={{ borderWidth: 0, marginBottom: 5 }}>
+              <Text
+                style={{
+                  alignSelf: "center",
+                  fontWeight: "bold",
+                  fontSize: 22,
+                  color: FontColor.black
+                }}
+              >
+                Add a Notes
+              </Text>
+            </View>
+            <Textarea
+              rowSpan={5}
+              bordered
+              borderRadius={8}
+              placeholder="Add a Notes"
+              onChangeText={text => this.handleTextChange("noteText", text)}
+              value={this.state.noteText}
+            />
+
+            <View
+              style={{
+                justifyContent: "space-around",
+                flexDirection: "row",
+                width: "100%",
+                alignSelf: "center",
+                marginTop: 20
+              }}
+            >
+              <TouchableOpacity
+                style={{
+                  width: "45%",
+                  height: 35,
+                  borderRadius: 8,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "#F1F1F1",
+                  shadowColor: "#000",
+                  shadowOffset: {
+                    width: 0,
+                    height: 1
+                  },
+                  shadowOpacity: 0.22,
+                  shadowRadius: 2.22,
+
+                  elevation: 3
+                }}
+                onPress={() => this.setState({ isVisible: false })}
+              >
+                <Text style={{ fontSize: 16, color: FontColor.grayDark }}>
+                  Cancel
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={{
+                  width: "45%",
+
+                  height: 35,
+                  borderRadius: 8,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: theme.blue,
+                  shadowColor: "#000",
+                  shadowOffset: {
+                    width: 0,
+                    height: 1
+                  },
+                  shadowOpacity: 0.22,
+                  shadowRadius: 2.22,
+
+                  elevation: 3
+                }}
+                onPress={() => this.handleSave()}
+              >
+                <Text style={{ fontSize: 16, color: "white" }}>Save</Text>
+              </TouchableOpacity>
+            </View>
+          </Overlay>
 
           <TouchableOpacity
             style={{
               // borderWidth: 1,
               marginTop: 10,
               marginBottom: 5,
-              height: 35,
+              height: 45,
               backgroundColor: "#F1F1F1",
               width: "90%",
               alignSelf: "center",
               justifyContent: "center",
               alignItems: "center"
             }}
+            onPress={() => this.setState({ isVisibleSign: true })}
           >
             <Text style={{ color: FontColor.grayDark, fontSize: 18 }}>
               Signature
             </Text>
           </TouchableOpacity>
 
+          <Overlay
+            isVisible={this.state.isVisibleSign}
+            borderRadius={8}
+            height={270}
+            onBackdropPress={() => this.setState({ isVisibleSign: false })}
+          >
+            <View>
+              <Text
+                style={{
+                  textAlign: "center",
+                  fontSize: 16,
+                  fontWeight: "bold",
+                  color: FontColor.black
+                }}
+              >
+                Add Signature
+              </Text>
+              <View
+                style={{
+                  borderWidth: 1,
+                  borderColor: theme.grayDark,
+                  borderRadius: 8,
+                  zIndex: 10,
+                  paddingVertical: 2,
+                  paddingHorizontal: 2
+                }}
+              >
+                <SignatureCapture
+                  style={[
+                    {
+                      height: 170,
+
+                      borderRadius: 20,
+                      zIndex: -5
+                    }
+                  ]}
+                  ref="sign"
+                  onSaveEvent={this._onSaveEvent}
+                  onDragEvent={this._onDragEvent}
+                  saveImageFileInExtStorage={false}
+                  showNativeButtons={false}
+                  showTitleLabel={false}
+                  viewMode={"portrait"}
+                  minStrokeWidth={8}
+                  maxStrokeWidth={8}
+                />
+              </View>
+            </View>
+
+            <View
+              style={{
+                justifyContent: "space-around",
+                flexDirection: "row",
+                width: "100%",
+                alignSelf: "center",
+                marginTop: 20
+              }}
+            >
+              <TouchableOpacity
+                style={{
+                  width: "45%",
+                  height: 35,
+                  borderRadius: 8,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "#F1F1F1",
+                  shadowColor: "#000",
+                  shadowOffset: {
+                    width: 0,
+                    height: 1
+                  },
+                  shadowOpacity: 0.22,
+                  shadowRadius: 2.22,
+
+                  elevation: 3
+                }}
+                onPress={() => this.setState({ isVisibleSign: false })}
+              >
+                <Text style={{ fontSize: 16, color: FontColor.grayDark }}>
+                  Cancel
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={{
+                  width: "45%",
+
+                  height: 35,
+                  borderRadius: 8,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: theme.blue,
+                  shadowColor: "#000",
+                  shadowOffset: {
+                    width: 0,
+                    height: 1
+                  },
+                  shadowOpacity: 0.22,
+                  shadowRadius: 2.22,
+
+                  elevation: 3
+                }}
+                onPress={() => {
+                  this.saveSign();
+                }}
+              >
+                <Text style={{ fontSize: 16, color: "white" }}>Save</Text>
+              </TouchableOpacity>
+            </View>
+          </Overlay>
+
+          <View style={{ borderWidth: 0 }}>
+            {this.state.imagePath ? (
+              <Image
+                // source={(require = this.state.imagePath)}
+                style={{ height: 40, width: 40 }}
+                resizeMode={"contain"}
+              />
+            ) : null}
+          </View>
           <View
             style={{
               // borderWidth: 1,
@@ -275,7 +510,7 @@ export default class ItemDetails extends Component {
             </View>
             <View style={styles.line} />
             {/* ===SubTotal=== */}
-            <View style={styles.row}>
+            <View style={[styles.row, { marginTop: 5 }]}>
               <Text style={styles.dateColor}>Subtotal</Text>
               <Text style={styles.dateColor}>$52,975</Text>
             </View>
@@ -296,12 +531,12 @@ export default class ItemDetails extends Component {
               <Text style={styles.dateColor}>$52,975</Text>
             </View>
             {/* ===Payment=== */}
-            <View style={styles.row}>
+            <View style={[styles.row, { marginBottom: 5 }]}>
               <Text style={styles.dateColor}>Payment</Text>
               <Text style={styles.dateColor}>-$49.99</Text>
             </View>
             {/* ===Line=== */}
-            <View style={styles.line} />
+            <View style={[styles.line, { marginBottom: 5 }]} />
             <View style={styles.row}>
               <Text
                 style={[styles.dateColor, { fontFamily: "ProductSansBold" }]}
@@ -346,6 +581,18 @@ export default class ItemDetails extends Component {
       </View>
     );
   }
+  saveSign() {
+    this.refs["sign"].saveImage();
+  }
+
+  resetSign() {
+    this.refs["sign"].resetImage();
+  }
+
+  _onDragEvent() {
+    // This callback will be called when the user enters signature
+    console.log("dragged");
+  }
 }
 
 const styles = StyleSheet.create({
@@ -355,7 +602,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff"
   },
   main: {
-    height: 50,
+    height: 55,
     backgroundColor: "#F1F1F1",
     justifyContent: "center",
     alignItems: "center"
@@ -439,7 +686,7 @@ const styles = StyleSheet.create({
   row: {
     justifyContent: "space-between",
     flexDirection: "row",
-    paddingVertical: 3
+    paddingVertical: 5
   },
   line: {
     borderWidth: 0.9,
@@ -450,7 +697,7 @@ const styles = StyleSheet.create({
     color: FontColor.black
   },
   btnCon: {
-    height: 40,
+    height: 38,
     borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",
@@ -464,7 +711,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2.22,
 
     elevation: 3,
-    backgroundColor: "#ffffff"
+    backgroundColor: theme.white
   },
   btnBottom: {
     // borderWidth: 1,
@@ -472,9 +719,23 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
-    height: 40,
+    height: 38,
     backgroundColor: theme.blue,
     borderRadius: 8,
-    marginTop: 8
+    marginTop: 8,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: 3
+  },
+  signature: {
+    flex: 1,
+    borderColor: "#000033",
+    borderWidth: 1
   }
 });

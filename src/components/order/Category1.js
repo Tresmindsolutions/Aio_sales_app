@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import ImageViewer from "react-native-image-zoom-viewer";
 // import GlobalHeader from "../compnents/GlobalHeader";
-//import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 //import { Content } from "native-base";
 
@@ -45,13 +45,30 @@ const images = [
 
 export default class Category1 extends Component {
   state = {
-    visible: true,
+    visible: false,
     counter: 0
   };
 
   render() {
     return (
       <View style={styles.container}>
+        <Modal visible={this.state.visible} transparent={false}>
+          <View
+            style={{
+              borderWidth: 1,
+              backgroundColor: "black",
+              alignItems: "flex-end"
+            }}
+          >
+            <TouchableOpacity
+              style={{ padding: 10, width: 60, alignSelf: "flex-end" }}
+              onPress={() => this.setState({ visible: false })}
+            >
+              <MaterialIcons name={"close"} color={"white"} size={28} />
+            </TouchableOpacity>
+          </View>
+          <ImageViewer imageUrls={images} />
+        </Modal>
         <View style={{ width: "90%", alignSelf: "center", padding: 5 }}>
           <Text style={{ fontSize: 18 }}>Best Sellers</Text>
         </View>
@@ -62,13 +79,16 @@ export default class Category1 extends Component {
             style={styles.card}
             //    onPress={() => this.props.navigation.navigate("ItemDetails")}
           >
-            <View style={{}}>
+            <TouchableOpacity
+              style={{}}
+              onPress={() => this.setState({ visible: true })}
+            >
               <Image
                 source={require("../../../assets/icons/headphoneRec2.png")}
                 style={{ height: 120, width: 160, borderRadius: 10 }}
                 resizeMode={"stretch"}
               />
-            </View>
+            </TouchableOpacity>
             <View style={{ height: 80 }}>
               <Text style={{ fontSize: 14, textAlign: "center", marginTop: 5 }}>
                 Beats M10 Headset

@@ -234,9 +234,9 @@ export default class ItemDetails extends Component {
             </View>
           </View>
 
-          <View style={styles.btn}>
+          <TouchableOpacity style={styles.btn}>
             <Text style={styles.btnTxt}>Continue Ordering</Text>
-          </View>
+          </TouchableOpacity>
         </ScrollView>
       </View>
     );

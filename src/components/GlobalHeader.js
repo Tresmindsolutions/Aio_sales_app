@@ -60,7 +60,7 @@ export default class GlobalHeader extends Component {
                 name="chevron-left"
                 style={{
                   color: theme.blue,
-                  fontSize: 30,
+                  fontSize: 26,
                   marginLeft: 2,
                   marginTop: 10
                 }}
@@ -93,7 +93,7 @@ export default class GlobalHeader extends Component {
           style={
             this.props.twoWords === 1
               ? {
-                  flex: 1,
+                  flex: 1.1,
                   justifyContent: "center",
                   // borderWidth: 1,
 
@@ -114,7 +114,7 @@ export default class GlobalHeader extends Component {
                 <Text
                   style={{
                     color: FontColor.grayDark,
-                    fontSize: 26,
+                    fontSize: 28,
                     textAlignVertical: "center",
                     textAlign: "center"
                   }}

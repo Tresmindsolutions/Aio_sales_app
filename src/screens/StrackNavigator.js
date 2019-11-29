@@ -9,8 +9,9 @@ import Account from "./Account";
 import Order from "./Order";
 import ItemDetails from "./ItemDetails";
 import OrderSummary from "./OrderSummary";
+import Invoice from "./Invoice";
 
-// import Category1 from "../components/order/Category1";
+import Category1 from "../components/order/Category1";
 
 const AppNavigator = createStackNavigator(
   {
@@ -44,12 +45,12 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
-    // Category1: {
-    //   screen: Category1,
-    //   navigationOptions: () => ({
-    //     header: null
-    //   })
-    // },
+    Category1: {
+      screen: Category1,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
     ItemDetails: {
       screen: ItemDetails,
       navigationOptions: () => ({
@@ -62,6 +63,13 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
+    Invoice: {
+      screen: Invoice,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+
     Order: {
       screen: Order,
       navigationOptions: () => ({
@@ -71,7 +79,7 @@ const AppNavigator = createStackNavigator(
   },
 
   {
-    initialRouteName: "Order"
+    initialRouteName: "Home"
   }
 );
 

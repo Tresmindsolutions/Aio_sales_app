@@ -10,7 +10,8 @@ export const theme = {
   //   orange: "#d99900",
   white: "#fff",
   grayDark: "#707070",
-  red: "#EF0000"
+  red: "#EF0000",
+  black: "#3D3D3D"
 };
 export const FontColor = {
   gray: "#BBBBBB",
@@ -20,5 +21,17 @@ export const FontColor = {
   blue: "#148BFF",
   black: "#000",
   white: "#ffffff",
-  red: "#EF0000"
+  red: "#EF0000",
+  black: "#3D3D3D"
+};
+
+export const Shadow = {
+  shadowColor: "#000",
+  shadowOffset: {
+    width: 0,
+    height: 1
+  },
+  shadowOpacity: 0.22,
+  shadowRadius: 2.22,
+  elevation: 3
 };

@@ -22,7 +22,7 @@ import {
 } from "react-native-bottom-sheet-behavior";
 //import { Content } from "native-base";
 
-import { theme, FontColor } from "../components/constant/theme";
+import { theme, FontColor, Shadow } from "../components/constant/theme";
 
 export default class Home extends Component {
   constructor(props) {
@@ -193,10 +193,10 @@ const styles = StyleSheet.create({
       width: 0,
       height: 1
     },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
+    shadowOpacity: 0.18,
+    shadowRadius: 1.0,
 
-    elevation: 2,
+    elevation: 1,
     height: 35,
     width: "45%",
     justifyContent: "center",
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   orderBtn: {
-    height: 40,
+    height: 43,
     width: "90%",
     alignSelf: "center",
     backgroundColor: theme.blue,
