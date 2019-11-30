@@ -49,53 +49,6 @@ export default class Home extends Component {
             navigation={this.props.navigation}
           />
 
-          {/* <RBSheet
-            ref={ref => {
-              this.RBSheet = ref;
-            }}
-            height={300}
-            duration={250}
-            customStyles={{
-              container: {
-                justifyContent: "center",
-                alignItems: "center"
-              }
-            }}
-          >
-            <TouchableOpacity
-              onPress={() => {
-                this.RBSheet.close();
-              }}
-            >
-              <Text>Clsoe</Text>
-            </TouchableOpacity>
-            <Text>RB Sheet</Text>
-          </RBSheet> */}
-
-          {/* <TouchableOpacity
-            style={{
-              //   borderWidth: 1,
-              position: "absolute",
-              bottom: 10,
-              width: "90%",
-              alignSelf: "center",
-              height: 40,
-              borderRadius: 10,
-              backgroundColor: theme.blue,
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-            // onPress={() => {
-            //   this.RBSheet.open();
-            // }}
-            onPress={() => {
-              this.props.navigation.navigate("Order");
-            }}
-          >
-            <Text style={{ color: FontColor.white, fontSize: 16 }}>
-              Place Orders
-            </Text>
-          </TouchableOpacity> */}
           <CoordinatorLayout style={{ flex: 1 }}>
             <BottomSheetBehavior
               ref="bottomSheet"

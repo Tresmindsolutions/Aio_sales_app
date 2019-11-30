@@ -8,27 +8,66 @@ import {
   ImageBackground,
   Image,
   TextInput,
+  Dimensions,
   ScrollView
 } from "react-native";
 
 import GlobalHeader from "../components/GlobalHeader";
-//import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-
-//import { Content } from "native-base";
 import Category1 from "../components/order/Category1";
 import { theme, FontColor } from "../components/constant/theme";
+import {
+  TabView,
+  TabBar,
+  SceneMap,
+  tabStyle,
+  labelstyle,
+  NavigationState,
+  SceneRendererProps
+} from "react-native-tab-view";
 
+const FirstRoute = () => (
+  <View style={[styles.scene, { backgroundColor: "yellow" }]} />
+);
+
+const SecondRoute = () => (
+  <View style={[styles.scene, { backgroundColor: "blue" }]} />
+);
+
+const ThirdRoute = () => (
+  <View style={[styles.scene, { backgroundColor: "blue" }]} />
+);
 export default class Order extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      Trending: true,
-      All: false,
-      Category1: false,
-      Category2: false,
-      Category3: false
-    };
-  }
+  state = {
+    index: 0,
+    pressStatus: false,
+    routes: [
+      {
+        key: "first",
+        title: "Trending",
+        tabStyle: { backgroundColor: "red", color: "red" }
+      },
+      { key: "second", title: "All" },
+      { key: "third", title: "Category 1" },
+      { key: "forth", title: "Category 2" }
+    ]
+  };
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     Trending: true,
+  //     All: false,
+  //     Category1: false,
+  //     Category2: false,
+  //     Category3: false
+  //   };
+  // }
+
+  _onHideUnderlay = () => {
+    this.setState({ pressStatus: false });
+  };
+  _onShowUnderlay = () => {
+    this.setState({ pressStatus: true });
+  };
   render() {
     return (
       <View style={styles.container}>
@@ -46,16 +85,34 @@ export default class Order extends Component {
           rightThreeIcons={true}
           navigation={this.props.navigation}
         />
-        <ScrollView
+
+        <TabView
+          navigationState={this.state}
+          tabStyle={{ backgroundColor: "red", borderRadius: 50 }}
+          labelStyle={{ backgroundColor: "red", borderRadius: 50 }}
+          indicatorStyle={{ backgroundColor: "red" }}
+          contentContainerStyle={{ backgroundColor: "red" }}
+          style={{ backgroundColor: "red" }}
+          renderScene={SceneMap({
+            first: FirstRoute,
+            second: SecondRoute,
+            third: ThirdRoute,
+            forth: ForthRoute
+          })}
+          onIndexChange={index => this.setState({ index })}
+          initialLayout={{ width: Dimensions.get("window").width }}
+        />
+
+        {/* <ScrollView
           horizontal={true}
           style={{ height: 0 }}
           showsVerticalScrollIndicator={false}
           // showsHorizontalScrollIndicator={false}
-        >
-          <View style={styles.main}>
-            {/* ===Trending=== */}
+        > */}
+        {/* <View style={styles.main}> */}
+        {/* ===Trending=== */}
 
-            <TouchableOpacity
+        {/* <TouchableOpacity
               style={{
                 borderBottomWidth: this.state.Trending ? 2 : 0,
                 borderBottomColor: this.state.Trending
@@ -83,11 +140,11 @@ export default class Order extends Component {
               >
                 Trending
               </Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
-            {/* ===All=== */}
+        {/* ===All=== */}
 
-            <TouchableOpacity
+        {/* <TouchableOpacity
               style={{
                 borderBottomWidth: this.state.All ? 2 : 0,
                 borderBottomColor: this.state.All ? theme.blue : theme.grayDark,
@@ -113,11 +170,11 @@ export default class Order extends Component {
               >
                 All
               </Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
-            {/* ===Category 1=== */}
+        {/* ===Category 1=== */}
 
-            <TouchableOpacity
+        {/* <TouchableOpacity
               style={{
                 justifyContent: "center",
                 alignItems: "center",
@@ -145,11 +202,11 @@ export default class Order extends Component {
               >
                 Category 1
               </Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
-            {/* ===Category 2=== */}
+        {/* ===Category 2=== */}
 
-            <TouchableOpacity
+        {/* <TouchableOpacity
               style={{
                 justifyContent: "center",
                 alignItems: "center",
@@ -177,11 +234,11 @@ export default class Order extends Component {
               >
                 Category 2
               </Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
-            {/* ===Category 3=== */}
+        {/* ===Category 3=== */}
 
-            <TouchableOpacity
+        {/* <TouchableOpacity
               style={{
                 justifyContent: "center",
                 alignItems: "center",
@@ -209,11 +266,11 @@ export default class Order extends Component {
               >
                 Category 3
               </Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
+            </TouchableOpacity> */}
+        {/* </View>
+        </ScrollView> */}
 
-        <Category1 />
+        {/* <Category1 /> */}
       </View>
     );
   }
@@ -230,5 +287,42 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#F1F1F1",
     marginTop: 10
+  },
+  scene: {
+    flex: 1
+  },
+  button: {
+    width: "20%",
+    justifyContent: "center",
+    alignContent: "center",
+    marginTop: 7,
+    marginBottom: 7,
+    borderWidth: 1,
+    paddingTop: 10,
+    paddingBottom: 10,
+    alignItems: "center",
+    borderRadius: 20,
+    backgroundColor: "white"
+  },
+  buttonPress: {
+    width: "20%",
+    justifyContent: "center",
+    alignContent: "center",
+    marginTop: 7,
+    marginBottom: 7,
+    borderWidth: 1,
+    paddingTop: 10,
+    paddingBottom: 10,
+    alignItems: "center",
+    borderRadius: 20,
+    backgroundColor: "green"
+  },
+  welcome: {
+    fontFamily: "Nunito-Bold",
+    color: "#000000"
+  },
+  welcomePress: {
+    fontFamily: "Nunito-Bold",
+    color: "#ffffff"
   }
 });
