@@ -9,65 +9,57 @@ import {
   Image,
   TextInput,
   Dimensions,
-  ScrollView
+  ScrollView,
+  Modal
 } from "react-native";
+
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import Entypo from "react-native-vector-icons/Entypo";
 
 import GlobalHeader from "../components/GlobalHeader";
 import Category1 from "../components/order/Category1";
 import { theme, FontColor } from "../components/constant/theme";
-import {
-  TabView,
-  TabBar,
-  SceneMap,
-  tabStyle,
-  labelstyle,
-  NavigationState,
-  SceneRendererProps
-} from "react-native-tab-view";
+import ImageViewer from "react-native-image-zoom-viewer";
 
-const FirstRoute = () => (
-  <View style={[styles.scene, { backgroundColor: "yellow" }]} />
-);
+const images = [
+  {
+    // Simplest usage.
+    url:
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
 
-const SecondRoute = () => (
-  <View style={[styles.scene, { backgroundColor: "blue" }]} />
-);
+    // width: number
+    // height: number
+    // Optional, if you know the image size, you can set the optimization performance
 
-const ThirdRoute = () => (
-  <View style={[styles.scene, { backgroundColor: "blue" }]} />
-);
+    // You can pass props to <Image />.
+    props: {
+      // headers: ...
+    }
+  },
+  {
+    url: "",
+    props: {
+      // Or you can set source directory.
+      source: require("../../assets/icons/watch.png")
+      // source: require("../../assets/icons")
+    }
+  }
+];
+
 export default class Order extends Component {
-  state = {
-    index: 0,
-    pressStatus: false,
-    routes: [
-      {
-        key: "first",
-        title: "Trending",
-        tabStyle: { backgroundColor: "red", color: "red" }
-      },
-      { key: "second", title: "All" },
-      { key: "third", title: "Category 1" },
-      { key: "forth", title: "Category 2" }
-    ]
-  };
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     Trending: true,
-  //     All: false,
-  //     Category1: false,
-  //     Category2: false,
-  //     Category3: false
-  //   };
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      Trending: true,
+      All: false,
+      Category1: false,
+      Category2: false,
+      Category3: false,
+      visible: false,
+      counter: 0
+    };
+  }
 
-  _onHideUnderlay = () => {
-    this.setState({ pressStatus: false });
-  };
-  _onShowUnderlay = () => {
-    this.setState({ pressStatus: true });
-  };
   render() {
     return (
       <View style={styles.container}>
@@ -86,33 +78,16 @@ export default class Order extends Component {
           navigation={this.props.navigation}
         />
 
-        <TabView
-          navigationState={this.state}
-          tabStyle={{ backgroundColor: "red", borderRadius: 50 }}
-          labelStyle={{ backgroundColor: "red", borderRadius: 50 }}
-          indicatorStyle={{ backgroundColor: "red" }}
-          contentContainerStyle={{ backgroundColor: "red" }}
-          style={{ backgroundColor: "red" }}
-          renderScene={SceneMap({
-            first: FirstRoute,
-            second: SecondRoute,
-            third: ThirdRoute,
-            forth: ForthRoute
-          })}
-          onIndexChange={index => this.setState({ index })}
-          initialLayout={{ width: Dimensions.get("window").width }}
-        />
-
-        {/* <ScrollView
+        <ScrollView
           horizontal={true}
           style={{ height: 0 }}
           showsVerticalScrollIndicator={false}
           // showsHorizontalScrollIndicator={false}
-        > */}
-        {/* <View style={styles.main}> */}
-        {/* ===Trending=== */}
+        >
+          <View style={styles.main2}>
+            {/* ===Trending=== */}
 
-        {/* <TouchableOpacity
+            <TouchableOpacity
               style={{
                 borderBottomWidth: this.state.Trending ? 2 : 0,
                 borderBottomColor: this.state.Trending
@@ -140,11 +115,11 @@ export default class Order extends Component {
               >
                 Trending
               </Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
 
-        {/* ===All=== */}
+            {/* ===All=== */}
 
-        {/* <TouchableOpacity
+            <TouchableOpacity
               style={{
                 borderBottomWidth: this.state.All ? 2 : 0,
                 borderBottomColor: this.state.All ? theme.blue : theme.grayDark,
@@ -170,11 +145,11 @@ export default class Order extends Component {
               >
                 All
               </Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
 
-        {/* ===Category 1=== */}
+            {/* ===Category 1=== */}
 
-        {/* <TouchableOpacity
+            <TouchableOpacity
               style={{
                 justifyContent: "center",
                 alignItems: "center",
@@ -202,11 +177,11 @@ export default class Order extends Component {
               >
                 Category 1
               </Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
 
-        {/* ===Category 2=== */}
+            {/* ===Category 2=== */}
 
-        {/* <TouchableOpacity
+            <TouchableOpacity
               style={{
                 justifyContent: "center",
                 alignItems: "center",
@@ -234,11 +209,11 @@ export default class Order extends Component {
               >
                 Category 2
               </Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
 
-        {/* ===Category 3=== */}
+            {/* ===Category 3=== */}
 
-        {/* <TouchableOpacity
+            <TouchableOpacity
               style={{
                 justifyContent: "center",
                 alignItems: "center",
@@ -266,11 +241,449 @@ export default class Order extends Component {
               >
                 Category 3
               </Text>
-            </TouchableOpacity> */}
-        {/* </View>
-        </ScrollView> */}
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
 
-        {/* <Category1 /> */}
+        <Modal visible={this.state.visible} transparent={false}>
+          <View style={styles.zoomPic}>
+            <TouchableOpacity
+              style={{ padding: 10, width: 60, alignSelf: "flex-end" }}
+              onPress={() => this.setState({ visible: false })}
+            >
+              <MaterialIcons name={"close"} color={"white"} size={28} />
+            </TouchableOpacity>
+          </View>
+          <ImageViewer imageUrls={images} />
+        </Modal>
+        <View style={{ width: "90%", alignSelf: "center", padding: 5 }}>
+          <Text style={{ fontSize: 18 }}>Best Sellers</Text>
+        </View>
+
+        <View style={styles.main}>
+          <View
+            // onPress={() => this.props.navigation.navigate("ItemDetails")}
+            style={styles.card}
+            //    onPress={() => this.props.navigation.navigate("ItemDetails")}
+          >
+            <TouchableOpacity
+              style={{}}
+              onPress={() => this.setState({ visible: true })}
+            >
+              <Image
+                source={require("../../assets/icons/headphoneRec2.png")}
+                style={{ height: 120, width: 160, borderRadius: 10 }}
+                resizeMode={"stretch"}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{}}
+              onPress={() => this.props.navigation.navigate("ItemDetails")}
+            >
+              <TouchableOpacity
+                style={{ height: 40 }}
+                onPress={() => this.props.navigation.navigate("ItemDetails")}
+              >
+                <Text
+                  style={{ fontSize: 14, textAlign: "center", marginTop: 5 }}
+                >
+                  Beats M10 Headset
+                </Text>
+                <TouchableOpacity
+                  style={styles.count}
+                  onPress={() => this.props.navigation.navigate("ItemDetails")}
+                >
+                  <View
+                    style={styles.add}
+                    onPress={() =>
+                      this.setState({
+                        counter: this.state.counter - 1,
+                        plus: false,
+                        minus: true
+                      })
+                    }
+                  >
+                    {/* Imag path */}
+                    <Image
+                      source={require("../../assets/icons/sub.png")}
+                      style={{ height: 12, width: 12, height: 10 }}
+                      resizeMode={"contain"}
+                    />
+                  </View>
+                  <View style={styles.numb}>
+                    <Text
+                      style={[
+                        { fontSize: 26 },
+                        this.state.counter > 0
+                          ? { color: FontColor.blue }
+                          : { color: FontColor.grayDark }
+                      ]}
+                    >
+                      {this.state.counter}
+                    </Text>
+                  </View>
+                  <View
+                    style={styles.add}
+                    onPress={() =>
+                      this.setState({
+                        counter: this.state.counter + 1,
+                        plus: true,
+                        minus: false
+                      })
+                    }
+                  >
+                    <Image
+                      source={require("../../assets/icons/add.png")}
+                      style={{ height: 14, width: 14 }}
+                      resizeMode={"contain"}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </TouchableOpacity>
+            </TouchableOpacity>
+            <View
+              style={{
+                position: "absolute",
+
+                right: 5,
+                bottom: 55
+              }}
+            >
+              <Entypo name="dots-three-horizontal" size={22} />
+            </View>
+            <TouchableOpacity
+              style={styles.priceTagMain}
+              onPress={() => this.props.navigation.navigate("ItemDetails")}
+            >
+              <View style={styles.priceTag}>
+                <Text style={{ color: FontColor.black }}>$49.99</Text>
+              </View>
+              <View style={styles.priceChange}>
+                <Text style={{ color: FontColor.white, fontSize: 12 }}>
+                  Price Change
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+          {/* ===Second Cart for check=== */}
+          <View
+            // onPress={() => this.props.navigation.navigate("ItemDetails")}
+            style={styles.card}
+            //    onPress={() => this.props.navigation.navigate("ItemDetails")}
+          >
+            <TouchableOpacity
+              style={{}}
+              onPress={() => this.setState({ visible: true })}
+            >
+              <Image
+                source={require("../../assets/icons/headphoneRec2.png")}
+                style={{ height: 120, width: 160, borderRadius: 10 }}
+                resizeMode={"stretch"}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{}}
+              onPress={() => this.props.navigation.navigate("ItemDetails")}
+            >
+              <TouchableOpacity
+                style={{ height: 40 }}
+                onPress={() => this.props.navigation.navigate("ItemDetails")}
+              >
+                <Text
+                  style={{ fontSize: 14, textAlign: "center", marginTop: 5 }}
+                >
+                  Beats M10 Headset
+                </Text>
+                <TouchableOpacity
+                  style={styles.count}
+                  onPress={() => this.props.navigation.navigate("ItemDetails")}
+                >
+                  <View
+                    style={styles.add}
+                    onPress={() =>
+                      this.setState({
+                        counter: this.state.counter - 1,
+                        plus: false,
+                        minus: true
+                      })
+                    }
+                  >
+                    {/* Imag path */}
+                    <Image
+                      source={require("../../assets/icons/sub.png")}
+                      style={{ height: 12, width: 12, height: 10 }}
+                      resizeMode={"contain"}
+                    />
+                  </View>
+                  <View style={styles.numb}>
+                    <Text
+                      style={[
+                        { fontSize: 26 },
+                        this.state.counter > 0
+                          ? { color: FontColor.blue }
+                          : { color: FontColor.grayDark }
+                      ]}
+                    >
+                      {this.state.counter}
+                    </Text>
+                  </View>
+                  <View
+                    style={styles.add}
+                    onPress={() =>
+                      this.setState({
+                        counter: this.state.counter + 1,
+                        plus: true,
+                        minus: false
+                      })
+                    }
+                  >
+                    <Image
+                      source={require("../../assets/icons/add.png")}
+                      style={{ height: 14, width: 14 }}
+                      resizeMode={"contain"}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </TouchableOpacity>
+            </TouchableOpacity>
+            <View
+              style={{
+                position: "absolute",
+
+                right: 5,
+                bottom: 55
+              }}
+            >
+              <Entypo name="dots-three-horizontal" size={22} />
+            </View>
+            <TouchableOpacity
+              style={styles.priceTagMain}
+              onPress={() => this.props.navigation.navigate("ItemDetails")}
+            >
+              <View style={styles.priceTag}>
+                <Text style={{ color: FontColor.black }}>$49.99</Text>
+              </View>
+              <View style={styles.priceChange}>
+                <Text style={{ color: FontColor.white, fontSize: 12 }}>
+                  Price Change
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+
+          {/* 3rs */}
+          <View
+            // onPress={() => this.props.navigation.navigate("ItemDetails")}
+            style={styles.card}
+            //    onPress={() => this.props.navigation.navigate("ItemDetails")}
+          >
+            <TouchableOpacity
+              style={{}}
+              onPress={() => this.setState({ visible: true })}
+            >
+              <Image
+                source={require("../../assets/icons/headphoneRec2.png")}
+                style={{ height: 120, width: 160, borderRadius: 10 }}
+                resizeMode={"stretch"}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{}}
+              onPress={() => this.props.navigation.navigate("ItemDetails")}
+            >
+              <TouchableOpacity
+                style={{ height: 40 }}
+                onPress={() => this.props.navigation.navigate("ItemDetails")}
+              >
+                <Text
+                  style={{ fontSize: 14, textAlign: "center", marginTop: 5 }}
+                >
+                  Beats M10 Headset
+                </Text>
+                <TouchableOpacity
+                  style={styles.count}
+                  onPress={() => this.props.navigation.navigate("ItemDetails")}
+                >
+                  <View
+                    style={styles.add}
+                    onPress={() =>
+                      this.setState({
+                        counter: this.state.counter - 1,
+                        plus: false,
+                        minus: true
+                      })
+                    }
+                  >
+                    {/* Imag path */}
+                    <Image
+                      source={require("../../assets/icons/sub.png")}
+                      style={{ height: 12, width: 12, height: 10 }}
+                      resizeMode={"contain"}
+                    />
+                  </View>
+                  <View style={styles.numb}>
+                    <Text
+                      style={[
+                        { fontSize: 26 },
+                        this.state.counter > 0
+                          ? { color: FontColor.blue }
+                          : { color: FontColor.grayDark }
+                      ]}
+                    >
+                      {this.state.counter}
+                    </Text>
+                  </View>
+                  <View
+                    style={styles.add}
+                    onPress={() =>
+                      this.setState({
+                        counter: this.state.counter + 1,
+                        plus: true,
+                        minus: false
+                      })
+                    }
+                  >
+                    <Image
+                      source={require("../../assets/icons/add.png")}
+                      style={{ height: 14, width: 14 }}
+                      resizeMode={"contain"}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </TouchableOpacity>
+            </TouchableOpacity>
+            <View
+              style={{
+                position: "absolute",
+
+                right: 5,
+                bottom: 55
+              }}
+            >
+              <Entypo name="dots-three-horizontal" size={22} />
+            </View>
+            <TouchableOpacity
+              style={styles.priceTagMain}
+              onPress={() => this.props.navigation.navigate("ItemDetails")}
+            >
+              <View style={styles.priceTag}>
+                <Text style={{ color: FontColor.black }}>$49.99</Text>
+              </View>
+              <View style={styles.priceChange}>
+                <Text style={{ color: FontColor.white, fontSize: 12 }}>
+                  Price Change
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+          {/* 4th  */}
+          <View
+            // onPress={() => this.props.navigation.navigate("ItemDetails")}
+            style={styles.card}
+            //    onPress={() => this.props.navigation.navigate("ItemDetails")}
+          >
+            <TouchableOpacity
+              style={{}}
+              onPress={() => this.setState({ visible: true })}
+            >
+              <Image
+                source={require("../../assets/icons/headphoneRec2.png")}
+                style={{ height: 120, width: 160, borderRadius: 10 }}
+                resizeMode={"cover"}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{}}
+              onPress={() => this.props.navigation.navigate("ItemDetails")}
+            >
+              <TouchableOpacity
+                style={{ height: 40 }}
+                onPress={() => this.props.navigation.navigate("ItemDetails")}
+              >
+                <Text
+                  style={{ fontSize: 14, textAlign: "center", marginTop: 5 }}
+                >
+                  Beats M10 Headset
+                </Text>
+                <TouchableOpacity
+                  style={styles.count}
+                  onPress={() => this.props.navigation.navigate("ItemDetails")}
+                >
+                  <View
+                    style={styles.add}
+                    onPress={() =>
+                      this.setState({
+                        counter: this.state.counter - 1,
+                        plus: false,
+                        minus: true
+                      })
+                    }
+                  >
+                    {/* Imag path */}
+                    <Image
+                      source={require("../../assets/icons/sub.png")}
+                      style={{ height: 12, width: 12, height: 10 }}
+                      resizeMode={"contain"}
+                    />
+                  </View>
+                  <View style={styles.numb}>
+                    <Text
+                      style={[
+                        { fontSize: 26 },
+                        this.state.counter > 0
+                          ? { color: FontColor.blue }
+                          : { color: FontColor.grayDark }
+                      ]}
+                    >
+                      {this.state.counter}
+                    </Text>
+                  </View>
+                  <View
+                    style={styles.add}
+                    onPress={() =>
+                      this.setState({
+                        counter: this.state.counter + 1,
+                        plus: true,
+                        minus: false
+                      })
+                    }
+                  >
+                    <Image
+                      source={require("../../assets/icons/add.png")}
+                      style={{ height: 14, width: 14 }}
+                      resizeMode={"contain"}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </TouchableOpacity>
+            </TouchableOpacity>
+            <View
+              style={{
+                position: "absolute",
+
+                right: 5,
+                bottom: 55
+              }}
+            >
+              <Entypo name="dots-three-horizontal" size={22} />
+            </View>
+            <TouchableOpacity
+              style={styles.priceTagMain}
+              onPress={() => this.props.navigation.navigate("ItemDetails")}
+            >
+              <View style={styles.priceTag}>
+                <Text style={{ color: FontColor.black }}>$49.99</Text>
+              </View>
+              <View style={styles.priceChange}>
+                <Text style={{ color: FontColor.white, fontSize: 12 }}>
+                  Price Change
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        {/* <Category1 navigation={this.props.navigation} /> */}
       </View>
     );
   }
@@ -278,11 +691,11 @@ export default class Order extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.3,
+    flex: 0.6,
 
     backgroundColor: "#ffffff"
   },
-  main: {
+  main2: {
     height: 40,
     flexDirection: "row",
     backgroundColor: "#F1F1F1",
@@ -324,5 +737,88 @@ const styles = StyleSheet.create({
   welcomePress: {
     fontFamily: "Nunito-Bold",
     color: "#ffffff"
+  },
+  main: {
+    borderWidth: 0,
+    flexWrap: "wrap",
+    flexDirection: "row",
+    justifyContent: "space-around"
+  },
+  card: {
+    height: 180,
+    //   width: 170,
+    borderRadius: 10,
+    backgroundColor: "#ffffff",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: 3,
+    marginTop: 10,
+    marginLeft: 6,
+    marginRight: 6
+    // zIndex: 10
+    // borderWidth: 1
+  },
+  count: {
+    borderWidth: 0,
+    height: 35,
+    justifyContent: "space-around",
+    flexDirection: "row",
+    // marginTop: 5,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+
+    backgroundColor: "#ffffff"
+  },
+  priceChange: {
+    height: 20,
+    width: 80,
+    backgroundColor: theme.blue,
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  priceTag: {
+    height: 30,
+    width: 80,
+    backgroundColor: theme.white,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  priceTagMain: {
+    width: 80,
+    height: 50,
+
+    position: "absolute",
+    right: -10,
+    top: 20,
+    borderRadius: 20
+  },
+  zoomPic: {
+    borderWidth: 1,
+    backgroundColor: "black",
+    alignItems: "flex-end"
+  },
+  numb: {
+    borderWidth: 0,
+    alignSelf: "center",
+    //   backgroundColor: "yellow",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  add: {
+    borderWidth: 0,
+    alignSelf: "center",
+
+    justifyContent: "center",
+    alignItems: "center"
   }
 });

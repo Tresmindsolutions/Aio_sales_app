@@ -12,7 +12,7 @@ import {
 
 import GlobalHeader from "../components/GlobalHeader";
 import Entypo from "react-native-vector-icons/Entypo";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 import DatePicker from "react-native-datepicker";
@@ -189,7 +189,14 @@ export default class Signup2 extends Component {
                     confirmBtnText="Confirm"
                     cancelBtnText="Cancel"
                     // minuteInterval={10}
-
+                    iconComponent={
+                      <FontAwesome5
+                        size={20}
+                        color={theme.blue}
+                        name="calendar-alt"
+                        style={{ position: "absolute", left: 15 }}
+                      />
+                    }
                     customStyles={{
                       dateIcon: {
                         position: "absolute",
@@ -210,7 +217,7 @@ export default class Signup2 extends Component {
                         fontSize: 14,
                         borderWidth: 0,
 
-                        color: FontColor.grayDark
+                        color: FontColor.gray
                       },
                       dateText: {
                         fontSize: 14,
@@ -254,8 +261,9 @@ export default class Signup2 extends Component {
                   Terms of Service and Privacy Policy
                 </Text>
               </View>
-              <TouchableOpacity style={styles.loginBtn}
-               onPress={() => this.props.navigation.navigate("Home")}
+              <TouchableOpacity
+                style={styles.loginBtn}
+                onPress={() => this.props.navigation.navigate("Home")}
               >
                 <Text style={styles.loginBtnTxt}>Sign up</Text>
               </TouchableOpacity>

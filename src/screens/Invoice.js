@@ -13,7 +13,7 @@ import {
 
 import GlobalHeader from "../components/GlobalHeader";
 import { theme, FontColor, Shadow } from "../components/constant/theme";
-import { TouchableHighlight } from "react-native-gesture-handler";
+
 //import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 //import { Content } from "native-base";

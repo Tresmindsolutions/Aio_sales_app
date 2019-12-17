@@ -12,18 +12,17 @@ import {
   Modal
 } from "react-native";
 import ImageViewer from "react-native-image-zoom-viewer";
-// import GlobalHeader from "../compnents/GlobalHeader";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-//import { Content } from "native-base";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import Entypo from "react-native-vector-icons/Entypo";
 
 import { theme, FontColor } from "../constant/theme";
-// import ImageZoom from "react-native-image-pan-zoom";
 
 const images = [
   {
     // Simplest usage.
-    url: "https://avatars2.githubusercontent.com/u/7970947?v=3&s=460",
+    url:
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
 
     // width: number
     // height: number
@@ -38,7 +37,7 @@ const images = [
     url: "",
     props: {
       // Or you can set source directory.
-      source: require("../../../assets/icons/headphone.png")
+      source: require("../../../assets/icons/watch.png")
     }
   }
 ];
@@ -83,59 +82,85 @@ export default class Category1 extends Component {
                 resizeMode={"stretch"}
               />
             </TouchableOpacity>
-            <View style={{ height: 80 }}>
-              <Text style={{ fontSize: 14, textAlign: "center", marginTop: 5 }}>
-                Beats M10 Headset
-              </Text>
-              <View style={styles.count}>
-                <TouchableOpacity
-                  style={styles.min}
-                  onPress={() =>
-                    this.setState({
-                      counter: this.state.counter - 1,
-                      plus: false,
-                      minus: true
-                    })
-                  }
+            <TouchableOpacity
+              style={{}}
+              onPress={() => this.props.navigation.navigate("ItemDetails")}
+            >
+              <TouchableOpacity
+                style={{ height: 40 }}
+                onPress={() => this.props.navigation.navigate("ItemDetails")}
+              >
+                <Text
+                  style={{ fontSize: 14, textAlign: "center", marginTop: 5 }}
                 >
-                  {/* Imag path */}
-                  <Image
-                    source={require("../../../assets/icons/sub.png")}
-                    style={{ height: 12, width: 12 }}
-                    resizeMode={"contain"}
-                  />
-                </TouchableOpacity>
-                <View style={styles.numb}>
-                  <Text
-                    style={[
-                      { fontSize: 26 },
-                      this.state.counter > 0
-                        ? { color: FontColor.blue }
-                        : { color: FontColor.grayDark }
-                    ]}
+                  Beats M10 Headset
+                </Text>
+                <TouchableOpacity
+                  style={styles.count}
+                  onPress={() => this.props.navigation.navigate("ItemDetails")}
+                >
+                  <View
+                    style={styles.add}
+                    onPress={() =>
+                      this.setState({
+                        counter: this.state.counter - 1,
+                        plus: false,
+                        minus: true
+                      })
+                    }
                   >
-                    {this.state.counter}
-                  </Text>
-                </View>
-                <TouchableOpacity
-                  style={styles.add}
-                  onPress={() =>
-                    this.setState({
-                      counter: this.state.counter + 1,
-                      plus: true,
-                      minus: false
-                    })
-                  }
-                >
-                  <Image
-                    source={require("../../../assets/icons/add.png")}
-                    style={{ height: 14, width: 14 }}
-                    resizeMode={"contain"}
-                  />
+                    {/* Imag path */}
+                    <Image
+                      source={require("../../../assets/icons/sub.png")}
+                      style={{ height: 12, width: 12, height: 10 }}
+                      resizeMode={"contain"}
+                    />
+                  </View>
+                  <View style={styles.numb}>
+                    <Text
+                      style={[
+                        { fontSize: 26 },
+                        this.state.counter > 0
+                          ? { color: FontColor.blue }
+                          : { color: FontColor.grayDark }
+                      ]}
+                    >
+                      {this.state.counter}
+                    </Text>
+                  </View>
+                  <View
+                    style={styles.add}
+                    onPress={() =>
+                      this.setState({
+                        counter: this.state.counter + 1,
+                        plus: true,
+                        minus: false
+                      })
+                    }
+                  >
+                    <Image
+                      source={require("../../../assets/icons/add.png")}
+                      style={{ height: 14, width: 14 }}
+                      resizeMode={"contain"}
+                    />
+                  </View>
                 </TouchableOpacity>
-              </View>
+              </TouchableOpacity>
+            </TouchableOpacity>
+            <View
+              style={{
+                position: "absolute",
+
+                right: 5,
+                bottom: 55
+              }}
+            >
+              <Entypo name="dots-three-horizontal" size={22} />
             </View>
-            <View style={styles.priceTagMain}>
+            <TouchableOpacity
+              style={styles.priceTagMain}
+              onPress={() => this.props.navigation.navigate("ItemDetails")}
+            >
               <View style={styles.priceTag}>
                 <Text style={{ color: FontColor.black }}>$49.99</Text>
               </View>
@@ -144,7 +169,7 @@ export default class Category1 extends Component {
                   Price Change
                 </Text>
               </View>
-            </View>
+            </TouchableOpacity>
           </View>
           {/* ===Second Cart for check=== */}
         </View>
