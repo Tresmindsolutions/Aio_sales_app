@@ -25,6 +25,7 @@ export default class GlobalHeader extends Component {
       //     OneHeadingEnable = {true}
       //     HeadingText="Summary"
       //     elevation={4}
+      // twoWords={1}
       //     leftArrowSmall={true}
       //     rightSearchAdd={false}
       //     TwoHeadingEnable = {true}
