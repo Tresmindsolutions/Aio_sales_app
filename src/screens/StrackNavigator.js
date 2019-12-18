@@ -13,6 +13,9 @@ import Invoice from "./Invoice";
 import Accounts from './Accounts';
 import Accounts2 from './Accounts2';
 import Product from './Products';
+import Transactions from './Transactions';
+import Openbalances from './Openbalances';
+
 
 
 
@@ -98,11 +101,23 @@ const AppNavigator = createStackNavigator(
       navigationOptions:()=>({
         header:null
       })
+    },
+    Transactions:{
+      screen:Transactions,
+      navigationOptions:()=>({
+        header : null
+      })
+    },
+    Openbalances :{
+      screen:Openbalances,
+      navigationOptions:()=>({
+        header : null
+      })
     }
   },
 
   {
-    initialRouteName: "Product"
+    initialRouteName: "Openbalances"
   }
 );
 
