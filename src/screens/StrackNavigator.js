@@ -12,6 +12,9 @@ import OrderSummary from "./OrderSummary";
 import Invoice from "./Invoice";
 import EditProduct from "./EditProduct"
 import AccountDetails from "./AccountDetail"
+import Accounts from "./Accounts";
+import Accounts2 from "./Accounts2";
+import Product from "./Products";
 
 import Category1 from "../components/order/Category1";
 
@@ -84,8 +87,26 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
+    Accounts: {
+      screen: Accounts,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
     AccountDetails: {
       screen: AccountDetails,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    Accounts2: {
+      screen: Accounts2,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    Product: {
+      screen: Product,
       navigationOptions: () => ({
         header: null
       })

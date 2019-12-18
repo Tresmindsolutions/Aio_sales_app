@@ -25,12 +25,13 @@ export default class GlobalHeader extends Component {
       //     OneHeadingEnable = {true}
       //     HeadingText="Summary"
       //     elevation={4}
-      // twoWords={1}
+      // twoWords={2}
       //     leftArrowSmall={true}
       //     rightSearchAdd={false}
       //     TwoHeadingEnable = {true}
       //     order="order"
       //     name="name"
+      // plusIcons = {true}
       //     rightThreeIcons = {true}
       //     deleteRight={true}
       //     navigation={this.props.navigation}
@@ -177,7 +178,17 @@ export default class GlobalHeader extends Component {
                 />
               </TouchableOpacity>
             </View>
-          ) : this.props.rightThreeIcons == true ? (
+          ) : this.props.plusIcons == true ? (
+            <View style={{ flexDirection: "row" }}>
+              <TouchableOpacity style={{ borderWidth: 0 }}>
+                <MaterialIcons
+                  name="add"
+                  size={32}
+                  color={FontColor.grayDark}
+                />
+              </TouchableOpacity>
+            </View>
+          ): this.props.rightThreeIcons == true ? (
             <View style={{ flexDirection: "row" }}>
               <TouchableOpacity
                 style={{ borderWidth: 0, marginRight: 5, marginTop: 5 }}
