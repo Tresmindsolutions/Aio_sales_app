@@ -104,9 +104,9 @@ export default class GlobalHeader extends Component {
                 }
               : {
                   flex: 4,
-                  borderWidth: 0
+                  // borderWidth: 1,
                   // justifyContent: "center",
-                  // alignItems: "center"
+                  alignItems: "center"
                 }
           }
         >

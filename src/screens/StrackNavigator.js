@@ -17,6 +17,9 @@ import Accounts2 from "./Accounts2";
 import Product from "./Products";
 import Dashboard from "./Dashboard";
 
+import Transactions from "./Transactions";
+import Openbalances from "./Openbalances";
+
 import Category1 from "../components/order/Category1";
 
 const AppNavigator = createStackNavigator(
@@ -114,6 +117,18 @@ const AppNavigator = createStackNavigator(
     },
     Product: {
       screen: Product,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    Transactions: {
+      screen: Transactions,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    Openbalances: {
+      screen: Openbalances,
       navigationOptions: () => ({
         header: null
       })
