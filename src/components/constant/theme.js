@@ -30,6 +30,13 @@ export const FontColor = {
   black: "#3D3D3D"
 };
 
+export const Fonts = {
+  bold: "ProductSansBold",
+  boldItalic: "ProductSansBoldItalic",
+  italic: "ProductSansItalic",
+  regular: "ProductSansRegular"
+};
+
 export const Shadow = {
   shadowColor: "#000",
   shadowOffset: {
