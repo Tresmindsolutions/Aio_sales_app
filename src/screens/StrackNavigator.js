@@ -15,15 +15,8 @@ import Accounts2 from './Accounts2';
 import Product from './Products';
 import Transactions from './Transactions';
 import Openbalances from './Openbalances';
-
-
-
 import EditProduct from "./EditProduct"
 import AccountDetails from "./AccountDetail"
-// import Accounts from "./Accounts";
-// import Accounts2 from "./Accounts2";
-// import Product from "./Products";
-
 import Category1 from "../components/order/Category1";
 
 const AppNavigator = createStackNavigator(
