@@ -179,7 +179,7 @@ const AppNavigator = createStackNavigator(
   },
 
   {
-    initialRouteName: "Receivepayment4"
+    initialRouteName: "OpenBalances"
   }
 );
 
