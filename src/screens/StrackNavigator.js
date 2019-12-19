@@ -24,6 +24,8 @@ import Transactions from "./Transactions";
 import Openbalances2 from "./Openbalances2";
 import Category1 from "../components/order/Category1";
 import Receivepayment2 from './Receivepayment2'; 
+import Receivepayment4 from './Receivepayment4';
+
 
 
 
@@ -168,10 +170,16 @@ const AppNavigator = createStackNavigator(
         header:null
       })
     },
+    Receivepayment4:{
+      screen:Receivepayment4,
+      navigationOptions:()=>({
+        header:null
+      })
+    }
   },
 
   {
-    initialRouteName: "Receivepayment2"
+    initialRouteName: "Receivepayment4"
   }
 );
 
