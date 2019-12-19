@@ -10,14 +10,18 @@ import Order from "./Order";
 import ItemDetails from "./ItemDetails";
 import OrderSummary from "./OrderSummary";
 import Invoice from "./Invoice";
-import EditProduct from "./EditProduct"
-import AccountDetails from "./AccountDetail"
+import EditProduct from "./EditProduct";
+import AccountDetails from "./AccountDetail";
 import Accounts from "./Accounts";
 import Accounts2 from "./Accounts2";
 import Product from "./Products";
 import Catalog from "./Catalog";
 import OpenBalances from "../screens/OpenBalances"
 import ReceivePayment from "../screens/ReceivePayment"
+import Dashboard from "./Dashboard";
+
+import Transactions from "./Transactions";
+import Openbalances2 from "./Openbalances2";
 
 import Category1 from "../components/order/Category1";
 
@@ -108,6 +112,12 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
+    Dashboard: {
+      screen: Dashboard,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
     Product: {
       screen: Product,
       navigationOptions: () => ({
@@ -126,6 +136,18 @@ const AppNavigator = createStackNavigator(
       header: null
     })
   },
+    Transactions: {
+      screen: Transactions,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    Openbalances2: {
+      screen: Openbalances,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
   ReceivePayment: {
     screen: ReceivePayment,
     navigationOptions: () => ({
@@ -133,6 +155,7 @@ const AppNavigator = createStackNavigator(
     })
   }
 },
+
 
   {
     initialRouteName: "ReceivePayment"
