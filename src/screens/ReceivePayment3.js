@@ -12,9 +12,9 @@ export default class ReceivePayment3 extends Component{
         this.state={
             openbalance:[
                 {
-                    itemName:"665 Items Purchased",
+                    itemName:"256 Items Purchased",
                     date:"17th September 2019",
-                    timeDuration:"Due",
+                    // timeDuration:"Due",
                     priceItem:"$51,845",
                     checked : true
                 }
@@ -72,7 +72,7 @@ export default class ReceivePayment3 extends Component{
                         <View style={style.TransactionBox}>
                         <View style={style.TransactionBoxFirstRow}>
                             <Text style={style.TransactionsType}>{value.itemName}</Text>
-                        <Text style={style.recieved}>{value.timeDuration}</Text>
+                        <Text style={style.recieved}>Due</Text>
                         </View>
                         <View style={style.TransactionBoxSecondRow}>
                         <Text style={style.TransactionsTypeDetails}>{value.date}</Text>
@@ -90,7 +90,7 @@ export default class ReceivePayment3 extends Component{
                             <View style={style.totalBox}>
                                 <Text style={style.totalBoxText}>Total</Text>
                                 <View style={style.totalBoxPrice}>
-                                    <Text style={{fontSize:12, color:theme.red}}>$101,065</Text>
+                                    <Text style={{fontSize:15, color:theme.red}}>$101,065</Text>
                                 </View>
                             </View>
                         </View>
@@ -128,7 +128,7 @@ var style = StyleSheet.create({
         justifyContent:"space-between"
     },
     totalBoxText:{
-        fontSize:15, 
+        fontSize:18, 
         color:FontColor.black
     },
     totalBoxPrice:{
@@ -142,7 +142,7 @@ var style = StyleSheet.create({
         height:2, 
         width:"90%", 
         alignSelf:"center", 
-        backgroundColor:theme.grayLine
+        backgroundColor:"#BBBBBB"
     },
     recievedButton:{
         paddingVertical:7, 
@@ -179,15 +179,15 @@ var style = StyleSheet.create({
         alignItems:"flex-start"
     },
     TransactionsType:{
-        fontSize:15, 
+        fontSize:18, 
         color:theme.black
     },
     recieved:{
-        fontSize:8, 
+        fontSize:10, 
         color:FontColor.gray
     },
     TransactionsTypeDetails:{
-        fontSize:9, 
+        fontSize:10, 
         color:FontColor.middleGray
     },
     priceGreenColor:{
@@ -196,7 +196,7 @@ var style = StyleSheet.create({
         marginTop:-3
     },
     priceRedColor:{
-        fontSize:12, 
+        fontSize:15, 
         color:theme.red, 
         marginTop:-3
     }
