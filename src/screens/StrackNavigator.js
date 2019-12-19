@@ -16,11 +16,12 @@ import Accounts from "./Accounts";
 import Accounts2 from "./Accounts2";
 import Product from "./Products";
 import Dashboard from "./Dashboard";
-
 import Transactions from "./Transactions";
 import Openbalances2 from "./Openbalances2";
-
 import Category1 from "../components/order/Category1";
+import Receivepayment2 from './Receivepayment2'; 
+
+
 
 const AppNavigator = createStackNavigator(
   {
@@ -128,15 +129,21 @@ const AppNavigator = createStackNavigator(
       })
     },
     Openbalances2: {
-      screen: Openbalances,
+      screen: Openbalances2,
       navigationOptions: () => ({
         header: null
       })
-    }
+    },
+    Receivepayment2:{
+      screen:Receivepayment2,
+      navigationOptions:()=>({
+        header:null
+      })
+    },
   },
 
   {
-    initialRouteName: "Openbalances2"
+    initialRouteName: "Receivepayment2"
   }
 );
 
