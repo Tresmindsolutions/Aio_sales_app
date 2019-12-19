@@ -15,6 +15,10 @@ import AccountDetails from "./AccountDetail";
 import Accounts from "./Accounts";
 import Accounts2 from "./Accounts2";
 import Product from "./Products";
+import Catalog from "./Catalog";
+import OpenBalances from "../screens/OpenBalances";
+import ReceivePayment from "../screens/ReceivePayment";
+import ReceivePayment3 from "../screens/ReceivePayment3";
 import Dashboard from "./Dashboard";
 import Transactions from "./Transactions";
 import Openbalances2 from "./Openbalances2";
@@ -122,6 +126,18 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
+    Catalog: {
+      screen: Catalog,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    OpenBalances: {
+      screen: OpenBalances,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
     Transactions: {
       screen: Transactions,
       navigationOptions: () => ({
@@ -130,6 +146,18 @@ const AppNavigator = createStackNavigator(
     },
     Openbalances2: {
       screen: Openbalances2,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    ReceivePayment: {
+      screen: ReceivePayment,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    ReceivePayment3: {
+      screen: ReceivePayment3,
       navigationOptions: () => ({
         header: null
       })
