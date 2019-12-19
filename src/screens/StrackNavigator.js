@@ -20,11 +20,11 @@ import OpenBalances from "../screens/OpenBalances";
 import ReceivePayment from "../screens/ReceivePayment";
 import ReceivePayment3 from "../screens/ReceivePayment3";
 import Dashboard from "./Dashboard";
-
 import Transactions from "./Transactions";
 import Openbalances2 from "./Openbalances2";
-
 import Category1 from "../components/order/Category1";
+import Receivepayment2 from "./Receivepayment2";
+import Receivepayment4 from "./Receivepayment4";
 
 const AppNavigator = createStackNavigator(
   {
@@ -157,6 +157,18 @@ const AppNavigator = createStackNavigator(
     },
     ReceivePayment3: {
       screen: ReceivePayment3,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    Receivepayment2: {
+      screen: Receivepayment2,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    Receivepayment4: {
+      screen: Receivepayment4,
       navigationOptions: () => ({
         header: null
       })

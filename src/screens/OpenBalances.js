@@ -12,34 +12,51 @@ import {
 } from "react-native";
 import GlobalHeader from "../components/GlobalHeader"
 import { Content } from "native-base";
+import Dialog, {DialogContent} from 'react-native-popup-dialog';
+import { theme, FontColor } from "../components/constant/theme";
+
 
 
 class OpenBalances extends Component {
     constructor(props){
         super(props)
         this.state = {
+            visible:false,
             contentToMap: [
                 {
                     Name:"Abix Woonaaccessories BV",
                     Address:"Helper Brink 54, 9722 EN Groningen NL",
-                    Price:"876,576"
+                    Price:"876,576",
+                    mobileNumber : "03333987654",
+                    phoneNumber : "00421544454"
                 },
                 {
                     Name:"Abix Woonaaccessories BV",
                     Address:"Berchvill 14, 1046 CA Tapie",
-                    Price:"876,576"
+                    Price:"876,576",
+                    mobileNumber : "03333987654",
+                    phoneNumber : "0042"
                 },
                 {
                     Name:"Zain Hasan",
                     Address:"DHA, Badar Comm Area, street 5, 19E",
-                    Price:"209,897"
+                    Price:"209,897",
+                    mobileNumber : "03333987654",
+                    phoneNumber : "00421544"
                 }
-            ]
+            ],
+            selectedItem: null
+       
         }
+    }
+
+    handleModal = (selectedItem) =>{
+       this.setState({selectedItem, visible: true})
     }
 
   render() {
     cardContent = this.state.contentToMap;
+    const { selectedItem } = this.state;
     return (
       <View style={styles.container}>
           <GlobalHeader
@@ -67,7 +84,7 @@ class OpenBalances extends Component {
                        
                            <View style={{ width:"100%" }}>
                                <View style={styles.CardView1}>
-                                   <View style={{backgroundColor:"#F1F1F1", width:"15%", alignItems:"center",justifyContent:"center"}}>
+                                   <View style={styles.abView}>
                                        <Text style={{color:"#ffffff", fontSize:20}}>AB</Text>
                                    </View>
                                    <View style={{ width:"85%"}}>
@@ -80,56 +97,88 @@ class OpenBalances extends Component {
                                      </View>
                                      <View style={{ margin:5, marginRight:5 }}>
                                          <Text style={{ fontSize:10, textAlign:"right" }}>Due</Text>
-                                         <Text style={{ fontWeight:"bold", textAlign:"right", color:"red" }}>${item.Price}</Text>
+                                         <Text style={styles.priceText}>${item.Price}</Text>
                                      </View>
                                    </View>
-
                                    <View style={{ flexDirection:"row", justifyContent:"flex-end"}}>
                                       <View style={{ margin:5, flexDirection:"row" }}>
                                         <TouchableOpacity style={{justifyContent:"center"}}>
                                             <Image
                                                 source={require("../../assets/icons/shareicon.png")}
                                                 resizeMode={"contain"}
-                                                style={{ width:20, height:23, marginRight:1, borderRadius:3, alignSelf:"center",marginBottom:8 }}
+                                                style={styles.shareIcon}
                                            />
                                         </TouchableOpacity>
                                       </View>
-                                      <View style={{ margin:5, marginRight:2, marginBottom:10 }}>
+                                      <View style={styles.receiveView}>
                                           <TouchableOpacity 
                                             style={styles.buttonLeft} >
                                             <Text
-                                                style={{ 
-                                                color: "#ffffff",
-                                                textAlign:"center",
-                                                fontSize: 12
-                                                }}
+                                                style={styles.receiveViewText}
                                             >
                                             Receive
                                             </Text>
                                            </TouchableOpacity>
-                                      </View> 
-                                      <View style={{ margin:5, marginRight:8, marginBottom:10 }}>
-                                          <TouchableOpacity 
+                                        </View>
+                                        <View style={styles.callView}>
+                                            <TouchableOpacity 
+                                            onPress={()=>this.handleModal(item)}
                                             style={ styles.buttonRight } >
-                                            <Text
-                                                style={{ 
-                                                color: "#148BFF",
-                                                textAlign:"center",
-                                                fontSize: 12
-                                                }}
-                                            >
-                                            Call
+                                               
+                                                <Text
+                                                    style={styles.callViewText}
+                                                >
+                                                Call
                                             </Text>
-                                           </TouchableOpacity>
-                                      </View> 
+                                            </TouchableOpacity>
+                                        </View> 
                                     </View>
-                                   </View>
-                               </View>
-                           </View>
-                   )
-               })
-                // : ""
-            }
+                                </View>
+                            </View> 
+                        </View>
+                        )
+                    })
+                }
+                {
+                    selectedItem && 
+                        <Dialog
+                            visible={this.state.visible}
+                            onTouchOutside={() => {
+                            this.setState({visible: false});
+                            }}>
+                            <DialogContent style={{width: 300, height: 175}}>
+                                <View>
+                                    <View style={styles.popopCallView}>
+                                        <Text style={{fontSize:12, color:FontColor.white}}>Call</Text>
+                                    </View>
+                                    <View style={{alignItems:"center", marginTop:7}}>
+                                        <Text style={styles.heading}>Do you wish to call</Text>
+                                        <Text style={styles.heading}>{selectedItem.Name}?</Text>
+                                    </View>
+                                    <View style={styles.mainStyleBox}>
+                                        <View style={styles.mainStyleBoxBlueBox}>
+                                            <Text style={styles.numberHeading}>Mobile Number</Text>
+                                            <Text style={styles.numberHeading2}>{selectedItem.mobileNumber}</Text>
+                                        </View>
+                                        <View style={styles.mainStyleBoxPhoneBox}>
+                                            <Text style={styles.numberHeading}>Phone Number</Text>
+                                            <Text style={styles.numberHeading2}>{selectedItem.phoneNumber}</Text>
+                                        </View>
+                                    </View>
+                                    <View style={styles.cancelCallButton}>
+                                        <TouchableOpacity 
+                                        onPress={() => this.setState({visible: false})}
+                                        style={styles.cancelButton}>
+                                                <Text style={{fontSize:12, color:FontColor.blue}}>Cancel</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.callButton}>
+                                        <Text style={{fontSize:12, color:FontColor.white}}>Call</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                            </DialogContent>
+                            </Dialog>
+                }
         </Content>
       </View>
     );
@@ -143,6 +192,120 @@ const styles = StyleSheet.create({
   content: {
       padding: 10
   },
+  abView:{
+    backgroundColor:"#F1F1F1", 
+    width:"15%", 
+    alignItems:"center",
+    justifyContent:"center"
+    },
+    priceText:{
+    fontWeight:"bold",
+    textAlign:"right", 
+    color:"red"
+    },
+    shareIcon:{
+    width:20, 
+    height:23, 
+    marginRight:1, 
+    borderRadius:3, 
+    alignSelf:"center",
+    marginBottom:8
+    },
+    receiveView:{
+    margin:5, 
+    marginRight:2, 
+    marginBottom:10
+    },
+    receiveViewText:{ 
+    color: "#ffffff",
+    textAlign:"center",
+    fontSize: 12
+    },
+    callView:{
+    margin:5, 
+    marginRight:8, 
+    marginBottom:10
+    },
+    callViewText:{ 
+    color: "#148BFF",
+    textAlign:"center",
+    fontSize: 12
+    },
+    popopCallView:{
+        backgroundColor:theme.blue, 
+        marginHorizontal:-20, 
+        paddingVertical:5, 
+        alignItems:"center"
+    },
+    heading:{
+        fontSize:15, 
+        color:FontColor.black
+    },
+    mainStyleBox:{
+        flexDirection:'row', 
+        backgroundColor:"#F1F1F1", 
+        marginTop:5, 
+        paddingVertical:10, 
+        marginHorizontal:-20, 
+        justifyContent:"space-around"
+    },
+    mainStyleBoxBlueBox:{
+        backgroundColor:"#e1edf9", 
+        alignItems:'center', 
+        paddingVertical:5, 
+        paddingHorizontal:12, 
+        borderRadius:5
+    },mainStyleBoxPhoneBox:{
+        paddingVertical:5, 
+        alignItems:"center", 
+        paddingHorizontal:12
+    },
+    numberHeading:{
+        fontSize:9, 
+        color:FontColor.middleGray
+    },
+    numberHeading2:{
+        fontSize:13, 
+        color:FontColor.blue
+    },
+    cancelCallButton:{
+        marginHorizontal:-20, 
+        flexDirection:"row", 
+        width:"90%", 
+        alignSelf:'center', 
+        justifyContent:"space-between", 
+        marginTop:10
+    },
+    cancelButton:{
+        backgroundColor:theme.white, 
+        borderRadius:14, 
+        paddingVertical:5, 
+        alignItems:'center',
+        width:90,
+        shadowColor: "#00000029",
+        shadowOffset: {
+            width: 0,
+             height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,                      
+        },
+        callButton:{
+            backgroundColor:theme.blue, 
+            borderRadius:14, 
+            paddingVertical:5, 
+            alignItems:'center',
+            width:90,
+            shadowColor: "#00000029",
+            shadowOffset: {
+                width: 0,
+                height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+            elevation: 5,                      
+        },
   CardView1: {
     width:"97%",
     justifyContent:"center",
