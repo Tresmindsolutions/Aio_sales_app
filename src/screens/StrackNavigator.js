@@ -164,7 +164,7 @@ const AppNavigator = createStackNavigator(
   },
 
   {
-    initialRouteName: "ReceivePayment3"
+    initialRouteName: "Dashboard"
   }
 );
 
