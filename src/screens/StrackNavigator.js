@@ -127,7 +127,7 @@ const AppNavigator = createStackNavigator(
   },
 
   {
-    initialRouteName: "EditProduct"
+    initialRouteName: "Openbalances"
   }
 );
 
