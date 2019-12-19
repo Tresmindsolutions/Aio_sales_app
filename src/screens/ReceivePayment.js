@@ -45,9 +45,9 @@ class ReceivePayment extends Component {
       //     elevation={4}
            leftArrowSmall={true}
           // rightSearchAdd={true}
-      //     TwoHeadingEnable = {true}
-      //     order="order"
-      //     name="name"
+          TwoHeadingEnable = {true}
+          order="order"
+          name="Abrix Woonaccessoires BV"
       //     rightThreeIcons = {true}
       //     deleteRight={true}
       //     navigation={this.props.navigation}
