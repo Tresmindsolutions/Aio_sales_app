@@ -20,13 +20,31 @@ class AccountDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // contentToMap: [
-      //     {
-      //         Name:"Abix Woonaaccessories BV",
-      //         Date:"17/9/19",
-      //         Price:"159,776"
-      //     }
-      // ]
+      contentToMap: [
+        {
+            Name:"Smartwatch",
+            Content:"The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph.",
+            Price:"10,896",
+            QuantiyNumber:"500",
+            ImgSource: require("../../assets/Images/MaskGroup-2.png")
+        },
+        {
+            Name:"The Stool",
+            Content:"The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph.",
+            Price:"99.9",
+            QuantiyNumber:"46",
+            ImgSource:require("../../assets/Images/MaskGroup-2.png")
+
+        },
+        {
+            Name:"Beats M10 Headset",
+            Content:"The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph.",
+            Price:"10,898",
+            QuantiyNumber:"29",
+            ImgSource:require("../../assets/Images/MaskGroup-2.png")
+
+        }
+    ]
     };
   }
 
@@ -249,6 +267,178 @@ class AccountDetails extends Component {
                     </View>
                 </View>
               </View>
+              
+              {/* ======== Other Half of Page ========= */}
+              <View style={styles.horizantalLine}></View>
+
+              <View style={{ marginTop:2 }} >
+                <Text style={{ color:"#000000", fontSize:17, marginTop:8,marginBottom:8, alignSelf:"center" }}>
+                  Sales
+                </Text>
+                <View style={{margin:2, flexDirection:"row" }}>
+
+                  <View style={{borderRightWidth:1.2,borderRightColor:"#EFEFEF",width:"50%",alignItems:"center",paddingTop:10,paddingBottom:25}}>
+                    <View>
+                      <Text style={{fontSize:15,color:"#878787"}}>This Year</Text>
+                      {/* <Image
+                        source={require("../../assets/icons/DownArrowIcon")}
+                        style={{ width:"100%", height:"100%" }}
+                      /> */}
+                    </View>
+                    <View>
+                      <Text style={{ color:"#9CB2BA", fontSize:27 }}>$1.55m</Text>
+                    </View>
+                  </View>
+
+                  <View style={{borderLeftWidth:1.2,borderLeftColor:"#EFEFEF",width:"50%",alignItems:"center",paddingTop:10,paddingBottom:25}}>
+                    <View>
+                      <Text style={{fontSize:15,color:"#878787"}}>Last Year</Text>
+                      {/* <Image
+                        source={require("../../assets/icons/DownArrowIcon")}
+                        style={{ width:"100%", height:"100%" }}
+                      /> */}
+                    </View>
+                    <View>
+                      <Text style={{ color:"#9CB2BA", fontSize:27 }}>$1.65m</Text>
+                    </View>
+                  </View>
+                </View>
+
+                <View style={{ flexDirection:"row",justifyContent:"center", marginTop:10, marginBottom:0 }}>
+                  <Text style={{ color:"#000000", fontSize:16, marginBottom:8, alignSelf:"center" }}>
+                    Best Sellers With{" "} 
+                  </Text>
+                  <Text style={{ color:"#9CB2BA", fontSize:16, marginBottom:8, alignSelf:"center" }}>
+                    Abrix Woonaaccessories BV
+                  </Text>
+                </View>
+              </View>
+
+              {/* ========== Cards View ============== */}
+              {
+            //    contentToMap ?
+                this.state.contentToMap.map((item, index) => {
+                  console.log("item.ImgSource", item.ImgSource)
+                   return (
+                       
+                           <View style={{ width:"95%",alignSelf:"center" }}>
+                               <View style={styles.CardView1}>
+                                   <View style={{ width:"28%", height:92,borderTopLeftRadius:10,borderBottomLeftRadius:10 }}>
+                                    <Image
+                                    source={item.ImgSource}
+                                        resizeMode={"cover"}
+                                        style={{ width:"100%",height:"100%" }}
+                                      />
+                                   </View>
+
+                                  <View style={{ width:"72%"}}>
+                                    <View style={{ flexDirection:"row", justifyContent:"space-between" }}>
+                                      <View style={{ margin:5 }}>
+                                          <Text style={{fontFamily:"ProductSansBold", fontWeight:"bold" }}>{item.Name}</Text>
+                                          <View style={{width:"100%"}}>
+                                              <Text style={{ fontSize:9, color:"#878787" }}>{item.Content}</Text>
+                                          </View>
+                                      </View>
+                                    </View>
+
+                                    <View style={{ flexDirection:"row", justifyContent:"space-between",marginBottom:3,alignItems:"flex-end" }}>
+                                      <View style={{ flexDirection:"row", justifyContent:"flex-start",alignContent:"center",alignItems:"baseline"}}>
+                                        <Text style={{ color:"#878787", fontSize:10, marginLeft:5 }}>
+                                          Quantity{" "}
+                                        </Text>
+                                        <Text style={{ color:"#3D3D3D", fontSize:12 }}>
+                                          {item.QuantiyNumber}
+                                        </Text>
+                                      </View>
+
+                                      <View style={{ flexDirection:"row", justifyContent:"flex-end",alignContent:"center",alignItems:"baseline"}}>
+                                        <Text style={{ color:"#878787", fontSize:10 }}>
+                                          Customer's Price{" "}
+                                        </Text>
+                                        <Text style={{ color:"#3D3D3D", fontSize:12 }}>
+                                          ${item.Price + "    "}
+                                        </Text>
+                                      </View>
+                                    </View>
+                                  </View>
+
+                               </View>
+                           </View>
+                   )
+               })
+                // : ""
+            }
+            <View style={{ margin:7, marginBottom:10, marginTop:20 }}>
+              <TouchableOpacity 
+                style={styles.bottomButtons} >
+                <Text
+                  style={{ 
+                  color: "#148BFF",
+                  textAlign:"center",
+                  fontSize: 18
+                  }}
+                >
+                 Orders History
+                </Text>
+              </TouchableOpacity>
+            </View> 
+            <View style={{ marginRight:7, marginLeft:7, marginBottom:10 }}>
+              <TouchableOpacity 
+                style={styles.bottomButtons} >
+                <Text
+                  style={{ 
+                  color: "#148BFF",
+                  textAlign:"center",
+                  fontSize: 18
+                  }}
+                >
+                 Share Catalog
+                </Text>
+              </TouchableOpacity>
+            </View> 
+            <View style={{ marginRight:7, marginLeft:7, marginBottom:10 }}>
+              <TouchableOpacity 
+                style={styles.bottomButtons} >
+                <Text
+                  style={{ 
+                  color: "#148BFF",
+                  textAlign:"center",
+                  fontSize: 18
+                  }}
+                >
+                 Open Balance
+                </Text>
+              </TouchableOpacity>
+            </View> 
+            <View style={{ marginRight:7, marginLeft:7, marginBottom:10 }}>
+              <TouchableOpacity 
+                style={styles.bottomButtons} >
+                <Text
+                  style={{ 
+                  color: "#148BFF",
+                  textAlign:"center",
+                  fontSize: 18
+                  }}
+                >
+                 Return Products
+                </Text>
+              </TouchableOpacity>
+            </View> 
+            <View style={{ marginRight:7, marginLeft:7, marginBottom:20 }}>
+              <TouchableOpacity 
+                style={styles.lastBottomButton} >
+                <Text
+                  style={{ 
+                  color: "#ffffff",
+                  textAlign:"center",
+                  fontSize: 18
+                  }}
+                >
+                 Place Order
+                </Text>
+              </TouchableOpacity>
+            </View> 
+
             </View>
           </View>
         </Content>
@@ -271,16 +461,23 @@ const styles = StyleSheet.create({
   textLeftColStyle: {
     color: "#000000",
     fontFamily: "Product Sans",
-    fontSize: 13,
+    fontSize: 12,
     marginTop:10,
     marginLeft:"24%",
   },
   textRightColStyle: {
     color: "#000000",
     fontFamily: "Product Sans",
-    fontSize: 12,
+    fontSize: 11,
     marginLeft:"10%",
-    marginTop:11
+    marginTop:11,
+    marginRight:10
+  },
+  horizantalLine:{
+    height:2, 
+    width:"90%", 
+    alignSelf:"center", 
+    backgroundColor:"#EFEFEF"
   },
   CardView: {
     width: "97%",
@@ -300,7 +497,96 @@ const styles = StyleSheet.create({
     shadowRadius: 2.22,
 
     elevation: 3,
-  }
+  },
+  CardView1: {
+    width:"97%",
+    justifyContent:"center",
+    alignItems:"stretch",
+    alignSelf:"center",
+    flexDirection:"row",
+    borderRadius:18,
+    overflow:"hidden",
+    marginTop:5,
+    marginBottom:3,
+    backgroundColor:"#ffffff",
+    shadowColor: "#000",
+    shadowColor: "#000",
+    shadowColor: "#000",
+    shadowColor: "#000",
+    shadowOffset: {
+        width: 0,
+        height: 2,
+    },
+    shadowOpacity: 0.23,
+    shadowRadius: 2.62,
+    
+    elevation: 4,
+  },
+    buttonLeft: {
+        height:26, 
+        width:80, 
+        backgroundColor:"#4591E4", 
+        borderRadius:15, 
+        alignContent:"center", 
+        justifyContent:"center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        elevation: 3,
+    },
+    buttonRight: {
+        height:26, 
+        width:70, 
+        backgroundColor:"#ffffff", 
+        borderRadius:15, 
+        alignContent:"center", 
+        justifyContent:"center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        elevation: 3,
+    },
+    bottomButtons: {
+      height:40,
+      // borderWidth:1,
+      justifyContent:"center",
+      borderRadius:5,
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 1,
+      },
+      shadowOpacity: 0.18,
+      shadowRadius: 1.00,
+
+      elevation: 1,
+    },
+    lastBottomButton: {
+      height:40,
+      // borderWidth:1,
+      backgroundColor:"#148BFF",
+      justifyContent:"center",
+      borderRadius:5,
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 1,
+      },
+      shadowOpacity: 0.18,
+      shadowRadius: 1.00,
+
+      elevation: 1,
+    }
 });
 
 export default AccountDetails;
