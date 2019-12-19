@@ -10,13 +10,16 @@ import Order from "./Order";
 import ItemDetails from "./ItemDetails";
 import OrderSummary from "./OrderSummary";
 import Invoice from "./Invoice";
-import Accounts from './Accounts';
-import Accounts2 from './Accounts2';
-import Product from './Products';
-import Transactions from './Transactions';
-import Openbalances from './Openbalances';
-import EditProduct from "./EditProduct"
-import AccountDetails from "./AccountDetail"
+import EditProduct from "./EditProduct";
+import AccountDetails from "./AccountDetail";
+import Accounts from "./Accounts";
+import Accounts2 from "./Accounts2";
+import Product from "./Products";
+import Dashboard from "./Dashboard";
+
+import Transactions from "./Transactions";
+import Openbalances2 from "./Openbalances2";
+
 import Category1 from "../components/order/Category1";
 
 const AppNavigator = createStackNavigator(
@@ -106,28 +109,34 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
+    Dashboard: {
+      screen: Dashboard,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
     Product: {
       screen: Product,
       navigationOptions: () => ({
         header: null
       })
     },
-    Transactions:{
-      screen:Transactions,
-      navigationOptions:()=>({
-        header : null
+    Transactions: {
+      screen: Transactions,
+      navigationOptions: () => ({
+        header: null
       })
     },
-    Openbalances :{
-      screen:Openbalances,
-      navigationOptions:()=>({
-        header : null
+    Openbalances2: {
+      screen: Openbalances,
+      navigationOptions: () => ({
+        header: null
       })
     }
   },
 
   {
-    initialRouteName: "Openbalances"
+    initialRouteName: "Openbalances2"
   }
 );
 
