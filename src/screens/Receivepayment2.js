@@ -28,15 +28,21 @@ export default class Receivepayment2 extends Component{
                     <Text style={style.amountReceivedText}>Enter Amount Received</Text>
                     <View style={{flexDirection:"row", marginTop:5}}>
                         <View style={style.textInputView}>
-                            <TextInput 
-                            placeholder="0"
-                            placeholderTextColor={FontColor.black}
-                            style={{padding:0, borderWidth:0}}
-                        />
+                            <View style={{flexDirection:'row', alignItems:"center"}}>
+                                <Text>$</Text>
+                                <TextInput 
+                                keyboardType="number-pad"
+                                placeholder="0"
+                                placeholderTextColor={FontColor.black}
+                                style={{padding:0, borderWidth:0}}
+                                />
+                            </View>
                         </View>
                         <View style={style.rightView}>
-                            <Text style={style.dueText}>Due</Text>
-                            <Text style={style.priceText}>$51,845</Text>
+                            <View>
+                                <Text style={style.dueText}>Due</Text>
+                                <Text style={style.priceText}>$51,845</Text>
+                            </View>
                         </View>
                     </View>
                 </View>
@@ -75,7 +81,9 @@ const style = StyleSheet.create({
     },
     dueText:{
         fontSize:8, 
-        color:FontColor.gray
+        color:FontColor.gray,
+        textAlign:'center'
+
     },
     priceText:{
         fontSize:12, 

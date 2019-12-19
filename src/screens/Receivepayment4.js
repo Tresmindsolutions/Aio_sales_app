@@ -6,6 +6,9 @@ import GlobalHeader from '../components/GlobalHeader';
 
 export default class Receivepayment4 extends Component{
     render(){
+        let price = "51,845"
+        let dollarSymbol = "$";
+        let placeholderDollarPrice = `${dollarSymbol}${price}`;
         return(
             <View style={style.container}>
            <GlobalHeader
@@ -27,12 +30,13 @@ export default class Receivepayment4 extends Component{
         />
                 <View style={{width:"85%", alignSelf:"center"}}>
                     <View style={{marginBottom:10}}>
-                        <Text style={style.amountReceivedText}>Enter Amount Received</Text>
+                        <Text style={style.amountReceivedText}>Check Number</Text>
                         <View style={style.textInputView}>
                             <TextInput 
-                            placeholder="0"
+                            keyboardType="number-pad"
+                            placeholder="8090103600"
                             placeholderTextColor={FontColor.black}
-                            style={{padding:0, borderWidth:0}}
+                            style={{padding:0, borderWidth:0, fontSize:10}}
                             />
                         </View>
                     </View>
@@ -40,15 +44,21 @@ export default class Receivepayment4 extends Component{
                     <Text style={style.amountReceivedText}>Enter Amount Received</Text>
                     <View style={{flexDirection:"row", marginTop:5}}>
                         <View style={style.textInputView2}>
-                            <TextInput 
-                            placeholder="0"
-                            placeholderTextColor={FontColor.black}
-                            style={{padding:0, borderWidth:0}}
-                        />
+                            <View style={{flexDirection:"row", alignItems:"center"}}>
+                                <Text style={{fontSize:10, color:FontColor.black}}>$</Text>
+                                <TextInput 
+                                keyboardType="number-pad"
+                                placeholder={price}
+                                placeholderTextColor={FontColor.black}
+                                style={{padding:0, borderWidth:0, fontSize:10}}
+                                />
+                            </View>
                         </View>
                         <View style={style.rightView}>
-                            <Text style={style.dueText}>Due</Text>
-                            <Text style={style.priceText}>$51,845</Text>
+                            <View>
+                                <Text style={style.dueText}>Due</Text>
+                                <Text style={style.priceText}>$51,845</Text>
+                            </View>
                         </View>
                     </View>
                     </View>
@@ -81,6 +91,8 @@ const style = StyleSheet.create({
         elevation: 2,
         },
         textInputView2:{
+            // flexDirection:"row",
+            // alignItems:"center",
             flex:.80, 
             backgroundColor:theme.white,
             paddingLeft:10,
@@ -97,11 +109,12 @@ const style = StyleSheet.create({
         rightView:{
             flex:.20, 
             justifyContent:"center", 
-            alignItems:"flex-end"
+            alignItems:"flex-end",
         },
         dueText:{
             fontSize:8, 
-            color:FontColor.gray
+            color:FontColor.gray,
+            textAlign:"center",
         },
         priceText:{
             fontSize:12, 
