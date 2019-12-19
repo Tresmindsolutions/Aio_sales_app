@@ -15,6 +15,9 @@ import AccountDetails from "./AccountDetail"
 import Accounts from "./Accounts";
 import Accounts2 from "./Accounts2";
 import Product from "./Products";
+import Catalog from "./Catalog";
+import OpenBalances from "../screens/OpenBalances"
+import ReceivePayment from "../screens/ReceivePayment"
 
 import Category1 from "../components/order/Category1";
 
@@ -110,11 +113,29 @@ const AppNavigator = createStackNavigator(
       navigationOptions: () => ({
         header: null
       })
-    }
+    },
+  Catalog: {
+    screen: Catalog,
+    navigationOptions: () => ({
+      header: null
+    })
   },
+  OpenBalances: {
+    screen: OpenBalances,
+    navigationOptions: () => ({
+      header: null
+    })
+  },
+  ReceivePayment: {
+    screen: ReceivePayment,
+    navigationOptions: () => ({
+      header: null
+    })
+  }
+},
 
   {
-    initialRouteName: "EditProduct"
+    initialRouteName: "ReceivePayment"
   }
 );
 
