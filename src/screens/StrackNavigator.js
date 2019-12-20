@@ -183,7 +183,7 @@ const AppNavigator = createStackNavigator(
   },
 
   {
-    initialRouteName: "OrderSummary"
+    initialRouteName: "Catalog"
   }
 );
 
