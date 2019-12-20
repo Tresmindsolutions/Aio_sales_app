@@ -159,6 +159,9 @@ export default class RoutesSchedules extends Component {
                             justifyContent: "center",
                             alignItems: "center"
                           }}
+                          onPress={() =>
+                            this.props.navigation.navigate("RoutesSchedules2")
+                          }
                         >
                           <Text
                             style={{ color: FontColor.white, fontSize: 14 }}

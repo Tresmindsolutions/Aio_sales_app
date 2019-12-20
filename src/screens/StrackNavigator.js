@@ -231,7 +231,7 @@ const AppNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName: "RoutesSchedules2"
+    initialRouteName: "Home"
   }
 );
 

@@ -170,7 +170,10 @@ export default class Accounts extends Component {
               </View>
             </View>
           </View>
-          <TouchableOpacity style={styles.createAccountButton}>
+          <TouchableOpacity
+            style={styles.createAccountButton}
+            onPress={() => this.props.navigation.navigate("AccountDetails")}
+          >
             <Text style={styles.accountViewText}>Create Account</Text>
           </TouchableOpacity>
         </ScrollView>
