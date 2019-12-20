@@ -27,6 +27,9 @@ import Category1 from "../components/order/Category1";
 import Receivepayment2 from "./Receivepayment2";
 import Receivepayment4 from "./Receivepayment4";
 import LookBook from "./LookBook";
+import LookBook3 from "./LookBook3";
+import RoutesSchedules from "./RoutesSchedules";
+import RoutesSchedules2 from "./RoutesSchedules2";
 
 const AppNavigator = createStackNavigator(
   {
@@ -181,6 +184,24 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
+    LookBook3: {
+      screen: LookBook3,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    RoutesSchedules: {
+      screen: RoutesSchedules,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    RoutesSchedules2: {
+      screen: RoutesSchedules2,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
     Receivepayment4: {
       screen: Receivepayment4,
       navigationOptions: () => ({
@@ -190,7 +211,7 @@ const AppNavigator = createStackNavigator(
   },
 
   {
-    initialRouteName: "EditProduct"
+    initialRouteName: "RoutesSchedules2"
   }
 );
 

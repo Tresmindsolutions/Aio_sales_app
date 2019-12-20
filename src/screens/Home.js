@@ -69,28 +69,50 @@ export default class Home extends Component {
                   </Text>
                 </TouchableOpacity>
                 <View style={styles.row}>
-                  <TouchableOpacity style={styles.btn}>
+                  <TouchableOpacity
+                    style={styles.btn}
+                    onPress={() =>
+                      this.props.navigation.navigate("OpenBalances")
+                    }
+                  >
                     <Text style={styles.btnTxt}>Open Balance</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.btn}>
+                  <TouchableOpacity
+                    style={styles.btn}
+                    onPress={() =>
+                      this.props.navigation.navigate("Transactions")
+                    }
+                  >
                     <Text style={styles.btnTxt}>Transaction</Text>
                   </TouchableOpacity>
                 </View>
 
                 <View style={styles.row}>
-                  <TouchableOpacity style={styles.btn}>
+                  <TouchableOpacity
+                    style={styles.btn}
+                    onPress={() => this.props.navigation.navigate("Account")}
+                  >
                     <Text style={styles.btnTxt}>Accounts</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.btn}>
+                  <TouchableOpacity
+                    style={styles.btn}
+                    onPress={() => this.props.navigation.navigate("Dashboard")}
+                  >
                     <Text style={styles.btnTxt}>Dashboard</Text>
                   </TouchableOpacity>
                 </View>
 
                 <View style={styles.row}>
-                  <TouchableOpacity style={styles.btn}>
+                  <TouchableOpacity
+                    style={styles.btn}
+                    onPress={() => this.props.navigation.navigate("Product")}
+                  >
                     <Text style={styles.btnTxt}>Product</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.btn}>
+                  <TouchableOpacity
+                    style={styles.btn}
+                    onPress={() => this.props.navigation.navigate("Catalog")}
+                  >
                     <Text style={styles.btnTxt}>Catalog</Text>
                   </TouchableOpacity>
                 </View>

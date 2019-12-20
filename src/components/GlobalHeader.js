@@ -95,7 +95,7 @@ export default class GlobalHeader extends Component {
           style={
             this.props.twoWords === 1
               ? {
-                  flex: 1.1,
+                  flex: 1.4,
                   justifyContent: "center",
                   // borderWidth: 1,
 
@@ -106,7 +106,8 @@ export default class GlobalHeader extends Component {
                   flex: 4,
                   // borderWidth: 1,
                   // justifyContent: "center",
-                  alignItems: "center"
+                  // alignItems: "center"
+                  marginLeft: -10
                 }
           }
         >
@@ -188,10 +189,11 @@ export default class GlobalHeader extends Component {
                 />
               </TouchableOpacity>
             </View>
-          ): this.props.rightThreeIcons == true ? (
+          ) : this.props.rightThreeIcons == true ? (
             <View style={{ flexDirection: "row" }}>
               <TouchableOpacity
                 style={{ borderWidth: 0, marginRight: 5, marginTop: 5 }}
+                onPress={() => this.props.navigation.navigate("LookBook")}
               >
                 <Image
                   source={require("../../assets/icons/qr2.png")}

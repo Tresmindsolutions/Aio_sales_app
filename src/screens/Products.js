@@ -30,7 +30,7 @@ export default class Product extends Component {
             plusIcons={true}
             //   rightThreeIcons = {true}
             //   deleteRight={true}
-            //     navigation={this.props.navigation}
+            navigation={this.props.navigation}
           />
           <View style={styles.mainBox}>
             <View style={styles.mainBoxInner}>

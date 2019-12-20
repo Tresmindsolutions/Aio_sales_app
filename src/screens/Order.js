@@ -63,7 +63,7 @@ export default class Order extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <GlobalHeader
+        {/* <GlobalHeader
           backgroundColor={"#ffffff"}
           //  leftArrow={true}
           //     HeadingText="Summary"
@@ -76,7 +76,27 @@ export default class Order extends Component {
           name="Abrix Woonaccessoires BV"
           rightThreeIcons={true}
           navigation={this.props.navigation}
+        /> */}
+
+        <GlobalHeader
+          backgroundColor={"#ffffff"}
+          //  leftArrow={true}
+          //     leftSetting={true}
+          //     OneHeadingEnable = {true}
+          //     HeadingText="Summary"
+          //     elevation={4}
+          // twoWords={1}
+          leftArrowSmall={true}
+          //     rightSearchAdd={false}
+          TwoHeadingEnable={true}
+          order="order"
+          name="Abrix Woonaccessoires BV"
+          // plusIcons = {true}
+          rightThreeIcons={true}
+          //     deleteRight={true}
+          navigation={this.props.navigation}
         />
+
         <View style={{ height: 50 }}>
           <ScrollView
             horizontal={true}
