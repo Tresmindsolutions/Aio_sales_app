@@ -17,7 +17,7 @@ import {
   BottomSheetHeader,
   BackdropBottomSheet
 } from "react-native-bottom-sheet-behavior";
-//import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
 //import { Content } from "native-base";
 import { theme, FontColor, Shadow } from "../components/constant/theme";
@@ -144,6 +144,37 @@ export default class RoutesSchedules2 extends Component {
                     </View>
                   );
                 })}
+                <TouchableOpacity
+                  style={{
+                    backgroundColor: theme.blue,
+                    height: 40,
+                    borderRadius: 8,
+                    width: "90%",
+                    alignSelf: "center",
+                    marginBottom: 10,
+                    marginTop: 30,
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    flexDirection: "row"
+                  }}
+                >
+                  <View>
+                    <Text>{"         "}</Text>
+                  </View>
+                  <View>
+                    <Text style={{ color: FontColor.white, fontSize: 16 }}>
+                      Start
+                    </Text>
+                  </View>
+                  <View>
+                    <FontAwesome5
+                      name="share"
+                      color={"white"}
+                      size={16}
+                      style={{ marginRight: 10 }}
+                    />
+                  </View>
+                </TouchableOpacity>
               </View>
             </BottomSheetBehavior>
           </CoordinatorLayout>

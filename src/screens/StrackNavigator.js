@@ -195,36 +195,39 @@ const AppNavigator = createStackNavigator(
     },
     RoutesSchedules: {
       screen: RoutesSchedules,
-      LookBook2: {
-        screen: LookBook2,
-        navigationOptions: () => ({
-          header: null
-        })
-      },
-      LastOrder: {
-        screen: LastOrder,
-        navigationOptions: () => ({
-          header: null
-        })
-      },
-      RoutesSchedules2: {
-        screen: RoutesSchedules2,
-        navigationOptions: () => ({
-          header: null
-        })
-      },
-      LastOrder2: {
-        screen: LastOrder2,
-        navigationOptions: () => ({
-          header: null
-        })
-      },
-      Receivepayment4: {
-        screen: Receivepayment4,
-        navigationOptions: () => ({
-          header: null
-        })
-      }
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    LookBook2: {
+      screen: LookBook2,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    LastOrder: {
+      screen: LastOrder,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    RoutesSchedules2: {
+      screen: RoutesSchedules2,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    LastOrder2: {
+      screen: LastOrder2,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    Receivepayment4: {
+      screen: Receivepayment4,
+      navigationOptions: () => ({
+        header: null
+      })
     }
   },
   {

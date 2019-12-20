@@ -62,7 +62,7 @@ export default class GlobalHeader extends Component {
                 name="chevron-left"
                 style={{
                   color: theme.blue,
-                  fontSize: 26,
+                  fontSize: 24,
                   marginLeft: 2,
                   marginTop: 10
                 }}
@@ -82,7 +82,7 @@ export default class GlobalHeader extends Component {
                 name="chevron-left"
                 style={{
                   color: theme.grayDark,
-                  fontSize: 25,
+                  fontSize: 23,
                   marginLeft: 2,
                   marginTop: 0
                 }}
@@ -117,7 +117,7 @@ export default class GlobalHeader extends Component {
                 <Text
                   style={{
                     color: FontColor.grayDark,
-                    fontSize: 28,
+                    fontSize: 26,
                     textAlignVertical: "center",
                     textAlign: "center"
                   }}
@@ -133,7 +133,7 @@ export default class GlobalHeader extends Component {
               {this.props.order !== "" ? (
                 <Text
                   style={{
-                    fontSize: 26,
+                    fontSize: 24,
                     color: FontColor.grayDark
                   }}
                 >
