@@ -12,9 +12,11 @@ import {
 } from "react-native";
 // import DatePicker from 'react-native-datepicker'
 import { Content } from "native-base";
+import {FontColor, theme} from '../components/constant/theme';
+import GlobalHeader from '../components/GlobalHeader';
 
 
-class LastOrder2 extends Component {
+class Opensalesorder extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -22,32 +24,32 @@ class LastOrder2 extends Component {
                 {
                     Name:"Abix Woonaaccessories BV",
                     Date:"17/9/19",
-                    Price:"876,576"
+                    Price:"10.898"
                 },
                 {
                     Name:"Abix Woonaaccessories BV",
                     Date:"17/9/19",
-                    Price:"987,567"
+                    Price:"10.898"
                 },
                 {
                     Name:"Abix Woonaaccessories BV",
                     Date:"17/9/19",
-                    Price:"676,557"
+                    Price:"10.898"
                 },
                 {
                     Name:"Abix Woonaaccessories BV",
                     Date:"17/9/19",
-                    Price:"159,776"
+                    Price:"10.898"
                 },
                 {
                     Name:"Abix Woonaaccessories BV",
                     Date:"17/9/19",
-                    Price:"157,00"
+                    Price:"10.898"
                 },
                 {
                     Name:"Zain Hasan",
                     Date:"17/9/19",
-                    Price:"209,897"
+                    Price:"10.898"
                 }
             ]
         }
@@ -57,24 +59,25 @@ class LastOrder2 extends Component {
     cardContent = this.state.contentToMap;
     return (
       <View style={styles.container}>
+        <GlobalHeader
+          backgroundColor={"transparent"}
+          // leftArrow={true}
+          //     leftSetting={true}
+              OneHeadingEnable = {true}
+              HeadingText="Open Sales Order"
+          //     elevation={4}
+          twoWords={3}
+              leftArrowSmall={true}
+          //     rightSearchAdd={false}
+          //     TwoHeadingEnable = {true}
+          //     order="order"
+          //     name="name"
+        //   plusIcons = {true}
+          //     rightThreeIcons = {true}
+          //     deleteRight={true}
+          navigation={this.props.navigation}
+        />
         <Content style={styles.content}>
-            <View style={{ flexDirection:"row", alignItems:"center", justifyContent:"space-between" }}>
-                <TouchableOpacity>
-                    <Image
-                     source={require("../../assets/icons/backgre.png")}
-                     style={{ width:13, height:18, marginLeft:10 }}
-                    />
-                </TouchableOpacity>
-                <View style={{  alignSelf:"center" }}>
-                    <Text style={{ alignSelf:"center", fontSize:17,fontFamily:"ProductSansBold"}}>
-                        Last Orders
-                    </Text>
-                </View>
-                <View>
-                    <Text>{" "}</Text>
-                </View>
-            </View>
-
             {
             //    contentToMap ?
                 this.state.contentToMap.map((item, index) => {
@@ -85,7 +88,7 @@ class LastOrder2 extends Component {
 
                                    <View style={{ flexDirection:"row", justifyContent:"space-between" }}>
                                      <View style={{ margin:5 }}>
-                                         <Text style={{fontFamily:"ProductSansBold" }}>{item.Name}</Text>
+                                         <Text style={{fontSize:15, color:FontColor.black}}>{item.Name}</Text>
                                          <Text style={{ fontSize:12 }}>{item.Date}</Text>
                                      </View>
                                      <View style={{ margin:5, marginRight:15 }}>
@@ -112,10 +115,39 @@ class LastOrder2 extends Component {
                                             source={require("../../assets/Images/MaskGroup9.png")}
                                             style={{ width:25, height:25, marginRight:5, borderRadius:3 }}
                                            />
-                                      </View>
-                                      <View style={{ margin:5, marginRight:15, marginBottom:10 }}>
+                                            <View style={{ margin:5, marginLeft:10}}>
                                           <TouchableOpacity 
-                                            style={{ height:30, width:90, backgroundColor:"#4591E4", borderRadius:5, alignContent:"center", justifyContent:"center" }} >
+                                            style={{
+                                                height:20, 
+                                                paddingHorizontal:13, 
+                                                backgroundColor:theme.white, 
+                                                borderRadius:5, 
+                                                alignContent:"center", 
+                                                justifyContent:"center",
+                                                shadowColor: "#00000029",
+                                                shadowOffset: {
+                                                    width: 0,
+                                                    height: 1,
+                                                },
+                                                shadowOpacity: 0.20,
+                                                shadowRadius: 1.41,
+                                                elevation: 2,                                                
+                                                }} >
+                                            <Text
+                                                style={{ 
+                                                color: FontColor.black,
+                                                textAlign:"center",
+                                                fontSize: 15
+                                                }}
+                                            >
+                                            View
+                                            </Text>
+                                           </TouchableOpacity>
+                                      </View>
+                                      </View> 
+                                      <View style={{ margin:5, marginRight:10, marginTop:10 }}>
+                                          <TouchableOpacity 
+                                            style={{ height:20, paddingHorizontal:10, backgroundColor:"#4591E4", borderRadius:5, alignContent:"center", justifyContent:"center" }} >
                                             <Text
                                                 style={{ 
                                                 color: "#ffffff",
@@ -123,7 +155,7 @@ class LastOrder2 extends Component {
                                                 fontSize: 15
                                                 }}
                                             >
-                                            View
+                                            Create InVoice
                                             </Text>
                                            </TouchableOpacity>
                                       </View> 
@@ -134,7 +166,8 @@ class LastOrder2 extends Component {
                    )
                })
                 // : ""
-            }
+            }            
+            <View style={{marginTop: 20}}></View>
         </Content>
       </View>
     );
@@ -146,7 +179,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   content: {
-      padding: 10
+      padding: 10,      
   },
   viewInput: {
     width:"95%",
@@ -189,4 +222,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default LastOrder2;
+export default Opensalesorder;
