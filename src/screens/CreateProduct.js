@@ -14,8 +14,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import { Content } from "native-base";
 import { theme, FontColor } from "../components/constant/theme"
 import GlobalHeader from "../components/GlobalHeader"
-
-class EditProduct extends Component {
+class CreateProduct extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -73,7 +72,7 @@ class EditProduct extends Component {
                         fontSize: 15
                       }}
                     >
-                      Edit Product
+                      Create New Product
                     </Text>
                   </TouchableOpacity>
                 </View>
@@ -318,7 +317,7 @@ class EditProduct extends Component {
                   fontSize: 18
                   }}
                 >
-                 Save Product
+                 Create Product
                 </Text>
               </TouchableOpacity>
             </View> 
@@ -476,4 +475,4 @@ iconContainer:{
   }
 });
 
-export default EditProduct;
+export default CreateProduct;

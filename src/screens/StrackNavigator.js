@@ -11,6 +11,7 @@ import ItemDetails from "./ItemDetails";
 import OrderSummary from "./OrderSummary";
 import Invoice from "./Invoice";
 import EditProduct from "./EditProduct";
+import CreateProduct from "./CreateProduct";
 import AccountDetails from "./AccountDetail";
 import Accounts from "./Accounts";
 import Accounts2 from "./Accounts2";
@@ -92,6 +93,12 @@ const AppNavigator = createStackNavigator(
     },
     EditProduct: {
       screen: EditProduct,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    CreateProduct: {
+      screen: CreateProduct,
       navigationOptions: () => ({
         header: null
       })
@@ -183,7 +190,7 @@ const AppNavigator = createStackNavigator(
   },
 
   {
-    initialRouteName: "Catalog"
+    initialRouteName: "EditProduct"
   }
 );
 
