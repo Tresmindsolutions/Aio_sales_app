@@ -11,6 +11,7 @@ import ItemDetails from "./ItemDetails";
 import OrderSummary from "./OrderSummary";
 import Invoice from "./Invoice";
 import EditProduct from "./EditProduct";
+import CreateProduct from "./CreateProduct"
 import AccountDetails from "./AccountDetail";
 import Accounts from "./Accounts";
 import Accounts2 from "./Accounts2";
@@ -27,7 +28,8 @@ import Receivepayment2 from "./Receivepayment2";
 import Receivepayment4 from "./Receivepayment4";
 import LookBook from "./LookBook";
 import LookBook2 from './LookBook2';
-
+import LastOrder from "./LastOrder"
+import LastOrder2 from "./LastOrder2"
 
 const AppNavigator = createStackNavigator(
   {
@@ -94,6 +96,12 @@ const AppNavigator = createStackNavigator(
     },
     EditProduct: {
       screen: EditProduct,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    CreateProduct: {
+      screen: CreateProduct,
       navigationOptions: () => ({
         header: null
       })
@@ -182,6 +190,18 @@ const AppNavigator = createStackNavigator(
         header : null
       })
     },
+    LastOrder: {
+      screen: LastOrder,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    LastOrder2: {
+      screen: LastOrder2,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
     Receivepayment4: {
       screen: Receivepayment4,
       navigationOptions: () => ({
@@ -191,7 +211,7 @@ const AppNavigator = createStackNavigator(
   },
 
   {
-    initialRouteName: "LookBook"
+    initialRouteName: "LastOrder2"
   }
 );
 
