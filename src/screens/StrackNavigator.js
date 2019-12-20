@@ -27,6 +27,7 @@ import Category1 from "../components/order/Category1";
 import Receivepayment2 from "./Receivepayment2";
 import Receivepayment4 from "./Receivepayment4";
 import LookBook from "./LookBook";
+import LastOrder from "./LastOrder"
 
 const AppNavigator = createStackNavigator(
   {
@@ -181,6 +182,12 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
+    LastOrder: {
+      screen: LastOrder,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
     Receivepayment4: {
       screen: Receivepayment4,
       navigationOptions: () => ({
@@ -190,7 +197,7 @@ const AppNavigator = createStackNavigator(
   },
 
   {
-    initialRouteName: "EditProduct"
+    initialRouteName: "OpenBalances"
   }
 );
 

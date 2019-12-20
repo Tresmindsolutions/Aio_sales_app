@@ -41,12 +41,12 @@ class ReceivePayment extends Component {
       //     leftSetting={true}
           OneHeadingEnable = {true}
           twoWords={2}
-           HeadingText="Receive Payment"
+        //    HeadingText="Receive Payment"
       //     elevation={4}
            leftArrowSmall={true}
           // rightSearchAdd={true}
           TwoHeadingEnable = {true}
-          order="order"
+          order="Receive Payment"
           name="Abrix Woonaccessoires BV"
       //     rightThreeIcons = {true}
       //     deleteRight={true}
