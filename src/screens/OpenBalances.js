@@ -11,6 +11,8 @@ import {
   Button
 } from "react-native";
 import GlobalHeader from "../components/GlobalHeader";
+// import RBSheet from "react-native-raw-bottom-sheet";
+import BottomSlideView1 from "../components/order/BottomSlideView";
 import { Content } from "native-base";
 import Dialog, { DialogContent } from "react-native-popup-dialog";
 import { theme, FontColor } from "../components/constant/theme";
@@ -43,12 +45,24 @@ class OpenBalances extends Component {
           phoneNumber: "00421544"
         }
       ],
-      selectedItem: null
+      selectedItem: null,
+      open: false
     };
   }
 
   handleModal = selectedItem => {
     this.setState({ selectedItem, visible: true });
+  };
+
+  openRbSheet = () => {
+    this.setState({
+      open: true
+    });
+  };
+  close = () => {
+    this.setState({
+      open: false
+    });
   };
 
   render() {
@@ -127,7 +141,12 @@ class OpenBalances extends Component {
                         </TouchableOpacity>
                       </View>
                       <View style={styles.receiveView}>
-                        <TouchableOpacity style={styles.buttonLeft}>
+                        <TouchableOpacity
+                          onPress={() => {
+                            this.openRbSheet();
+                          }}
+                          style={styles.buttonLeft}
+                        >
                           <Text style={styles.receiveViewText}>Receive</Text>
                         </TouchableOpacity>
                       </View>
@@ -197,6 +216,24 @@ class OpenBalances extends Component {
             </Dialog>
           )}
         </Content>
+
+        {/* <RBSheet
+          ref={ref => {
+            this.RBSheet = ref;
+          }}
+          height={320}
+          duration={250}
+          customStyles={{
+            container: {
+              justifyContent: "center",
+              alignItems: "center"
+            }
+          }}
+        > */}
+        {this.state.open ? (
+          <BottomSlideView1 close={() => this.close()} />
+        ) : null}
+        {/* </RBSheet> */}
       </View>
     );
   }

@@ -30,6 +30,9 @@ import LookBook from "./LookBook";
 import LookBook3 from "./LookBook3";
 import RoutesSchedules from "./RoutesSchedules";
 import RoutesSchedules2 from "./RoutesSchedules2";
+import LookBook2 from "./LookBook2";
+import LastOrder from "./LastOrder";
+import LastOrder2 from "./LastOrder2";
 
 const AppNavigator = createStackNavigator(
   {
@@ -192,24 +195,38 @@ const AppNavigator = createStackNavigator(
     },
     RoutesSchedules: {
       screen: RoutesSchedules,
-      navigationOptions: () => ({
-        header: null
-      })
-    },
-    RoutesSchedules2: {
-      screen: RoutesSchedules2,
-      navigationOptions: () => ({
-        header: null
-      })
-    },
-    Receivepayment4: {
-      screen: Receivepayment4,
-      navigationOptions: () => ({
-        header: null
-      })
+      LookBook2: {
+        screen: LookBook2,
+        navigationOptions: () => ({
+          header: null
+        })
+      },
+      LastOrder: {
+        screen: LastOrder,
+        navigationOptions: () => ({
+          header: null
+        })
+      },
+      RoutesSchedules2: {
+        screen: RoutesSchedules2,
+        navigationOptions: () => ({
+          header: null
+        })
+      },
+      LastOrder2: {
+        screen: LastOrder2,
+        navigationOptions: () => ({
+          header: null
+        })
+      },
+      Receivepayment4: {
+        screen: Receivepayment4,
+        navigationOptions: () => ({
+          header: null
+        })
+      }
     }
   },
-
   {
     initialRouteName: "RoutesSchedules2"
   }
