@@ -27,12 +27,13 @@ import Category1 from "../components/order/Category1";
 import Receivepayment2 from "./Receivepayment2";
 import Receivepayment4 from "./Receivepayment4";
 import LookBook from "./LookBook";
+import Opensalesorder from "./Opensalesorder";
 import LookBook3 from "./LookBook3";
 import RoutesSchedules from "./RoutesSchedules";
 import RoutesSchedules2 from "./RoutesSchedules2";
 import LookBook2 from "./LookBook2";
 import LastOrder from "./LastOrder";
-import LastOrder2 from "./LastOrder2";
+// import LastOrder2 from "./LastOrder2";
 
 const AppNavigator = createStackNavigator(
   {
@@ -211,18 +212,24 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
+    Opensalesorder: {
+      screen: Opensalesorder,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
     RoutesSchedules2: {
       screen: RoutesSchedules2,
       navigationOptions: () => ({
         header: null
       })
     },
-    LastOrder2: {
-      screen: LastOrder2,
-      navigationOptions: () => ({
-        header: null
-      })
-    },
+    // LastOrder2: {
+    //   screen: LastOrder2,
+    //   navigationOptions: () => ({
+    //     header: null
+    //   })
+    // },
     Receivepayment4: {
       screen: Receivepayment4,
       navigationOptions: () => ({
