@@ -11,7 +11,7 @@ import ItemDetails from "./ItemDetails";
 import OrderSummary from "./OrderSummary";
 import Invoice from "./Invoice";
 import EditProduct from "./EditProduct";
-import CreateProduct from "./CreateProduct"
+import CreateProduct from "./CreateProduct";
 import AccountDetails from "./AccountDetail";
 import Accounts from "./Accounts";
 import Accounts2 from "./Accounts2";
@@ -27,9 +27,13 @@ import Category1 from "../components/order/Category1";
 import Receivepayment2 from "./Receivepayment2";
 import Receivepayment4 from "./Receivepayment4";
 import LookBook from "./LookBook";
-import LookBook2 from './LookBook2';
-import LastOrder from "./LastOrder";
 import Opensalesorder from "./Opensalesorder";
+import LookBook3 from "./LookBook3";
+import RoutesSchedules from "./RoutesSchedules";
+import RoutesSchedules2 from "./RoutesSchedules2";
+import LookBook2 from "./LookBook2";
+import LastOrder from "./LastOrder";
+// import LastOrder2 from "./LastOrder2";
 
 const AppNavigator = createStackNavigator(
   {
@@ -184,10 +188,22 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
-    LookBook2:{
-      screen:LookBook2,
-      navigationOptions:()=>({
-        header : null
+    LookBook3: {
+      screen: LookBook3,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    RoutesSchedules: {
+      screen: RoutesSchedules,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    LookBook2: {
+      screen: LookBook2,
+      navigationOptions: () => ({
+        header: null
       })
     },
     LastOrder: {
@@ -202,6 +218,18 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
+    RoutesSchedules2: {
+      screen: RoutesSchedules2,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    // LastOrder2: {
+    //   screen: LastOrder2,
+    //   navigationOptions: () => ({
+    //     header: null
+    //   })
+    // },
     Receivepayment4: {
       screen: Receivepayment4,
       navigationOptions: () => ({
@@ -209,9 +237,8 @@ const AppNavigator = createStackNavigator(
       })
     }
   },
-
   {
-    initialRouteName: "Opensalesorder"
+    initialRouteName: "RoutesSchedules2"
   }
 );
 
