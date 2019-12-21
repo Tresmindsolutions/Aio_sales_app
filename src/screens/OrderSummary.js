@@ -173,7 +173,7 @@ export default class ItemDetails extends Component {
             </View>
           </View>
 
-          <View style={styles.heading1}>
+          <View style={styles.heading}>
             <Text style={styles.headingTxt}>Seleted Items</Text>
           </View>
 
@@ -197,13 +197,18 @@ export default class ItemDetails extends Component {
                   </View>
 
                   <View style={styles.crt}>
-                    <View style={styles.crtImg}>
+                    <TouchableOpacity
+                      onPress={() => this.handleModal()}
+                      style={styles.crtImg}
+                    >
+                      {/* <View style={styles.crtImg}> */}
                       <Image
                         source={item.img}
                         style={styles.imgPic}
                         resizeMode={"cover"}
                       />
-                    </View>
+                      {/* </View> */}
+                    </TouchableOpacity>
 
                     <View style={styles.prod}>
                       <Text
@@ -603,8 +608,8 @@ export default class ItemDetails extends Component {
             {/* ===buttons=== */}
             <View style={[styles.row, { marginTop: 5 }]}>
               <TouchableOpacity
-                onPress={() => this.handleModal()}
                 style={styles.btnCon}
+                onPress={() => this.props.navigation.navigate("Order")}
               >
                 <Text style={{ color: FontColor.blue, fontSize: 16 }}>
                   Continue Ordering
@@ -618,10 +623,7 @@ export default class ItemDetails extends Component {
               </TouchableOpacity>
             </View>
 
-            <TouchableOpacity
-              style={styles.btnBottom}
-              // onPress={this.props.navigation.navigate("OrderSummary")}
-            >
+            <TouchableOpacity style={styles.btnBottom}>
               <Text style={{ fontSize: 16, color: FontColor.white }}>
                 Sales Order
               </Text>
@@ -646,39 +648,128 @@ export default class ItemDetails extends Component {
             this.setState({ visible: false });
           }}
         >
-          <DialogContent style={{ width: 300, height: 175 }}>
+          <DialogContent style={{ width: "90%" }}>
             <View>
-              <View style={styles.popopCallView}>
-                <Text style={{ fontSize: 12, color: FontColor.white }}>
-                  Call
+              {/* <View style={styles.popopCallView}> */}
+              <ImageBackground
+                style={styles.popopCallView}
+                source={require("../../assets/Images/MaskGroup-3.png")}
+                resizeMode="cover"
+              >
+                <Text style={styles.headerText}>Smartwatch</Text>
+              </ImageBackground>
+              {/* </View> */}
+              <View style={{ alignItems: "center", marginTop: 7 }}>
+                <Text style={styles.heading1}>
+                  The quick, brown fox jumps over a lazy dog. DJs flock by when
+                  MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds
                 </Text>
               </View>
-              <View style={{ alignItems: "center", marginTop: 7 }}>
-                <Text style={styles.heading}>Do you wish to call</Text>
-                <Text style={styles.heading}> ?</Text>
-              </View>
-              <View style={styles.mainStyleBox}>
-                <View style={styles.mainStyleBoxBlueBox}>
-                  <Text style={styles.numberHeading}>Mobile Number</Text>
-                  <Text style={styles.numberHeading2}>jj</Text>
+              <View style={{ flexDirection: "column", marginTop: 10 }}>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    marginBottom: 5
+                  }}
+                >
+                  <Text style={{ color: "#3D3D3D", fontSize: 15 }}>
+                    Quantity
+                  </Text>
+                  <View
+                    style={{
+                      height: 20,
+                      width: 110,
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      alignContent: "center"
+                    }}
+                  >
+                    <TouchableOpacity>
+                      <Image
+                        style={{ width: 17, height: 17, marginBottom: 2 }}
+                        source={require("../../assets/icons/minusIcon.png")}
+                      />
+                    </TouchableOpacity>
+                    <Text style={{ color: "#148BFF", fontSize: 15 }}>22</Text>
+                    <TouchableOpacity>
+                      <Image
+                        style={{ width: 17, height: 17, marginBottom: 2 }}
+                        source={require("../../assets/icons/plusIcon.png")}
+                      />
+                    </TouchableOpacity>
+                  </View>
                 </View>
-                <View style={styles.mainStyleBoxPhoneBox}>
-                  <Text style={styles.numberHeading}>Phone Number</Text>
-                  <Text style={styles.numberHeading2}>jhg</Text>
+
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    marginBottom: 5
+                  }}
+                >
+                  <Text style={{ color: "#3D3D3D", fontSize: 13 }}>Price</Text>
+                  <View
+                    style={{
+                      height: 20,
+                      width: 110,
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      borderWidth: 1,
+                      borderColor: "#F5F5F5"
+                    }}
+                  >
+                    <Text style={{ color: "#3D3D3D", fontSize: 15 }}>99.9</Text>
+                  </View>
+                </View>
+
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    marginBottom: 5
+                  }}
+                >
+                  <View style={{ flexDirection: "row" }}>
+                    <Text style={{ color: "#3D3D3D", fontSize: 13 }}>
+                      Discount
+                    </Text>
+                    <Text
+                      style={{ color: "#3D3D3D", fontSize: 11, marginTop: 2 }}
+                    >
+                      {"  "}(% or $)
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      height: 20,
+                      width: 110,
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      borderWidth: 1,
+                      borderColor: "#F5F5F5"
+                    }}
+                  >
+                    <Text style={{ color: "#3D3D3D", fontSize: 15 }}>0.00</Text>
+                  </View>
                 </View>
               </View>
+
               <View style={styles.cancelCallButton}>
                 <TouchableOpacity
                   onPress={() => this.setState({ visible: false })}
                   style={styles.cancelButton}
                 >
-                  <Text style={{ fontSize: 12, color: FontColor.blue }}>
-                    Cancel
-                  </Text>
+                  <Text style={{ fontSize: 15, color: "#878787" }}>Cancel</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.callButton}>
-                  <Text style={{ fontSize: 12, color: FontColor.white }}>
-                    Call
+
+                <TouchableOpacity
+                  onPress={() => this.setState({ visible: false })}
+                  style={styles.callButton}
+                >
+                  <Text style={{ fontSize: 15, color: FontColor.white }}>
+                    Save
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -703,6 +794,104 @@ export default class ItemDetails extends Component {
 }
 
 const styles = StyleSheet.create({
+  // ====== Popup style =======
+  headerText: {
+    fontSize: 19,
+    color: FontColor.white,
+    alignSelf: "flex-start",
+    marginLeft: 20,
+    marginTop: 40,
+    textShadowColor: "#000",
+    textShadowOffset: { width: 0.8, height: 0.8 },
+    shadowOpacity: 0.25,
+    textShadowRadius: 2,
+
+    elevation: 4
+  },
+  popopCallView: {
+    marginHorizontal: -20,
+    justifyContent: "center",
+    height: 75,
+    alignItems: "center",
+    borderWidth: 1
+  },
+  heading1: {
+    fontSize: 11,
+    marginTop: 8,
+    color: "#878787"
+  },
+  mainStyleBox: {
+    flexDirection: "row",
+    backgroundColor: "#F1F1F1",
+    marginTop: 5,
+    paddingVertical: 10,
+    marginHorizontal: -20,
+    justifyContent: "space-around"
+  },
+  mainStyleBoxBlueBox: {
+    backgroundColor: "#e1edf9",
+    alignItems: "center",
+    paddingVertical: 5,
+    paddingHorizontal: 12,
+    borderRadius: 5
+  },
+  mainStyleBoxPhoneBox: {
+    paddingVertical: 5,
+    alignItems: "center",
+    paddingHorizontal: 12
+  },
+  numberHeading: {
+    fontSize: 9,
+    color: FontColor.middleGray
+  },
+  numberHeading2: {
+    fontSize: 13,
+    color: FontColor.blue
+  },
+  cancelCallButton: {
+    marginHorizontal: 0,
+    flexDirection: "row",
+    width: "100%",
+    alignSelf: "center",
+    justifyContent: "space-between",
+    marginTop: 10
+  },
+  cancelButton: {
+    backgroundColor: "#F1F1F1",
+    borderRadius: 5,
+    paddingVertical: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    width: "48%",
+    height: 35,
+    shadowColor: "#00000029",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+  callButton: {
+    backgroundColor: theme.blue,
+    borderRadius: 5,
+    paddingVertical: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    width: "48%",
+    shadowColor: "#00000029",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+
+  // ======== Page Styles =========
+
   container: {
     flex: 1,
     backgroundColor: "#ffffff"
@@ -718,7 +907,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     flexDirection: "row"
   },
-  heading1: {
+  heading: {
     justifyContent: "center",
     alignItems: "center",
     marginTop: 8,
@@ -843,122 +1032,5 @@ const styles = StyleSheet.create({
     flex: 1,
     borderColor: "#000033",
     borderWidth: 1
-  },
-
-  // ====== Popup style =======
-  abView: {
-    backgroundColor: "#F1F1F1",
-    width: "15%",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  priceText: {
-    fontWeight: "bold",
-    textAlign: "right",
-    color: "red"
-  },
-  shareIcon: {
-    width: 20,
-    height: 23,
-    marginRight: 1,
-    borderRadius: 3,
-    alignSelf: "center",
-    marginBottom: 8
-  },
-  receiveView: {
-    margin: 5,
-    marginRight: 2,
-    marginBottom: 10
-  },
-  receiveViewText: {
-    color: "#ffffff",
-    textAlign: "center",
-    fontSize: 12
-  },
-  callView: {
-    margin: 5,
-    marginRight: 8,
-    marginBottom: 10
-  },
-  callViewText: {
-    color: "#148BFF",
-    textAlign: "center",
-    fontSize: 12
-  },
-  popopCallView: {
-    backgroundColor: theme.blue,
-    marginHorizontal: -20,
-    paddingVertical: 5,
-    alignItems: "center"
-  },
-  heading: {
-    fontSize: 15,
-    color: FontColor.black
-  },
-  mainStyleBox: {
-    flexDirection: "row",
-    backgroundColor: "#F1F1F1",
-    marginTop: 5,
-    paddingVertical: 10,
-    marginHorizontal: -20,
-    justifyContent: "space-around"
-  },
-  mainStyleBoxBlueBox: {
-    backgroundColor: "#e1edf9",
-    alignItems: "center",
-    paddingVertical: 5,
-    paddingHorizontal: 12,
-    borderRadius: 5
-  },
-  mainStyleBoxPhoneBox: {
-    paddingVertical: 5,
-    alignItems: "center",
-    paddingHorizontal: 12
-  },
-  numberHeading: {
-    fontSize: 9,
-    color: FontColor.middleGray
-  },
-  numberHeading2: {
-    fontSize: 13,
-    color: FontColor.blue
-  },
-  cancelCallButton: {
-    marginHorizontal: -20,
-    flexDirection: "row",
-    width: "90%",
-    alignSelf: "center",
-    justifyContent: "space-between",
-    marginTop: 10
-  },
-  cancelButton: {
-    backgroundColor: theme.white,
-    borderRadius: 14,
-    paddingVertical: 5,
-    alignItems: "center",
-    width: 90,
-    shadowColor: "#00000029",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5
-  },
-  callButton: {
-    backgroundColor: theme.blue,
-    borderRadius: 14,
-    paddingVertical: 5,
-    alignItems: "center",
-    width: 90,
-    shadowColor: "#00000029",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5
   }
 });
