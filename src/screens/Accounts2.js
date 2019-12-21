@@ -11,6 +11,7 @@ import FontAwsome from "react-native-vector-icons/FontAwesome";
 import Entypo from "react-native-vector-icons/Entypo";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import GlobalHeader from "../components/GlobalHeader";
+import { FontColor } from "../components/constant/theme";
 
 export default class Accounts2 extends Component {
   constructor() {
@@ -32,6 +33,7 @@ export default class Accounts2 extends Component {
             HeadingText="Accounts"
             //     elevation={4}
             leftArrowSmall={true}
+            rightSearchAdd={true}
             //   rightSearchAdd={false}
             //   TwoHeadingEnable = {true}
             //   order="order"
@@ -139,7 +141,10 @@ export default class Accounts2 extends Component {
           </View>
           <View style={styles.mainBottomBox}>
             <View style={{ width: "90%", alignSelf: "center", paddingTop: 20 }}>
-              <View style={styles.stylishBox}>
+              <TouchableOpacity
+                style={styles.stylishBox}
+                onPress={() => this.props.navigation.navigate("AccountDetails")}
+              >
                 <View style={styles.blueStylishBox}>
                   <Text style={styles.blueStylishBoxTextOne}>Open Balance</Text>
                   <Text style={{ color: "#fff", fontSize: 18 }}>3</Text>
@@ -193,9 +198,9 @@ export default class Accounts2 extends Component {
                     </View>
                   </View>
                 </View>
-              </View>
+              </TouchableOpacity>
               <View style={{ alignItems: "center", paddingVertical: 10 }}>
-                <Text style={{ color: "#148BFF", fontSize: 15 }}>
+                <Text style={{ color: FontColor.blue, fontSize: 16 }}>
                   Account location
                 </Text>
               </View>

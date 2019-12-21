@@ -13,9 +13,10 @@ import {
 // import RNPickerSelect from 'react-native-picker-select';
 // import AntDesign from 'react-native-vector-icons/AntDesign'
 // import DatePicker from 'react-native-datepicker'
-import BottomSlideViewShare from "../components/order/BottomSlideViewShare"
+import BottomSlideViewShare from "../components/order/BottomSlideViewShare";
 import { Content } from "native-base";
 import GlobalHeader from "../components/GlobalHeader";
+import { FontColor } from "../components/constant/theme";
 
 class AccountDetails extends Component {
   constructor(props) {
@@ -46,8 +47,8 @@ class AccountDetails extends Component {
           QuantiyNumber: "29",
           ImgSource: require("../../assets/Images/MaskGroup-2.png")
         }
-    ],
-    OpenView2: false,
+      ],
+      OpenView2: false
     };
   }
 
@@ -55,7 +56,6 @@ class AccountDetails extends Component {
     this.setState({
       OpenView2: true
     });
-    
   };
   close2 = () => {
     this.setState({
@@ -101,7 +101,7 @@ class AccountDetails extends Component {
               <View style={{ borderTopLeftRadius: 5 }}>
                 <TouchableOpacity
                   style={{
-                    height: 30,
+                    height: 35,
                     width: "100%",
                     backgroundColor: "#148BFF",
                     borderTopStartRadius: 5,
@@ -144,10 +144,9 @@ class AccountDetails extends Component {
                   style={{
                     color: "#000000",
                     textAlign: "center",
-                    fontFamily: "Product Sans",
-                    fontSize: 16,
-                    marginLeft: "8%",
-                    fontWeight: "500"
+
+                    fontSize: 18,
+                    marginLeft: "8%"
                   }}
                 >
                   Account Details
@@ -160,13 +159,13 @@ class AccountDetails extends Component {
                 </TouchableOpacity>
               </View>
 
-              <View style={{ marginBottom: 20 }}>
+              <View style={{ marginBottom: 10 }}>
                 <View
                   style={{
                     width: "100%",
                     flexDirection: "row",
                     justifyContent: "flex-start",
-                    marginTop: 10
+                    marginTop: 5
                   }}
                 >
                   <View style={{ width: "35%" }}>
@@ -181,7 +180,7 @@ class AccountDetails extends Component {
                     width: "100%",
                     flexDirection: "row",
                     justifyContent: "flex-start",
-                    marginTop: 10
+                    marginTop: 4
                   }}
                 >
                   <View style={{ width: "35%" }}>
@@ -198,7 +197,7 @@ class AccountDetails extends Component {
                     width: "100%",
                     flexDirection: "row",
                     justifyContent: "flex-start",
-                    marginTop: 10
+                    marginTop: 4
                   }}
                 >
                   <View style={{ width: "35%" }}>
@@ -213,7 +212,7 @@ class AccountDetails extends Component {
                     width: "100%",
                     flexDirection: "row",
                     justifyContent: "flex-start",
-                    marginTop: 10
+                    marginTop: 4
                   }}
                 >
                   <View style={{ width: "35%" }}>
@@ -228,7 +227,7 @@ class AccountDetails extends Component {
                     width: "100%",
                     flexDirection: "row",
                     justifyContent: "flex-start",
-                    marginTop: 10
+                    marginTop: 4
                   }}
                 >
                   <View style={{ width: "35%" }}>
@@ -243,7 +242,7 @@ class AccountDetails extends Component {
                     width: "100%",
                     flexDirection: "row",
                     justifyContent: "flex-start",
-                    marginTop: 10
+                    marginTop: 4
                   }}
                 >
                   <View style={{ width: "35%" }}>
@@ -260,14 +259,21 @@ class AccountDetails extends Component {
                     width: "100%",
                     flexDirection: "row",
                     justifyContent: "flex-start",
-                    marginTop: 10
+                    marginTop: 4
                   }}
                 >
                   <View style={{ width: "35%" }}>
                     <Text style={styles.textLeftColStyle}>Tax ID</Text>
                   </View>
                   <View style={{ width: "65%" }}>
-                    <Text style={styles.textRightColStyle}>Not Available</Text>
+                    <Text
+                      style={[
+                        styles.textRightColStyle,
+                        { color: FontColor.gray }
+                      ]}
+                    >
+                      Not Available
+                    </Text>
                   </View>
                 </View>
                 <View
@@ -275,14 +281,21 @@ class AccountDetails extends Component {
                     width: "100%",
                     flexDirection: "row",
                     justifyContent: "flex-start",
-                    marginTop: 10
+                    marginTop: 4
                   }}
                 >
                   <View style={{ width: "35%" }}>
                     <Text style={styles.textLeftColStyle}>Website</Text>
                   </View>
                   <View style={{ width: "65%" }}>
-                    <Text style={styles.textRightColStyle}>Not Available</Text>
+                    <Text
+                      style={[
+                        styles.textRightColStyle,
+                        { color: FontColor.gray }
+                      ]}
+                    >
+                      Not Available
+                    </Text>
                   </View>
                 </View>
                 <View
@@ -290,7 +303,7 @@ class AccountDetails extends Component {
                     width: "100%",
                     flexDirection: "row",
                     justifyContent: "flex-start",
-                    marginTop: 10
+                    marginTop: 4
                   }}
                 >
                   <View style={{ width: "35%" }}>
@@ -305,7 +318,7 @@ class AccountDetails extends Component {
                     width: "100%",
                     flexDirection: "row",
                     justifyContent: "flex-start",
-                    marginTop: 10
+                    marginTop: 4
                   }}
                 >
                   <View style={{ width: "35%" }}>
@@ -322,7 +335,7 @@ class AccountDetails extends Component {
                     width: "100%",
                     flexDirection: "row",
                     justifyContent: "flex-start",
-                    marginTop: 10
+                    marginTop: 4
                   }}
                 >
                   <View style={{ width: "35%" }}>
@@ -469,8 +482,8 @@ class AccountDetails extends Component {
                           <View style={{ margin: 5 }}>
                             <Text
                               style={{
-                                fontFamily: "ProductSansBold",
-                                fontWeight: "bold"
+                                fontSize: 14,
+                                color: FontColor.black
                               }}
                             >
                               {item.Name}
@@ -539,7 +552,7 @@ class AccountDetails extends Component {
               <View style={{ margin: 7, marginBottom: 10, marginTop: 20 }}>
                 <TouchableOpacity
                   style={styles.bottomButtons}
-                  // onPress={() => this.props.navigation.navigate("LastOrder")}
+                  onPress={() => this.props.navigation.navigate("OrderHistory")}
                 >
                   <Text
                     style={{
@@ -566,16 +579,18 @@ class AccountDetails extends Component {
                 </TouchableOpacity>
               </View>
               <View style={{ marginRight: 7, marginLeft: 7, marginBottom: 10 }}>
-                <TouchableOpacity style={styles.bottomButtons}>
+                <TouchableOpacity
+                  style={styles.bottomButtons}
+                  onPress={() =>
+                    this.props.navigation.navigate("Openbalances2")
+                  }
+                >
                   <Text
                     style={{
                       color: "#148BFF",
                       textAlign: "center",
                       fontSize: 18
                     }}
-                    onPress={() =>
-                      this.props.navigation.navigate("OpenBalances2")
-                    }
                   >
                     Open Balance
                   </Text>
@@ -615,7 +630,6 @@ class AccountDetails extends Component {
         {this.state.OpenView2 ? (
           <BottomSlideViewShare close={() => this.close2()} />
         ) : null}
-
       </View>
     );
   }
@@ -633,15 +647,15 @@ const styles = StyleSheet.create({
   },
   textLeftColStyle: {
     color: "#000000",
-    fontFamily: "Product Sans",
-    fontSize: 12,
+    // fontFamily: "Product Sans",
+    fontSize: 13,
     marginTop: 10,
     marginLeft: "24%"
   },
   textRightColStyle: {
     color: "#000000",
-    fontFamily: "Product Sans",
-    fontSize: 11,
+    // fontFamily: "Product Sans",
+    fontSize: 13,
     marginLeft: "10%",
     marginTop: 11,
     marginRight: 10

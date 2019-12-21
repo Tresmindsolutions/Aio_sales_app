@@ -185,7 +185,10 @@ export default class GlobalHeader extends Component {
                   color={FontColor.grayDark}
                 />
               </TouchableOpacity>
-              <TouchableOpacity style={{ borderWidth: 0 }}>
+              <TouchableOpacity
+                style={{ borderWidth: 0 }}
+                onPress={() => this.props.navigation.navigate("Accounts")}
+              >
                 <MaterialIcons
                   name="add"
                   size={32}

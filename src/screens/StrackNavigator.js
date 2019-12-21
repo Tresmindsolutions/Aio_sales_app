@@ -34,6 +34,8 @@ import RoutesSchedules from "./RoutesSchedules";
 import RoutesSchedules2 from "./RoutesSchedules2";
 import LookBook2 from "./LookBook2";
 import LastOrder from "./LastOrder";
+import OrderHistory from "./OrderHistory";
+import Account2 from "./Account2";
 // import LastOrder2 from "./LastOrder2";
 
 const AppNavigator = createStackNavigator(
@@ -214,6 +216,12 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
+    OrderHistory: {
+      screen: OrderHistory,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
     Opensalesorder: {
       screen: Opensalesorder,
       navigationOptions: () => ({
@@ -226,12 +234,12 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
-    // LastOrder2: {
-    //   screen: LastOrder2,
-    //   navigationOptions: () => ({
-    //     header: null
-    //   })
-    // },
+    Account2: {
+      screen: Account2,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
     Receivepayment4: {
       screen: Receivepayment4,
       navigationOptions: () => ({
@@ -240,7 +248,7 @@ const AppNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName: "Home"
+    initialRouteName: "Login"
   }
 );
 

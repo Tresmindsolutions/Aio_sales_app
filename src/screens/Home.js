@@ -90,7 +90,7 @@ export default class Home extends Component {
                 <View style={styles.row}>
                   <TouchableOpacity
                     style={styles.btn}
-                    onPress={() => this.props.navigation.navigate("Account")}
+                    onPress={() => this.props.navigation.navigate("Account2")}
                   >
                     <Text style={styles.btnTxt}>Accounts</Text>
                   </TouchableOpacity>

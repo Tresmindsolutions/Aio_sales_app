@@ -234,6 +234,9 @@ class Opensalesorder extends Component {
                           alignContent: "center",
                           justifyContent: "center"
                         }}
+                        onPress={() =>
+                          this.props.navigation.navigate("Invoice")
+                        }
                       >
                         <Text
                           style={{
@@ -242,7 +245,7 @@ class Opensalesorder extends Component {
                             fontSize: 15
                           }}
                         >
-                          Create InVoice
+                          Create Invoice
                         </Text>
                       </TouchableOpacity>
                     </View>

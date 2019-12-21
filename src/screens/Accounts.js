@@ -9,29 +9,30 @@ import {
   TouchableOpacity
 } from "react-native";
 import GlobalHeader from "../components/GlobalHeader";
+import { FontColor } from "../components/constant/theme";
 
 export default class Accounts extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <GlobalHeader
+          //     backgroundColor={"transparent"}
+          //   leftArrow={true}
+          //     leftSetting={true}
+          OneHeadingEnable={true}
+          twoWords={1}
+          HeadingText="Accounts"
+          //     elevation={4}
+          leftArrowSmall={true}
+          //   rightSearchAdd={false}
+          //   TwoHeadingEnable = {true}
+          //   order="order"
+          //     name="name"
+          //     rightThreeIcons = {true}
+          //     deleteRight={true}
+          navigation={this.props.navigation}
+        />
         <ScrollView>
-          <GlobalHeader
-            //     backgroundColor={"transparent"}
-            //   leftArrow={true}
-            //     leftSetting={true}
-            OneHeadingEnable={true}
-            twoWords={1}
-            HeadingText="Accounts"
-            //     elevation={4}
-            leftArrowSmall={true}
-            //   rightSearchAdd={false}
-            //   TwoHeadingEnable = {true}
-            //   order="order"
-            //     name="name"
-            //     rightThreeIcons = {true}
-            //     deleteRight={true}
-            navigation={this.props.navigation}
-          />
           <View style={styles.mainBox}>
             <View style={styles.accountView}>
               <Text style={styles.accountViewText}>Create New Account</Text>
@@ -39,7 +40,12 @@ export default class Accounts extends Component {
             <View style={styles.detailsForm}>
               <View>
                 <Text
-                  style={{ fontSize: 15, marginVertical: 10, marginLeft: 5 }}
+                  style={{
+                    fontSize: 15,
+                    marginVertical: 10,
+                    marginLeft: 5,
+                    color: FontColor.black
+                  }}
                 >
                   Account Details
                 </Text>
@@ -47,7 +53,7 @@ export default class Accounts extends Component {
               <View>
                 <Text
                   style={{
-                    fontSize: 11,
+                    fontSize: 12,
                     color: "#BBBBBB",
                     marginBottom: 5,
                     marginLeft: 5
@@ -191,7 +197,7 @@ const styles = StyleSheet.create({
     width: "95%",
     alignSelf: "center",
     paddingBottom: 10,
-    marginTop: 10,
+    // marginTop: 10,
     marginBottom: 10,
     borderRadius: 5,
     padding: 0,
@@ -211,6 +217,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#148BFF",
     borderTopStartRadius: 5,
     borderTopEndRadius: 5,
+    height: 35,
+    justifyContent: "center",
+
     alignItems: "center",
     paddingVertical: 5
     // borderTopEndRadius:5
@@ -227,7 +236,8 @@ const styles = StyleSheet.create({
   textInputStyle: {
     padding: 0,
     paddingLeft: 5,
-    fontSize: 10,
+    height: 32,
+    fontSize: 12,
     backgroundColor: "#fff",
     shadowColor: "#00000029",
     shadowOffset: {
@@ -237,10 +247,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 1.41,
 
-    elevation: 3
+    elevation: 2
   },
   textInputHeadingStyle: {
-    fontSize: 11,
+    fontSize: 12,
     color: "#BBBBBB",
     marginTop: 10,
     marginBottom: 5,
@@ -268,6 +278,9 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
     marginBottom: 10,
     width: "95%",
+    height: 35,
+    justifyContent: "center",
+
     alignSelf: "center"
   }
 });

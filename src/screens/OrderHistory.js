@@ -16,40 +16,25 @@ import { ThemeConsumer } from "react-native-elements";
 import { FontColor, theme } from "../components/constant/theme";
 import GlobalHeader from "../components/GlobalHeader";
 
-class LastOrder extends Component {
+class OrderHistory extends Component {
   constructor(props) {
     super(props);
     this.state = {
       contentToMap: [
         {
-          Name: "Abix Woonaaccessories BV",
+          Name: "565 Items",
           Date: "17/9/2019",
           Price: "876,576"
         },
         {
-          Name: "Abix Woonaaccessories BV",
+          Name: "565 Items",
           Date: "17/9/2019",
           Price: "987,567"
         },
         {
-          Name: "Abix Woonaaccessories BV",
+          Name: "565 Items",
           Date: "17/9/2019",
           Price: "676,557"
-        },
-        {
-          Name: "Abix Woonaaccessories BV",
-          Date: "17/9/2019",
-          Price: "159,776"
-        },
-        {
-          Name: "Abix Woonaaccessories BV",
-          Date: "17/9/2019",
-          Price: "157,00"
-        },
-        {
-          Name: "Zain Hasan",
-          Date: "17/9/2019",
-          Price: "209,897"
         }
       ]
     };
@@ -65,9 +50,9 @@ class LastOrder extends Component {
             // leftArrow={true}
             //     leftSetting={true}
             OneHeadingEnable={true}
-            HeadingText="Last Order"
+            HeadingText="Order History"
             //     elevation={4}
-            twoWords={1}
+            // twoWords={1}
             leftArrowSmall={true}
             //     rightSearchAdd={false}
             //     TwoHeadingEnable = {true}
@@ -150,7 +135,7 @@ class LastOrder extends Component {
                       <View
                         style={{ margin: 5, marginRight: 15, marginBottom: 10 }}
                       >
-                        <TouchableOpacity
+                        <View
                           style={{
                             height: 30,
                             width: 90,
@@ -159,9 +144,9 @@ class LastOrder extends Component {
                             alignContent: "center",
                             justifyContent: "center"
                           }}
-                          onPress={() =>
-                            this.props.navigation.navigate("Invoice")
-                          }
+                          // onPress={() =>
+                          //   this.props.navigation.navigate("Invoice")
+                          // }
                         >
                           <Text
                             style={{
@@ -172,7 +157,7 @@ class LastOrder extends Component {
                           >
                             View
                           </Text>
-                        </TouchableOpacity>
+                        </View>
                       </View>
                     </View>
                   </View>
@@ -236,4 +221,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LastOrder;
+export default OrderHistory;

@@ -13,25 +13,25 @@ export default class Product extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <GlobalHeader
+          //     backgroundColor={"transparent"}
+          //   leftArrow={true}
+          //     leftSetting={true}
+          OneHeadingEnable={true}
+          twoWords={1}
+          HeadingText="Products"
+          //     elevation={4}
+          leftArrowSmall={true}
+          //   rightSearchAdd={false}
+          //   TwoHeadingEnable = {true}
+          //   order="order"
+          //     name="name"
+          plusIcons={true}
+          //   rightThreeIcons = {true}
+          //   deleteRight={true}
+          navigation={this.props.navigation}
+        />
         <ScrollView>
-          <GlobalHeader
-            //     backgroundColor={"transparent"}
-            //   leftArrow={true}
-            //     leftSetting={true}
-            OneHeadingEnable={true}
-            twoWords={1}
-            HeadingText="Products"
-            //     elevation={4}
-            leftArrowSmall={true}
-            //   rightSearchAdd={false}
-            //   TwoHeadingEnable = {true}
-            //   order="order"
-            //     name="name"
-            plusIcons={true}
-            //   rightThreeIcons = {true}
-            //   deleteRight={true}
-            navigation={this.props.navigation}
-          />
           <View style={styles.mainBox}>
             <View style={styles.mainBoxInner}>
               <TouchableOpacity
