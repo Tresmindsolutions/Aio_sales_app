@@ -98,7 +98,7 @@ class OpenBalances extends Component {
           //     name="name"
           //     rightThreeIcons = {true}
           //     deleteRight={true}
-          //     navigation={this.props.navigation}
+          navigation={this.props.navigation}
         />
         <Content style={styles.content}>
           {//    contentToMap ?

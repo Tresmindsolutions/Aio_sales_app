@@ -103,7 +103,7 @@ export default class Home extends Component {
           OneHeadingEnable={true}
           HeadingText="Dashboard"
           //     elevation={4}
-          // twoWords={2}
+          twoWords={1}
           leftArrowSmall={true}
           //     rightSearchAdd={false}
           //     TwoHeadingEnable = {true}
@@ -112,12 +112,13 @@ export default class Home extends Component {
           // plusIcons = {true}
           //     rightThreeIcons = {true}
           //     deleteRight={true}
-          //     navigation={this.props.navigation}
+          navigation={this.props.navigation}
         />
         <ScrollView>
           <View
             style={{
               width: "95%",
+              marginTop: 10,
               backgroundColor: "#ffffff",
               alignSelf: "center",
               borderRadius: 8,

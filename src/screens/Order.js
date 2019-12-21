@@ -63,7 +63,7 @@ export default class Order extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <GlobalHeader
+        {/* <GlobalHeader
           backgroundColor={"#ffffff"}
           //  leftArrow={true}
           //     HeadingText="Summary"
@@ -76,175 +76,197 @@ export default class Order extends Component {
           name="Abrix Woonaccessoires BV"
           rightThreeIcons={true}
           navigation={this.props.navigation}
+        /> */}
+
+        <GlobalHeader
+          backgroundColor={"#ffffff"}
+          //  leftArrow={true}
+          //     leftSetting={true}
+          //     OneHeadingEnable = {true}
+          //     HeadingText="Summary"
+          //     elevation={4}
+          // twoWords={1}
+          leftArrowSmall={true}
+          //     rightSearchAdd={false}
+          TwoHeadingEnable={true}
+          order="order"
+          name="Abrix Woonaccessoires BV"
+          // plusIcons = {true}
+          rightThreeIcons={true}
+          //     deleteRight={true}
+          navigation={this.props.navigation}
         />
 
-        <ScrollView
-          horizontal={true}
-          style={{ height: 0 }}
-          showsVerticalScrollIndicator={false}
-          // showsHorizontalScrollIndicator={false}
-        >
-          <View style={styles.main2}>
-            {/* ===Trending=== */}
+        <View style={{ height: 50 }}>
+          <ScrollView
+            horizontal={true}
+            style={{ height: 0 }}
+            showsVerticalScrollIndicator={false}
+            showsHorizontalScrollIndicator={false}
+          >
+            <View style={styles.main2}>
+              {/* ===Trending=== */}
 
-            <TouchableOpacity
-              style={{
-                borderBottomWidth: this.state.Trending ? 2 : 0,
-                borderBottomColor: this.state.Trending
-                  ? theme.blue
-                  : theme.grayDark,
-                justifyContent: "center",
-                alignItems: "center",
-                paddingHorizontal: 15
-              }}
-              onPress={() => {
-                this.setState({
-                  Trending: true,
-                  All: false,
-                  Category1: false,
-                  Category2: false,
-                  Category3: false
-                });
-              }}
-            >
-              <Text
+              <TouchableOpacity
                 style={{
-                  fontSize: 14,
-                  color: this.state.Trending ? FontColor.blue : "gray"
+                  borderBottomWidth: this.state.Trending ? 2 : 0,
+                  borderBottomColor: this.state.Trending
+                    ? theme.blue
+                    : theme.grayDark,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  paddingHorizontal: 15
+                }}
+                onPress={() => {
+                  this.setState({
+                    Trending: true,
+                    All: false,
+                    Category1: false,
+                    Category2: false,
+                    Category3: false
+                  });
                 }}
               >
-                Trending
-              </Text>
-            </TouchableOpacity>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    color: this.state.Trending ? FontColor.blue : "gray"
+                  }}
+                >
+                  Trending
+                </Text>
+              </TouchableOpacity>
 
-            {/* ===All=== */}
+              {/* ===All=== */}
 
-            <TouchableOpacity
-              style={{
-                borderBottomWidth: this.state.All ? 2 : 0,
-                borderBottomColor: this.state.All ? theme.blue : theme.grayDark,
-                justifyContent: "center",
-                alignItems: "center",
-                paddingHorizontal: 15
-              }}
-              onPress={() => {
-                this.setState({
-                  Trending: false,
-                  All: true,
-                  Category1: false,
-                  Category2: false,
-                  Category3: false
-                });
-              }}
-            >
-              <Text
+              <TouchableOpacity
                 style={{
-                  fontSize: 14,
-                  color: this.state.All ? FontColor.blue : "gray"
+                  borderBottomWidth: this.state.All ? 2 : 0,
+                  borderBottomColor: this.state.All
+                    ? theme.blue
+                    : theme.grayDark,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  paddingHorizontal: 15
+                }}
+                onPress={() => {
+                  this.setState({
+                    Trending: false,
+                    All: true,
+                    Category1: false,
+                    Category2: false,
+                    Category3: false
+                  });
                 }}
               >
-                All
-              </Text>
-            </TouchableOpacity>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    color: this.state.All ? FontColor.blue : "gray"
+                  }}
+                >
+                  All
+                </Text>
+              </TouchableOpacity>
 
-            {/* ===Category 1=== */}
+              {/* ===Category 1=== */}
 
-            <TouchableOpacity
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-                paddingHorizontal: 15,
-                borderBottomWidth: this.state.Category1 ? 2 : 0,
-                borderBottomColor: this.state.Category1
-                  ? theme.blue
-                  : theme.grayDark
-              }}
-              onPress={() => {
-                this.setState({
-                  Trending: false,
-                  All: false,
-                  Category1: true,
-                  Category2: false,
-                  Category3: false
-                });
-              }}
-            >
-              <Text
+              <TouchableOpacity
                 style={{
-                  fontSize: 14,
-                  color: this.state.Category1 ? FontColor.blue : "gray"
+                  justifyContent: "center",
+                  alignItems: "center",
+                  paddingHorizontal: 15,
+                  borderBottomWidth: this.state.Category1 ? 2 : 0,
+                  borderBottomColor: this.state.Category1
+                    ? theme.blue
+                    : theme.grayDark
+                }}
+                onPress={() => {
+                  this.setState({
+                    Trending: false,
+                    All: false,
+                    Category1: true,
+                    Category2: false,
+                    Category3: false
+                  });
                 }}
               >
-                Category 1
-              </Text>
-            </TouchableOpacity>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    color: this.state.Category1 ? FontColor.blue : "gray"
+                  }}
+                >
+                  Category 1
+                </Text>
+              </TouchableOpacity>
 
-            {/* ===Category 2=== */}
+              {/* ===Category 2=== */}
 
-            <TouchableOpacity
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-                paddingHorizontal: 15,
-                borderBottomWidth: this.state.Category2 ? 2 : 0,
-                borderBottomColor: this.state.Category2
-                  ? theme.blue
-                  : theme.grayDark
-              }}
-              onPress={() => {
-                this.setState({
-                  Trending: false,
-                  All: false,
-                  Category1: false,
-                  Category2: true,
-                  Category3: false
-                });
-              }}
-            >
-              <Text
+              <TouchableOpacity
                 style={{
-                  fontSize: 14,
-                  color: this.state.Category2 ? FontColor.blue : "gray"
+                  justifyContent: "center",
+                  alignItems: "center",
+                  paddingHorizontal: 15,
+                  borderBottomWidth: this.state.Category2 ? 2 : 0,
+                  borderBottomColor: this.state.Category2
+                    ? theme.blue
+                    : theme.grayDark
+                }}
+                onPress={() => {
+                  this.setState({
+                    Trending: false,
+                    All: false,
+                    Category1: false,
+                    Category2: true,
+                    Category3: false
+                  });
                 }}
               >
-                Category 2
-              </Text>
-            </TouchableOpacity>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    color: this.state.Category2 ? FontColor.blue : "gray"
+                  }}
+                >
+                  Category 2
+                </Text>
+              </TouchableOpacity>
 
-            {/* ===Category 3=== */}
+              {/* ===Category 3=== */}
 
-            <TouchableOpacity
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-                paddingHorizontal: 15,
-                borderBottomWidth: this.state.Category3 ? 2 : 0,
-                borderBottomColor: this.state.Category3
-                  ? theme.blue
-                  : theme.grayDark
-              }}
-              onPress={() => {
-                this.setState({
-                  Trending: false,
-                  All: false,
-                  Category1: false,
-                  Category2: false,
-                  Category3: true
-                });
-              }}
-            >
-              <Text
+              <TouchableOpacity
                 style={{
-                  fontSize: 14,
-                  color: this.state.Category3 ? FontColor.blue : "gray"
+                  justifyContent: "center",
+                  alignItems: "center",
+                  paddingHorizontal: 15,
+                  borderBottomWidth: this.state.Category3 ? 2 : 0,
+                  borderBottomColor: this.state.Category3
+                    ? theme.blue
+                    : theme.grayDark
+                }}
+                onPress={() => {
+                  this.setState({
+                    Trending: false,
+                    All: false,
+                    Category1: false,
+                    Category2: false,
+                    Category3: true
+                  });
                 }}
               >
-                Category 3
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
-
+                <Text
+                  style={{
+                    fontSize: 14,
+                    color: this.state.Category3 ? FontColor.blue : "gray"
+                  }}
+                >
+                  Category 3
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+        </View>
         <Modal visible={this.state.visible} transparent={false}>
           <View style={styles.zoomPic}>
             <TouchableOpacity
