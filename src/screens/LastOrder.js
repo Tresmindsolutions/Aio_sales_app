@@ -159,6 +159,9 @@ class LastOrder extends Component {
                             alignContent: "center",
                             justifyContent: "center"
                           }}
+                          onPress={() =>
+                            this.props.navigation.navigate("Invoice")
+                          }
                         >
                           <Text
                             style={{

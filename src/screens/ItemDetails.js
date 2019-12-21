@@ -234,7 +234,10 @@ export default class ItemDetails extends Component {
             </View>
           </View>
 
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity
+            style={styles.btn}
+            onPress={() => this.props.navigation.navigate("Order")}
+          >
             <Text style={styles.btnTxt}>Continue Ordering</Text>
           </TouchableOpacity>
         </ScrollView>

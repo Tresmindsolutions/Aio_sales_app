@@ -76,10 +76,10 @@ export default class ItemDetails extends Component {
         }
       ],
       visible: false,
-      selectedItem: null,
+      selectedItem: null
     };
   }
-  
+
   handleModal = selectedItem => {
     this.setState({ selectedItem, visible: true });
   };
@@ -173,7 +173,7 @@ export default class ItemDetails extends Component {
             </View>
           </View>
 
-          <View style={styles.heading}>
+          <View style={styles.heading1}>
             <Text style={styles.headingTxt}>Seleted Items</Text>
           </View>
 
@@ -602,9 +602,9 @@ export default class ItemDetails extends Component {
 
             {/* ===buttons=== */}
             <View style={[styles.row, { marginTop: 5 }]}>
-              <TouchableOpacity 
-               onPress={() => this.handleModal( )}
-               style={styles.btnCon}
+              <TouchableOpacity
+                onPress={() => this.handleModal()}
+                style={styles.btnCon}
               >
                 <Text style={{ color: FontColor.blue, fontSize: 16 }}>
                   Continue Ordering
@@ -618,7 +618,10 @@ export default class ItemDetails extends Component {
               </TouchableOpacity>
             </View>
 
-            <TouchableOpacity style={styles.btnBottom}>
+            <TouchableOpacity
+              style={styles.btnBottom}
+              // onPress={this.props.navigation.navigate("OrderSummary")}
+            >
               <Text style={{ fontSize: 16, color: FontColor.white }}>
                 Sales Order
               </Text>
@@ -626,7 +629,7 @@ export default class ItemDetails extends Component {
 
             <TouchableOpacity
               style={styles.btnBottom}
-              // onPress={this.props.navigation.navigate("Invoice")}
+              onPress={() => this.props.navigation.navigate("Invoice")}
             >
               <Text style={{ fontSize: 16, color: FontColor.white }}>
                 Invoice
@@ -636,57 +639,52 @@ export default class ItemDetails extends Component {
         </ScrollView>
 
         {/* ===== Popup Dialogue box ==== */}
- 
-            <Dialog
-              visible={this.state.visible}
-              onTouchOutside={() => {
-                this.setState({ visible: false });
-              }}
-            >
-              <DialogContent style={{ width: 300, height: 175 }}>
-                <View>
-                  <View style={styles.popopCallView}>
-                    <Text style={{ fontSize: 12, color: FontColor.white }}>
-                      Call
-                    </Text>
-                  </View>
-                  <View style={{ alignItems: "center", marginTop: 7 }}>
-                    <Text style={styles.heading}>Do you wish to call</Text>
-                    <Text style={styles.heading}> ?</Text>
-                  </View>
-                  <View style={styles.mainStyleBox}>
-                    <View style={styles.mainStyleBoxBlueBox}>
-                      <Text style={styles.numberHeading}>Mobile Number</Text>
-                      <Text style={styles.numberHeading2}>
-                        jj
-                      </Text>
-                    </View>
-                    <View style={styles.mainStyleBoxPhoneBox}>
-                      <Text style={styles.numberHeading}>Phone Number</Text>
-                      <Text style={styles.numberHeading2}>
-                         jhg
-                      </Text>
-                    </View>
-                  </View>
-                  <View style={styles.cancelCallButton}>
-                    <TouchableOpacity
-                      onPress={() => this.setState({ visible: false })}
-                      style={styles.cancelButton}
-                    >
-                      <Text style={{ fontSize: 12, color: FontColor.blue }}>
-                        Cancel
-                      </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.callButton}>
-                      <Text style={{ fontSize: 12, color: FontColor.white }}>
-                        Call
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
+
+        <Dialog
+          visible={this.state.visible}
+          onTouchOutside={() => {
+            this.setState({ visible: false });
+          }}
+        >
+          <DialogContent style={{ width: 300, height: 175 }}>
+            <View>
+              <View style={styles.popopCallView}>
+                <Text style={{ fontSize: 12, color: FontColor.white }}>
+                  Call
+                </Text>
+              </View>
+              <View style={{ alignItems: "center", marginTop: 7 }}>
+                <Text style={styles.heading}>Do you wish to call</Text>
+                <Text style={styles.heading}> ?</Text>
+              </View>
+              <View style={styles.mainStyleBox}>
+                <View style={styles.mainStyleBoxBlueBox}>
+                  <Text style={styles.numberHeading}>Mobile Number</Text>
+                  <Text style={styles.numberHeading2}>jj</Text>
                 </View>
-              </DialogContent>
-            </Dialog>
-      
+                <View style={styles.mainStyleBoxPhoneBox}>
+                  <Text style={styles.numberHeading}>Phone Number</Text>
+                  <Text style={styles.numberHeading2}>jhg</Text>
+                </View>
+              </View>
+              <View style={styles.cancelCallButton}>
+                <TouchableOpacity
+                  onPress={() => this.setState({ visible: false })}
+                  style={styles.cancelButton}
+                >
+                  <Text style={{ fontSize: 12, color: FontColor.blue }}>
+                    Cancel
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.callButton}>
+                  <Text style={{ fontSize: 12, color: FontColor.white }}>
+                    Call
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </DialogContent>
+        </Dialog>
       </View>
     );
   }
@@ -720,7 +718,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     flexDirection: "row"
   },
-  heading: {
+  heading1: {
     justifyContent: "center",
     alignItems: "center",
     marginTop: 8,
@@ -962,5 +960,5 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5
-  },
+  }
 });

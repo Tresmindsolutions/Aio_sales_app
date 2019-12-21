@@ -37,8 +37,8 @@ class ReceivePayment extends Component {
           backgroundColor={"transparent"}
           //    leftArrow={true}
           //     leftSetting={true}
-          OneHeadingEnable={true}
-          twoWords={2}
+          //   OneHeadingEnable={true}
+          //   twoWords={2}
           //    HeadingText="Receive Payment"
           //     elevation={4}
           leftArrowSmall={true}
@@ -125,7 +125,10 @@ class ReceivePayment extends Component {
             Receive Payment in
           </Text>
           <View style={{ margin: 5, marginBottom: 10, width: "94%" }}>
-            <TouchableOpacity style={styles.buttonRight}>
+            <TouchableOpacity
+              style={styles.buttonRight}
+              onPress={() => this.props.navigation.navigate("Receivepayment4")}
+            >
               <Text
                 style={{
                   color: "#ffffff",
@@ -138,7 +141,10 @@ class ReceivePayment extends Component {
             </TouchableOpacity>
           </View>
           <View style={{ margin: 5, marginBottom: 25, width: "94%" }}>
-            <TouchableOpacity style={styles.buttonRight}>
+            <TouchableOpacity
+              style={styles.buttonRight}
+              onPress={() => this.props.navigation.navigate("Receivepayment2")}
+            >
               <Text
                 style={{
                   color: "#ffffff",

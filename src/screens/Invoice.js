@@ -13,7 +13,7 @@ import {
 
 import GlobalHeader from "../components/GlobalHeader";
 import { theme, FontColor, Shadow } from "../components/constant/theme";
-import BottomSlideViewShare from "../components/order/BottomSlideViewShare"
+import BottomSlideViewShare from "../components/order/BottomSlideViewShare";
 
 export default class Invoice extends Component {
   constructor(props) {
@@ -45,7 +45,7 @@ export default class Invoice extends Component {
           amount: "1150"
         }
       ],
-      OpenView2: false,
+      OpenView2: false
     };
   }
 
@@ -53,7 +53,6 @@ export default class Invoice extends Component {
     this.setState({
       OpenView2: true
     });
-    
   };
   close2 = () => {
     this.setState({
@@ -294,7 +293,7 @@ export default class Invoice extends Component {
             <View style={[styles.line, { marginBottom: 5 }]} />
             {/* Buttons */}
             <View style={styles.btnRow}>
-              <TouchableOpacity 
+              <TouchableOpacity
                 onPress={() => {
                   this.openRbSheet2();
                 }}
@@ -310,11 +309,14 @@ export default class Invoice extends Component {
 
             <View style={styles.btnRow}>
               <TouchableOpacity style={styles.btn}>
-                <Text style={styles.btnTxt}>Share Invoice</Text>
+                <Text style={styles.btnTxt}>Edit Invoice</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.btn}>
-                <Text style={styles.btnTxt}>Print Invoice</Text>
+              <TouchableOpacity
+                style={styles.btn}
+                onPress={() => this.props.navigation.navigate("ReceivePayment")}
+              >
+                <Text style={styles.btnTxt}>Receive Payment</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -324,7 +326,6 @@ export default class Invoice extends Component {
         {this.state.OpenView2 ? (
           <BottomSlideViewShare close={() => this.close2()} />
         ) : null}
-
       </View>
     );
   }

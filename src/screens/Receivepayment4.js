@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import { FontColor, theme } from "../components/constant/theme";
 import GlobalHeader from "../components/GlobalHeader";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default class Receivepayment4 extends Component {
   render() {
@@ -64,13 +65,31 @@ export default class Receivepayment4 extends Component {
             </View>
           </View>
         </View>
+        <TouchableOpacity
+          style={{
+            marginTop: 60,
+            height: 32,
+            borderRadius: 8,
+            width: "90%",
+            alignSelf: "center",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: theme.blue
+          }}
+          onPress={() => this.props.navigation.navigate("ReceivePayment3")}
+        >
+          <Text style={{ fontSize: 15, color: FontColor.white }}>
+            Mark as Received
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }
 }
 const style = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: theme.white
   },
   amountReceivedText: {
     fontSize: 11,

@@ -108,7 +108,10 @@ export default class Openbalances extends Component {
             </View>
           </View>
         </View>
-        <TouchableOpacity style={style.recievedButton}>
+        <TouchableOpacity
+          style={style.recievedButton}
+          onPress={() => this.props.navigation.navigate("ReceivePayment")}
+        >
           <Text style={style.recievedButtonText}>Receive Payment</Text>
         </TouchableOpacity>
       </View>

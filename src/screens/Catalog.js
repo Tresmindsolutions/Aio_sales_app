@@ -125,7 +125,8 @@ class Catalog extends Component {
           TwoHeadingEnable={true}
           order="order"
           name="Abrix Woonaccessoires BV"
-          rightThreeIcons={true}
+          // rightThreeIcons={true}
+          rightThreeIconsCatalog={true}
           //     deleteRight={true}
           navigation={this.props.navigation}
         />

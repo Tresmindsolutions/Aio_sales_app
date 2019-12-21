@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity
+} from "react-native";
 import { FontColor, theme } from "../components/constant/theme";
 import GlobalHeader from "../components/GlobalHeader";
 
@@ -46,6 +52,23 @@ export default class Receivepayment2 extends Component {
             </View>
           </View>
         </View>
+        <TouchableOpacity
+          style={{
+            marginTop: 60,
+            height: 32,
+            borderRadius: 8,
+            width: "90%",
+            alignSelf: "center",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: theme.blue
+          }}
+          onPress={() => this.props.navigation.navigate("ReceivePayment3")}
+        >
+          <Text style={{ fontSize: 15, color: FontColor.white }}>
+            Mark as Received
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }

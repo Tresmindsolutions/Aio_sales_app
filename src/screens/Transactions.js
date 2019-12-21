@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity
+} from "react-native";
 import GlobalHeader from "../components/GlobalHeader";
 import { FontColor, theme } from "../components/constant/theme";
 
@@ -13,7 +19,7 @@ export default class Transactions extends Component {
             //   leftArrow={true}
             //     leftSetting={true}
             OneHeadingEnable={true}
-            twoWords={2}
+            twoWords={1}
             HeadingText="Transactions"
             //     elevation={4}
             leftArrowSmall={true}
@@ -30,7 +36,10 @@ export default class Transactions extends Component {
               <View style={{ alignItems: "center" }}>
                 <Text style={style.date}>17/9/19</Text>
               </View>
-              <View style={style.TransactionBox}>
+              <TouchableOpacity
+                style={style.TransactionBox}
+                onPress={() => this.props.navigation.navigate("Invoice")}
+              >
                 <View style={style.TransactionBoxFirstRow}>
                   <Text style={style.TransactionsType}>
                     Abrix Woonaccessoires BV
@@ -43,8 +52,11 @@ export default class Transactions extends Component {
                   </Text>
                   <Text style={style.priceGreenColor}>+$51,845</Text>
                 </View>
-              </View>
-              <View style={style.TransactionBox}>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={style.TransactionBox}
+                onPress={() => this.props.navigation.navigate("Invoice")}
+              >
                 <View style={style.TransactionBoxFirstRow}>
                   <Text style={style.TransactionsType}>
                     Alexander Men's Wear
@@ -57,13 +69,16 @@ export default class Transactions extends Component {
                   </Text>
                   <Text style={style.priceGreenColor}>+$7500</Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             </View>
             <View style={{ paddingBottom: 10 }}>
               <View style={{ alignItems: "center" }}>
                 <Text style={style.date}>20/9/19</Text>
               </View>
-              <View style={style.TransactionBox}>
+              <TouchableOpacity
+                style={style.TransactionBox}
+                onPress={() => this.props.navigation.navigate("Invoice")}
+              >
                 <View style={style.TransactionBoxFirstRow}>
                   <Text style={style.TransactionsType}>
                     Abrix Woonaccessoires BV
@@ -76,8 +91,11 @@ export default class Transactions extends Component {
                   </Text>
                   <Text style={style.priceRedColor}>+$51,845</Text>
                 </View>
-              </View>
-              <View style={style.TransactionBox}>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={style.TransactionBox}
+                onPress={() => this.props.navigation.navigate("Invoice")}
+              >
                 <View style={style.TransactionBoxFirstRow}>
                   <Text style={style.TransactionsType}>
                     Alexander Men's Wear
@@ -90,13 +108,16 @@ export default class Transactions extends Component {
                   </Text>
                   <Text style={style.priceGreenColor}>+$7500</Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             </View>
             <View style={{ paddingBottom: 10 }}>
               <View style={{ alignItems: "center" }}>
                 <Text style={style.date}>20/9/19</Text>
               </View>
-              <View style={style.TransactionBox}>
+              <TouchableOpacity
+                style={style.TransactionBox}
+                onPress={() => this.props.navigation.navigate("Invoice")}
+              >
                 <View style={style.TransactionBoxFirstRow}>
                   <Text style={style.TransactionsType}>
                     Abrix Woonaccessoires BV
@@ -109,8 +130,11 @@ export default class Transactions extends Component {
                   </Text>
                   <Text style={style.priceRedColor}>+$51,845</Text>
                 </View>
-              </View>
-              <View style={style.TransactionBox}>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={style.TransactionBox}
+                onPress={() => this.props.navigation.navigate("Invoice")}
+              >
                 <View style={style.TransactionBoxFirstRow}>
                   <Text style={style.TransactionsType}>
                     Alexander Men's Wear
@@ -123,13 +147,16 @@ export default class Transactions extends Component {
                   </Text>
                   <Text style={style.priceRedColor}>+$7500</Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             </View>
             <View style={{ paddingBottom: 10 }}>
               <View style={{ alignItems: "center" }}>
                 <Text style={style.date}>20/9/19</Text>
               </View>
-              <View style={style.TransactionBox}>
+              <TouchableOpacity
+                style={style.TransactionBox}
+                onPress={() => this.props.navigation.navigate("Invoice")}
+              >
                 <View style={style.TransactionBoxFirstRow}>
                   <Text style={style.TransactionsType}>
                     Abrix Woonaccessoires BV
@@ -142,8 +169,11 @@ export default class Transactions extends Component {
                   </Text>
                   <Text style={style.priceGreenColor}>+$51,845</Text>
                 </View>
-              </View>
-              <View style={style.TransactionBox}>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={style.TransactionBox}
+                onPress={() => this.props.navigation.navigate("Invoice")}
+              >
                 <View style={style.TransactionBoxFirstRow}>
                   <Text style={style.TransactionsType}>
                     Alexander Men's Wear
@@ -156,13 +186,16 @@ export default class Transactions extends Component {
                   </Text>
                   <Text style={style.priceGreenColor}>+$7500</Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             </View>
             <View style={{ paddingBottom: 10 }}>
               <View style={{ alignItems: "center" }}>
                 <Text style={style.date}>20/9/19</Text>
               </View>
-              <View style={style.TransactionBox}>
+              <TouchableOpacity
+                style={style.TransactionBox}
+                onPress={() => this.props.navigation.navigate("Invoice")}
+              >
                 <View style={style.TransactionBoxFirstRow}>
                   <Text style={style.TransactionsType}>
                     Abrix Woonaccessoires BV
@@ -175,8 +208,11 @@ export default class Transactions extends Component {
                   </Text>
                   <Text style={style.priceRedColor}>+$51,845</Text>
                 </View>
-              </View>
-              <View style={style.TransactionBox}>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={style.TransactionBox}
+                onPress={() => this.props.navigation.navigate("Invoice")}
+              >
                 <View style={style.TransactionBoxFirstRow}>
                   <Text style={style.TransactionsType}>
                     Alexander Men's Wear
@@ -189,13 +225,16 @@ export default class Transactions extends Component {
                   </Text>
                   <Text style={style.priceGreenColor}>+$7500</Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             </View>
             <View style={{ paddingBottom: 10 }}>
               <View style={{ alignItems: "center" }}>
                 <Text style={style.date}>20/9/19</Text>
               </View>
-              <View style={style.TransactionBox}>
+              <TouchableOpacity
+                style={style.TransactionBox}
+                onPress={() => this.props.navigation.navigate("Invoice")}
+              >
                 <View style={style.TransactionBoxFirstRow}>
                   <Text style={style.TransactionsType}>
                     Abrix Woonaccessoires BV
@@ -208,8 +247,11 @@ export default class Transactions extends Component {
                   </Text>
                   <Text style={style.priceRedColor}>+$51,845</Text>
                 </View>
-              </View>
-              <View style={style.TransactionBox}>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={style.TransactionBox}
+                onPress={() => this.props.navigation.navigate("Invoice")}
+              >
                 <View style={style.TransactionBoxFirstRow}>
                   <Text style={style.TransactionsType}>
                     Alexander Men's Wear
@@ -222,7 +264,7 @@ export default class Transactions extends Component {
                   </Text>
                   <Text style={style.priceRedColor}>+$7500</Text>
                 </View>
-              </View>
+              </TouchableOpacity>
             </View>
           </View>
         </ScrollView>

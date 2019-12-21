@@ -13,7 +13,7 @@ import {
 import GlobalHeader from "../components/GlobalHeader";
 // import RBSheet from "react-native-raw-bottom-sheet";
 import BottomSlideView1 from "../components/order/BottomSlideView";
-import BottomSlideViewShare from "../components/order/BottomSlideViewShare" 
+import BottomSlideViewShare from "../components/order/BottomSlideViewShare";
 import { Content } from "native-base";
 import Dialog, { DialogContent } from "react-native-popup-dialog";
 import { theme, FontColor } from "../components/constant/theme";
@@ -48,7 +48,7 @@ class OpenBalances extends Component {
       ],
       selectedItem: null,
       open: false,
-      OpenView2: false,
+      OpenView2: false
     };
   }
 
@@ -70,7 +70,6 @@ class OpenBalances extends Component {
     this.setState({
       OpenView2: true
     });
-    
   };
   close2 = () => {
     this.setState({
@@ -105,7 +104,12 @@ class OpenBalances extends Component {
           this.state.contentToMap.map((item, index) => {
             return (
               <View style={{ width: "100%" }}>
-                <View style={styles.CardView1}>
+                <TouchableOpacity
+                  style={styles.CardView1}
+                  onPress={() =>
+                    this.props.navigation.navigate("Openbalances2")
+                  }
+                >
                   <View style={styles.abView}>
                     <Text style={{ color: "#ffffff", fontSize: 20 }}>AB</Text>
                   </View>
@@ -145,11 +149,12 @@ class OpenBalances extends Component {
                       }}
                     >
                       <View style={{ margin: 5, flexDirection: "row" }}>
-                        <TouchableOpacity 
-                         onPress={() => {
-                          this.openRbSheet2();
-                         }}
-                        style={{ justifyContent: "center" }}>
+                        <TouchableOpacity
+                          onPress={() => {
+                            this.openRbSheet2();
+                          }}
+                          style={{ justifyContent: "center" }}
+                        >
                           <Image
                             source={require("../../assets/icons/shareicon.png")}
                             resizeMode={"contain"}
@@ -177,7 +182,7 @@ class OpenBalances extends Component {
                       </View>
                     </View>
                   </View>
-                </View>
+                </TouchableOpacity>
               </View>
             );
           })}
@@ -238,8 +243,8 @@ class OpenBalances extends Component {
         {this.state.OpenView2 ? (
           <BottomSlideViewShare close={() => this.close2()} />
         ) : null}
-        
-         {/* ==== Bottom SLide View On Recieve Button ==== */}
+
+        {/* ==== Bottom SLide View On Recieve Button ==== */}
         {this.state.open ? (
           <BottomSlideView1 close={() => this.close()} />
         ) : null}

@@ -34,7 +34,10 @@ export default class Product extends Component {
           />
           <View style={styles.mainBox}>
             <View style={styles.mainBoxInner}>
-              <TouchableOpacity style={styles.itemBox}>
+              <TouchableOpacity
+                style={styles.itemBox}
+                onPress={() => this.props.navigation.navigate("CreateProduct")}
+              >
                 <View style={styles.itemBoxImage}>
                   <Image
                     source={require("../../assets/icons/Rectangle442.png")}
@@ -56,7 +59,10 @@ export default class Product extends Component {
                   </View>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.itemBox}>
+              <TouchableOpacity
+                style={styles.itemBox}
+                onPress={() => this.props.navigation.navigate("CreateProduct")}
+              >
                 <View style={styles.itemBoxImage}>
                   <Image
                     source={require("../../assets/icons/Rectangle-10.png")}
@@ -84,7 +90,10 @@ export default class Product extends Component {
                 marginTop: 10
               }}
             >
-              <TouchableOpacity style={styles.itemBox}>
+              <TouchableOpacity
+                style={styles.itemBox}
+                onPress={() => this.props.navigation.navigate("CreateProduct")}
+              >
                 <View style={styles.itemBoxImage}>
                   <Image
                     source={require("../../assets/icons/Rectangle300.png")}
@@ -104,7 +113,10 @@ export default class Product extends Component {
                   </View>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.itemBox}>
+              <TouchableOpacity
+                style={styles.itemBox}
+                onPress={() => this.props.navigation.navigate("CreateProduct")}
+              >
                 <View style={styles.itemBoxImage}>
                   <Image
                     source={require("../../assets/icons/Rectangle-12.png")}
@@ -132,7 +144,10 @@ export default class Product extends Component {
                 marginTop: 10
               }}
             >
-              <TouchableOpacity style={styles.itemBox}>
+              <TouchableOpacity
+                style={styles.itemBox}
+                onPress={() => this.props.navigation.navigate("CreateProduct")}
+              >
                 <View style={styles.itemBoxImage}>
                   <Image
                     source={require("../../assets/icons/Rectangle126.png")}

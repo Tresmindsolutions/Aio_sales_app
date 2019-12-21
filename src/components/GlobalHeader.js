@@ -55,7 +55,12 @@ export default class GlobalHeader extends Component {
         >
           {this.props.leftArrow == true ? (
             <TouchableOpacity
-              style={{}}
+              style={{
+                width: 40,
+                height: 60,
+                // alignItems: "center",
+                justifyContent: "center"
+              }}
               onPress={() => this.props.navigation.goBack()}
             >
               <FontAwesome5
@@ -77,7 +82,16 @@ export default class GlobalHeader extends Component {
               />
             </TouchableOpacity>
           ) : this.props.leftArrowSmall == true ? (
-            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+            <TouchableOpacity
+              style={{
+                width: 40,
+                // borderWidth: 1,
+                height: 60,
+                // alignItems: "center",
+                justifyContent: "center"
+              }}
+              onPress={() => this.props.navigation.goBack()}
+            >
               <FontAwesome5
                 name="chevron-left"
                 style={{
@@ -95,7 +109,7 @@ export default class GlobalHeader extends Component {
           style={
             this.props.twoWords === 1
               ? {
-                  flex: 1.4,
+                  flex: 1.7,
                   justifyContent: "center",
                   // borderWidth: 1,
 
@@ -211,7 +225,10 @@ export default class GlobalHeader extends Component {
                   color={FontColor.grayDark}
                 />
               </TouchableOpacity>
-              <TouchableOpacity style={{ borderWidth: 0 }}>
+              <TouchableOpacity
+                style={{ borderWidth: 0 }}
+                onPress={() => this.props.navigation.navigate("OrderSummary")}
+              >
                 <MaterialIcons
                   name="shopping-cart"
                   size={32}
@@ -233,6 +250,52 @@ export default class GlobalHeader extends Component {
                     4
                   </Text>
                 </View>
+              </TouchableOpacity>
+            </View>
+          ) : this.props.rightThreeIconsCatalog == true ? (
+            <View style={{ flexDirection: "row" }}>
+              <TouchableOpacity
+                style={{ borderWidth: 0, marginRight: 10, marginTop: 5 }}
+                // onPress={() => this.props.navigation.navigate("LookBook")}
+              >
+                <FontAwesome5
+                  name="share-alt"
+                  size={20}
+                  color={FontColor.grayDark}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity style={{ borderWidth: 0, marginRight: 5 }}>
+                <MaterialIcons
+                  name="add"
+                  size={32}
+                  color={FontColor.grayDark}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{ borderWidth: 0 }}
+                // onPress={() => this.props.navigation.navigate("OrderSummary")}
+              >
+                <MaterialIcons
+                  name="search"
+                  size={30}
+                  color={FontColor.grayDark}
+                />
+                {/* <View
+                  style={{
+                    height: 15,
+                    width: 15,
+                    backgroundColor: FontColor.blue,
+                    borderRadius: 10,
+                    left: 10,
+                    position: "absolute",
+                    justifyContent: "center",
+                    alignItems: "center"
+                  }}
+                >
+                  <Text style={{ color: FontColor.white, fontSize: 12 }}>
+                    4
+                  </Text>
+                </View> */}
               </TouchableOpacity>
             </View>
           ) : this.props.deleteRight == true ? (
