@@ -16,6 +16,7 @@ import SignatureCapture from "react-native-signature-capture";
 import GlobalHeader from "../components/GlobalHeader";
 import { Textarea } from "native-base";
 import { theme, FontColor, Shadow } from "../components/constant/theme";
+import Dialog, { DialogContent } from "react-native-popup-dialog";
 import Swipeout from "react-native-swipeout";
 export default class ItemDetails extends Component {
   constructor(props) {
@@ -63,9 +64,24 @@ export default class ItemDetails extends Component {
           discount: "50",
           total: "50000"
         }
-      ]
+      ],
+      contentToMap: [
+        {
+          Name: "Zain Hasan",
+          Address: "DHA, Badar Comm Area, street 5, 19E",
+          Price: "209,897",
+          mobileNumber: "03333987654",
+          phoneNumber: "00421544"
+        }
+      ],
+      visible: false,
+      selectedItem: null,
     };
   }
+  
+  handleModal = selectedItem => {
+    this.setState({ selectedItem, visible: true });
+  };
 
   _onSaveEvent = result => {
     result.encoded;
@@ -332,7 +348,6 @@ export default class ItemDetails extends Component {
               <TouchableOpacity
                 style={{
                   width: "45%",
-
                   height: 35,
                   borderRadius: 8,
                   justifyContent: "center",
@@ -552,7 +567,10 @@ export default class ItemDetails extends Component {
 
             {/* ===buttons=== */}
             <View style={[styles.row, { marginTop: 5 }]}>
-              <TouchableOpacity style={styles.btnCon}>
+              <TouchableOpacity 
+               onPress={() => this.handleModal( )}
+               style={styles.btnCon}
+              >
                 <Text style={{ color: FontColor.blue, fontSize: 16 }}>
                   Continue Ordering
                 </Text>
@@ -578,6 +596,59 @@ export default class ItemDetails extends Component {
             </TouchableOpacity>
           </View>
         </ScrollView>
+
+        {/* ===== Popup Dialogue box ==== */}
+ 
+            <Dialog
+              visible={this.state.visible}
+              onTouchOutside={() => {
+                this.setState({ visible: false });
+              }}
+            >
+              <DialogContent style={{ width: 300, height: 175 }}>
+                <View>
+                  <View style={styles.popopCallView}>
+                    <Text style={{ fontSize: 12, color: FontColor.white }}>
+                      Call
+                    </Text>
+                  </View>
+                  <View style={{ alignItems: "center", marginTop: 7 }}>
+                    <Text style={styles.heading}>Do you wish to call</Text>
+                    <Text style={styles.heading}> ?</Text>
+                  </View>
+                  <View style={styles.mainStyleBox}>
+                    <View style={styles.mainStyleBoxBlueBox}>
+                      <Text style={styles.numberHeading}>Mobile Number</Text>
+                      <Text style={styles.numberHeading2}>
+                        jj
+                      </Text>
+                    </View>
+                    <View style={styles.mainStyleBoxPhoneBox}>
+                      <Text style={styles.numberHeading}>Phone Number</Text>
+                      <Text style={styles.numberHeading2}>
+                         jhg
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.cancelCallButton}>
+                    <TouchableOpacity
+                      onPress={() => this.setState({ visible: false })}
+                      style={styles.cancelButton}
+                    >
+                      <Text style={{ fontSize: 12, color: FontColor.blue }}>
+                        Cancel
+                      </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.callButton}>
+                      <Text style={{ fontSize: 12, color: FontColor.white }}>
+                        Call
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </DialogContent>
+            </Dialog>
+      
       </View>
     );
   }
@@ -598,7 +669,6 @@ export default class ItemDetails extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     backgroundColor: "#ffffff"
   },
   main: {
@@ -737,5 +807,122 @@ const styles = StyleSheet.create({
     flex: 1,
     borderColor: "#000033",
     borderWidth: 1
-  }
+  },
+
+  // ====== Popup style =======
+  abView: {
+    backgroundColor: "#F1F1F1",
+    width: "15%",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  priceText: {
+    fontWeight: "bold",
+    textAlign: "right",
+    color: "red"
+  },
+  shareIcon: {
+    width: 20,
+    height: 23,
+    marginRight: 1,
+    borderRadius: 3,
+    alignSelf: "center",
+    marginBottom: 8
+  },
+  receiveView: {
+    margin: 5,
+    marginRight: 2,
+    marginBottom: 10
+  },
+  receiveViewText: {
+    color: "#ffffff",
+    textAlign: "center",
+    fontSize: 12
+  },
+  callView: {
+    margin: 5,
+    marginRight: 8,
+    marginBottom: 10
+  },
+  callViewText: {
+    color: "#148BFF",
+    textAlign: "center",
+    fontSize: 12
+  },
+  popopCallView: {
+    backgroundColor: theme.blue,
+    marginHorizontal: -20,
+    paddingVertical: 5,
+    alignItems: "center"
+  },
+  heading: {
+    fontSize: 15,
+    color: FontColor.black
+  },
+  mainStyleBox: {
+    flexDirection: "row",
+    backgroundColor: "#F1F1F1",
+    marginTop: 5,
+    paddingVertical: 10,
+    marginHorizontal: -20,
+    justifyContent: "space-around"
+  },
+  mainStyleBoxBlueBox: {
+    backgroundColor: "#e1edf9",
+    alignItems: "center",
+    paddingVertical: 5,
+    paddingHorizontal: 12,
+    borderRadius: 5
+  },
+  mainStyleBoxPhoneBox: {
+    paddingVertical: 5,
+    alignItems: "center",
+    paddingHorizontal: 12
+  },
+  numberHeading: {
+    fontSize: 9,
+    color: FontColor.middleGray
+  },
+  numberHeading2: {
+    fontSize: 13,
+    color: FontColor.blue
+  },
+  cancelCallButton: {
+    marginHorizontal: -20,
+    flexDirection: "row",
+    width: "90%",
+    alignSelf: "center",
+    justifyContent: "space-between",
+    marginTop: 10
+  },
+  cancelButton: {
+    backgroundColor: theme.white,
+    borderRadius: 14,
+    paddingVertical: 5,
+    alignItems: "center",
+    width: 90,
+    shadowColor: "#00000029",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+  callButton: {
+    backgroundColor: theme.blue,
+    borderRadius: 14,
+    paddingVertical: 5,
+    alignItems: "center",
+    width: 90,
+    shadowColor: "#00000029",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
 });

@@ -13,6 +13,7 @@ import {
 import GlobalHeader from "../components/GlobalHeader";
 // import RBSheet from "react-native-raw-bottom-sheet";
 import BottomSlideView1 from "../components/order/BottomSlideView";
+import BottomSlideViewShare from "../components/order/BottomSlideViewShare" 
 import { Content } from "native-base";
 import Dialog, { DialogContent } from "react-native-popup-dialog";
 import { theme, FontColor } from "../components/constant/theme";
@@ -46,7 +47,8 @@ class OpenBalances extends Component {
         }
       ],
       selectedItem: null,
-      open: false
+      open: false,
+      OpenView2: false,
     };
   }
 
@@ -62,6 +64,17 @@ class OpenBalances extends Component {
   close = () => {
     this.setState({
       open: false
+    });
+  };
+  openRbSheet2 = () => {
+    this.setState({
+      OpenView2: true
+    });
+    
+  };
+  close2 = () => {
+    this.setState({
+      OpenView2: false
     });
   };
 
@@ -132,7 +145,11 @@ class OpenBalances extends Component {
                       }}
                     >
                       <View style={{ margin: 5, flexDirection: "row" }}>
-                        <TouchableOpacity style={{ justifyContent: "center" }}>
+                        <TouchableOpacity 
+                         onPress={() => {
+                          this.openRbSheet2();
+                         }}
+                        style={{ justifyContent: "center" }}>
                           <Image
                             source={require("../../assets/icons/shareicon.png")}
                             resizeMode={"contain"}
@@ -217,23 +234,15 @@ class OpenBalances extends Component {
           )}
         </Content>
 
-        {/* <RBSheet
-          ref={ref => {
-            this.RBSheet = ref;
-          }}
-          height={320}
-          duration={250}
-          customStyles={{
-            container: {
-              justifyContent: "center",
-              alignItems: "center"
-            }
-          }}
-        > */}
+        {/* ==== Bottom Slide View on Share icon button ==== */}
+        {this.state.OpenView2 ? (
+          <BottomSlideViewShare close={() => this.close2()} />
+        ) : null}
+        
+         {/* ==== Bottom SLide View On Recieve Button ==== */}
         {this.state.open ? (
           <BottomSlideView1 close={() => this.close()} />
         ) : null}
-        {/* </RBSheet> */}
       </View>
     );
   }

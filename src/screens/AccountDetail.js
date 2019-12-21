@@ -10,9 +10,10 @@ import {
   Button
 } from "react-native";
 // import { Dropdown } from 'react-native-material-dropdown';
-import RNPickerSelect from 'react-native-picker-select';
-import AntDesign from 'react-native-vector-icons/AntDesign'
+// import RNPickerSelect from 'react-native-picker-select';
+// import AntDesign from 'react-native-vector-icons/AntDesign'
 // import DatePicker from 'react-native-datepicker'
+import BottomSlideViewShare from "../components/order/BottomSlideViewShare"
 import { Content } from "native-base";
 import GlobalHeader from "../components/GlobalHeader"
 
@@ -44,9 +45,22 @@ class AccountDetails extends Component {
             ImgSource:require("../../assets/Images/MaskGroup-2.png")
 
         }
-    ]
+    ],
+    OpenView2: false,
     };
   }
+
+  openRbSheet2 = () => {
+    this.setState({
+      OpenView2: true
+    });
+    
+  };
+  close2 = () => {
+    this.setState({
+      OpenView2: false
+    });
+  };
 
   render() {
     let data = [{
@@ -384,6 +398,9 @@ class AccountDetails extends Component {
             </View> 
             <View style={{ marginRight:7, marginLeft:7, marginBottom:10 }}>
               <TouchableOpacity 
+                onPress={() => {
+                  this.openRbSheet2();
+                }}
                 style={styles.bottomButtons} >
                 <Text
                   style={{ 
@@ -442,6 +459,12 @@ class AccountDetails extends Component {
             </View>
           </View>
         </Content>
+
+        {/* ==== Bottom Slide View on Share icon button ==== */}
+        {this.state.OpenView2 ? (
+          <BottomSlideViewShare close={() => this.close2()} />
+        ) : null}
+
       </View>
     );
   }

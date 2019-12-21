@@ -13,12 +13,8 @@ import {
 
 import GlobalHeader from "../components/GlobalHeader";
 import { theme, FontColor, Shadow } from "../components/constant/theme";
+import BottomSlideViewShare from "../components/order/BottomSlideViewShare"
 
-//import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-
-//import { Content } from "native-base";
-
-//import { theme, FontColor } from "../components/constant/theme";
 export default class Invoice extends Component {
   constructor(props) {
     super(props);
@@ -48,9 +44,23 @@ export default class Invoice extends Component {
           quality: "225",
           amount: "1150"
         }
-      ]
+      ],
+      OpenView2: false,
     };
   }
+
+  openRbSheet2 = () => {
+    this.setState({
+      OpenView2: true
+    });
+    
+  };
+  close2 = () => {
+    this.setState({
+      OpenView2: false
+    });
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -284,7 +294,12 @@ export default class Invoice extends Component {
             <View style={[styles.line, { marginBottom: 5 }]} />
             {/* Buttons */}
             <View style={styles.btnRow}>
-              <TouchableOpacity style={styles.btn}>
+              <TouchableOpacity 
+                onPress={() => {
+                  this.openRbSheet2();
+                }}
+                style={styles.btn}
+              >
                 <Text style={styles.btnTxt}>Share Invoice</Text>
               </TouchableOpacity>
 
@@ -304,6 +319,12 @@ export default class Invoice extends Component {
             </View>
           </View>
         </ScrollView>
+
+        {/* ==== Bottom Slide View on Share icon button ==== */}
+        {this.state.OpenView2 ? (
+          <BottomSlideViewShare close={() => this.close2()} />
+        ) : null}
+
       </View>
     );
   }

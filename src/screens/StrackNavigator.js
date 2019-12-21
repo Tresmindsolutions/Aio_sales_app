@@ -197,7 +197,7 @@ const AppNavigator = createStackNavigator(
   },
 
   {
-    initialRouteName: "OpenBalances"
+    initialRouteName: "OrderSummary"
   }
 );
 
