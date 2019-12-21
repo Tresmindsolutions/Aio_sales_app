@@ -8,6 +8,7 @@ import {
   ImageBackground,
   Image,
   TextInput,
+  Linking,
   Button
 } from "react-native";
 import GlobalHeader from "../components/GlobalHeader";
@@ -19,6 +20,17 @@ import Dialog, { DialogContent } from "react-native-popup-dialog";
 import { theme, FontColor } from "../components/constant/theme";
 
 class OpenBalances extends Component {
+  dialCall = () => {
+    let phoneNumber = "";
+
+    if (Platform.OS === "android") {
+      phoneNumber = "tel:${1234567890}";
+    } else {
+      phoneNumber = "telprompt:${1234567890}";
+    }
+
+    Linking.openURL(phoneNumber);
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -227,7 +239,10 @@ class OpenBalances extends Component {
                         Cancel
                       </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.callButton}>
+                    <TouchableOpacity
+                      style={styles.callButton}
+                      onPress={this.dialCall}
+                    >
                       <Text style={{ fontSize: 12, color: FontColor.white }}>
                         Call
                       </Text>
