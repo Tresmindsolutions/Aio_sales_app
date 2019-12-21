@@ -14,7 +14,6 @@ import RBSheet from "react-native-raw-bottom-sheet";
 import { Content } from "native-base";
 
 
-
 class BottomSlideView extends Component {
     constructor(props){
         super(props)
@@ -41,6 +40,8 @@ class BottomSlideView extends Component {
           }}
           height={320}
           duration={250}
+          animationType="fade"
+          onClose={() => this.props.close()}
           customStyles={{
             container: {
               justifyContent: "center",
@@ -51,7 +52,7 @@ class BottomSlideView extends Component {
             <View style={{ width:"96%", height:"96%" }}>
                 <View style={{ margin:10, alignItems:"flex-end", flexDirection:"row", borderBottomColor:"#BBBBBB",borderWidth:1,borderColor:"#ffffff" }}>
                     <View style={{width:"80%",paddingVertical:1,paddingLeft:"20%",paddingBottom:10 }}>
-                        <Text style={{ alignSelf:"center",textAlign:"center", color:"#BBBBBB", fontSize:15 }}>
+                        <Text style={styles.textStyle1}>
                             Category
                         </Text>
                     </View>
@@ -105,7 +106,7 @@ class BottomSlideView extends Component {
                     </View>
                     <View style={{width:"83%"}}>
                         <TextInput
-                            style={{borderBottomColor:"#BBBBBB",borderColor:"#ffffff",borderWidth:1,marginRight:17,height:36,color:"#BBBBBB",paddingVertical:0}}
+                            style={styles.textInputStyle}
                             placeholder="Specify"
                             placeholderTextColor="#BBBBBB"
                             //  onChangeText={email => this.setState({ email })}
@@ -125,6 +126,21 @@ const styles = StyleSheet.create({
   },
   content: {
       padding: 10
+  },
+  textStyle1: {
+    alignSelf:"center",
+    textAlign:"center", 
+    color:"#BBBBBB", 
+    fontSize:15
+  },
+  textInputStyle: {
+    borderBottomColor:"#BBBBBB",
+    borderColor:"#ffffff",
+    borderWidth:1,
+    marginRight:17,
+    height:36,
+    color:"#BBBBBB",
+    paddingVertical:0
   }
 });
 
