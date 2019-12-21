@@ -181,7 +181,10 @@ export default class GlobalHeader extends Component {
             </View>
           ) : this.props.plusIcons == true ? (
             <View style={{ flexDirection: "row" }}>
-              <TouchableOpacity style={{ borderWidth: 0 }}>
+              <TouchableOpacity
+                style={{ borderWidth: 0 }}
+                onPress={() => this.props.navigation.navigate("CreateProduct")}
+              >
                 <MaterialIcons
                   name="add"
                   size={32}

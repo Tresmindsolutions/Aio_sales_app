@@ -62,7 +62,10 @@ export default class LookBook2 extends Component {
         <ScrollView>
           <View style={{ paddingBottom: 10 }}>
             {this.state.featureItems.map(value => (
-              <TouchableOpacity style={styles.touchableView}>
+              <TouchableOpacity
+                style={styles.touchableView}
+                onPress={() => this.props.navigation.navigate("LookBook3")}
+              >
                 <ImageBackground
                   source={value.itemImage}
                   style={styles.imageStyling}
