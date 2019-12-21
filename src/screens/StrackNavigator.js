@@ -238,7 +238,7 @@ const AppNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName: "Login"
+    initialRouteName: "OrderSummary"
   }
 );
 

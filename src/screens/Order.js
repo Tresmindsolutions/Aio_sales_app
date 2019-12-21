@@ -278,7 +278,13 @@ export default class Order extends Component {
           </View>
           <ImageViewer imageUrls={images} />
         </Modal>
-        <View style={{ width: "90%", alignSelf: "center", padding: 5 }}>
+        <View
+          style={{
+            width: "90%",
+            alignSelf: "center",
+            padding: 5
+          }}
+        >
           <Text style={{ fontSize: 18 }}>Best Sellers</Text>
         </View>
 
@@ -762,9 +768,10 @@ const styles = StyleSheet.create({
   },
   main: {
     borderWidth: 0,
+
     flexWrap: "wrap",
-    flexDirection: "row",
-    justifyContent: "space-around"
+    flexDirection: "row"
+    // justifyContent: "space-around"
   },
   card: {
     height: 180,

@@ -15,6 +15,7 @@ import { Overlay } from "react-native-elements";
 import SignatureCapture from "react-native-signature-capture";
 import GlobalHeader from "../components/GlobalHeader";
 import { Textarea } from "native-base";
+import { Base64 } from "js-base64";
 import { theme, FontColor, Shadow } from "../components/constant/theme";
 import Swipeout from "react-native-swipeout";
 export default class ItemDetails extends Component {
@@ -73,7 +74,11 @@ export default class ItemDetails extends Component {
     console.log("location", result.pathName);
     // - for the file path name
     console.log(result);
-    this.setState({ imagePath: result.pathName.toString() });
+    //  let decode = Base64.decode(result.encoded.toString());
+    this.setState({ imagePath: result.encoded.toString() });
+    console.log("this.state.img", this.state.imagePath);
+    // console.log("this.state.img", this.state.decode);
+    this.setState({ isVisibleSign: false });
   };
 
   handleTextChange = (name, value) => {
@@ -90,7 +95,7 @@ export default class ItemDetails extends Component {
       {
         backgroundColor: "#ffffff",
         onPress: () => {
-          this.deleteNote(item);
+          // this.deleteNote(item);
         },
         component: (
           <View
@@ -354,7 +359,7 @@ export default class ItemDetails extends Component {
               </TouchableOpacity>
             </View>
           </Overlay>
-
+          {/* Signature  */}
           <TouchableOpacity
             style={{
               // borderWidth: 1,
@@ -419,6 +424,7 @@ export default class ItemDetails extends Component {
                   viewMode={"portrait"}
                   minStrokeWidth={8}
                   maxStrokeWidth={8}
+                  // backgroundColor={"#f1f1f1"}
                 />
               </View>
             </View>
@@ -477,6 +483,7 @@ export default class ItemDetails extends Component {
                   elevation: 3
                 }}
                 onPress={() => {
+                  // this.setState({ isVisibleSign: false });
                   this.saveSign();
                 }}
               >
@@ -485,15 +492,43 @@ export default class ItemDetails extends Component {
             </View>
           </Overlay>
 
-          <View style={{ borderWidth: 0 }}>
-            {this.state.imagePath ? (
+          {this.state.imagePath ? (
+            <View
+              style={{
+                // borderWidth: 1,
+                marginTop: 10,
+                height: 120,
+                width: "90%",
+                alignSelf: "center",
+                backgroundColor: "#ffffff",
+                justifyContent: "center",
+                // alignItems: "center",
+                marginBottom: 10
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: theme.grayDark,
+                  marginTop: 10,
+                  marginLeft: 10
+                }}
+              >
+                Signature
+              </Text>
               <Image
-                // source={(require = this.state.imagePath)}
-                style={{ height: 40, width: 40 }}
+                source={{
+                  uri: `data:image/png;base64,${this.state.imagePath}`
+                }}
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  backgroundColor: "#F1F1F1"
+                }}
                 resizeMode={"contain"}
               />
-            ) : null}
-          </View>
+            </View>
+          ) : null}
           <View
             style={{
               // borderWidth: 1,
@@ -571,7 +606,10 @@ export default class ItemDetails extends Component {
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.btnBottom}>
+            <TouchableOpacity
+              style={styles.btnBottom}
+              // onPress={this.props.navigation.navigate("Invoice")}
+            >
               <Text style={{ fontSize: 16, color: FontColor.white }}>
                 Invoice
               </Text>

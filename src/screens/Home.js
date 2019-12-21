@@ -134,13 +134,13 @@ export default class Home extends Component {
                   </TouchableOpacity>
                 </View>
 
-                <View
-                  style={styles.row}
-                  onPress={() =>
-                    this.props.navigation.navigate("CreateProduct")
-                  }
-                >
-                  <TouchableOpacity style={styles.btn}>
+                <View style={styles.row}>
+                  <TouchableOpacity
+                    style={styles.btn}
+                    onPress={() =>
+                      this.props.navigation.navigate("CreateProduct")
+                    }
+                  >
                     <Text style={styles.btnTxt}>Create Product</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
@@ -152,7 +152,12 @@ export default class Home extends Component {
                 </View>
 
                 <View style={styles.row}>
-                  <TouchableOpacity style={styles.btn}>
+                  <TouchableOpacity
+                    style={styles.btn}
+                    onPress={() =>
+                      this.props.navigation.navigate("Opensalesorder")
+                    }
+                  >
                     <Text style={styles.btnTxt}>Sales Order</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
