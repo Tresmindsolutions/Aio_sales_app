@@ -13,7 +13,7 @@ import {
 import Entypo from "react-native-vector-icons/Entypo";
 import { theme, FontColor } from "../components/constant/theme";
 
-//import { Content } from "native-base";
+import { Content } from "native-base";
 import GlobalHeader from "../components/GlobalHeader";
 
 export default class LookBook3 extends Component {
@@ -21,7 +21,7 @@ export default class LookBook3 extends Component {
     super(props);
     this.state = {
       counter: 22,
-      arr: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+      arr: [{}, {}]
     };
   }
   render() {
@@ -44,157 +44,594 @@ export default class LookBook3 extends Component {
           //     deleteRight={true}
           navigation={this.props.navigation}
         />
-        <ScrollView>
-          <View style={styles.main}>
-            {this.state.arr.map((item, index) => {
-              return (
-                <View
-                  // onPress={() => this.props.navigation.navigate("ItemDetails")}
-                  style={styles.card}
-                  //    onPress={() => this.props.navigation.navigate("ItemDetails")}
-                >
+        <View style={{ marginBottom: 70 }}>
+          <ScrollView style={{ paddingBottom: 20 }}>
+            <View style={styles.main}>
+              {this.state.arr.map((item, index) => {
+                return (
                   <View
-                    style={{}}
-                    onPress={() => this.setState({ visible: true })}
-                  >
-                    <Image
-                      source={require("../../assets/icons/xavier-teo-SxAXphIPWeg-unsplash-2.png")}
-                      style={{ height: 120, width: 168, borderRadius: 10 }}
-                      resizeMode={"stretch"}
-                    />
-                    <View
-                      style={{
-                        //   borderWidth: 1,
-                        bottom: 8,
-                        position: "absolute",
-                        //   height: 20,
-                        right: 7,
-                        alignSelf: "flex-end",
-                        //   width: 180,
-                        //   backgroundColor: "red",
-                        flexDirection: "row"
-                      }}
-                    >
-                      <View
-                        style={{
-                          height: 8,
-                          width: 8,
-                          marginLeft: 4,
-                          borderRadius: 25,
-                          backgroundColor: "white"
-                        }}
-                      />
-                      <View
-                        style={{
-                          height: 8,
-                          width: 8,
-                          marginLeft: 4,
-                          borderRadius: 25,
-                          backgroundColor: "white"
-                        }}
-                      />
-                      <View
-                        style={{
-                          height: 8,
-                          width: 8,
-                          marginLeft: 4,
-                          borderRadius: 25,
-                          backgroundColor: "#C9C9C9",
-                          borderWidth: 1.5,
-                          borderColor: "#ffffff"
-                        }}
-                      />
-                    </View>
-                  </View>
-                  <View
-                    style={{}}
                     // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                    style={styles.card}
+                    //    onPress={() => this.props.navigation.navigate("ItemDetails")}
                   >
+                    <View style={{}}>
+                      <Image
+                        source={require("../../assets/icons/xavier-teo-SxAXphIPWeg-unsplash-2.png")}
+                        style={{ height: 120, width: "100%", borderRadius: 10 }}
+                        resizeMode={"stretch"}
+                      />
+                      <View
+                        style={{
+                          //   borderWidth: 1,
+                          bottom: 8,
+                          position: "absolute",
+                          //   height: 20,
+                          right: 7,
+                          alignSelf: "flex-end",
+                          //   width: 180,
+                          //   backgroundColor: "red",
+                          flexDirection: "row"
+                        }}
+                      >
+                        <View
+                          style={{
+                            height: 8,
+                            width: 8,
+                            marginLeft: 4,
+                            borderRadius: 25,
+                            backgroundColor: "white"
+                          }}
+                        />
+                        <View
+                          style={{
+                            height: 8,
+                            width: 8,
+                            marginLeft: 4,
+                            borderRadius: 25,
+                            backgroundColor: "white"
+                          }}
+                        />
+                        <View
+                          style={{
+                            height: 8,
+                            width: 8,
+                            marginLeft: 4,
+                            borderRadius: 25,
+                            backgroundColor: "#C9C9C9",
+                            borderWidth: 1.5,
+                            borderColor: "#ffffff"
+                          }}
+                        />
+                      </View>
+                    </View>
                     <View
-                      style={{ height: 40 }}
+                      style={{}}
                       // onPress={() => this.props.navigation.navigate("ItemDetails")}
                     >
-                      <Text
-                        style={{
-                          fontSize: 14,
-                          textAlign: "center",
-                          marginTop: 5
-                        }}
-                      >
-                        Nike F03 Whites
-                      </Text>
                       <View
-                        style={styles.count}
+                        style={{ height: 40 }}
                         // onPress={() => this.props.navigation.navigate("ItemDetails")}
                       >
-                        <View
-                          style={styles.add}
-                          onPress={() =>
-                            this.setState({
-                              counter: this.state.counter - 1,
-                              plus: false,
-                              minus: true
-                            })
-                          }
+                        <Text
+                          style={{
+                            fontSize: 14,
+                            textAlign: "center",
+                            marginTop: 5
+                          }}
                         >
-                          {/* Imag path */}
-                          <Image
-                            source={require("../../assets/icons/sub.png")}
-                            style={{ height: 12, width: 12, height: 10 }}
-                            resizeMode={"contain"}
-                          />
-                        </View>
-
-                        <View style={styles.numb}>
-                          <Text
-                            style={[
-                              { fontSize: 26 },
-                              this.state.counter > 0
-                                ? { color: FontColor.blue }
-                                : { color: FontColor.blue }
-                            ]}
+                          Nike F03 Whites
+                        </Text>
+                        <View
+                          style={styles.count}
+                          // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                        >
+                          <View
+                            style={styles.add}
+                            onPress={() =>
+                              this.setState({
+                                counter: this.state.counter - 1,
+                                plus: false,
+                                minus: true
+                              })
+                            }
                           >
-                            {this.state.counter}
-                          </Text>
-                        </View>
-                        <View
-                          style={styles.add}
-                          onPress={() =>
-                            this.setState({
-                              counter: this.state.counter + 1,
-                              plus: true,
-                              minus: false
-                            })
-                          }
-                        >
-                          <Image
-                            source={require("../../assets/icons/add.png")}
-                            style={{ height: 14, width: 14 }}
-                            resizeMode={"contain"}
-                          />
+                            {/* Imag path */}
+                            <Image
+                              source={require("../../assets/icons/sub.png")}
+                              style={{ height: 12, width: 12, height: 10 }}
+                              resizeMode={"contain"}
+                            />
+                          </View>
+
+                          <View style={styles.numb}>
+                            <Text
+                              style={[
+                                { fontSize: 26 },
+                                this.state.counter > 0
+                                  ? { color: FontColor.blue }
+                                  : { color: FontColor.blue }
+                              ]}
+                            >
+                              {this.state.counter}
+                            </Text>
+                          </View>
+                          <View
+                            style={styles.add}
+                            onPress={() =>
+                              this.setState({
+                                counter: this.state.counter + 1,
+                                plus: true,
+                                minus: false
+                              })
+                            }
+                          >
+                            <Image
+                              source={require("../../assets/icons/add.png")}
+                              style={{ height: 14, width: 14 }}
+                              resizeMode={"contain"}
+                            />
+                          </View>
                         </View>
                       </View>
                     </View>
-                  </View>
 
-                  <View
-                    style={styles.priceTagMain}
-                    // onPress={() => this.props.navigation.navigate("ItemDetails")}
-                  >
-                    <View style={styles.priceTag}>
-                      <Text style={{ color: FontColor.black }}>$49.99</Text>
-                    </View>
-                    <View style={styles.priceChange}>
-                      <Text style={{ color: FontColor.white, fontSize: 12 }}>
-                        Price Change
-                      </Text>
+                    <View
+                      style={styles.priceTagMain}
+                      // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                    >
+                      <View style={styles.priceTag}>
+                        <Text style={{ color: FontColor.black }}>$49.99</Text>
+                      </View>
+                      <View style={styles.priceChange}>
+                        <Text style={{ color: FontColor.white, fontSize: 12 }}>
+                          Price Change
+                        </Text>
+                      </View>
                     </View>
                   </View>
-                </View>
-              );
-            })}
-          </View>
-        </ScrollView>
+                );
+              })}
+            </View>
+            <View style={styles.main}>
+              {this.state.arr.map((item, index) => {
+                return (
+                  <View
+                    // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                    style={styles.card}
+                    //    onPress={() => this.props.navigation.navigate("ItemDetails")}
+                  >
+                    <View style={{}}>
+                      <Image
+                        source={require("../../assets/icons/xavier-teo-SxAXphIPWeg-unsplash-2.png")}
+                        style={{ height: 120, width: "100%", borderRadius: 10 }}
+                        resizeMode={"stretch"}
+                      />
+                      <View
+                        style={{
+                          //   borderWidth: 1,
+                          bottom: 8,
+                          position: "absolute",
+                          //   height: 20,
+                          right: 7,
+                          alignSelf: "flex-end",
+                          //   width: 180,
+                          //   backgroundColor: "red",
+                          flexDirection: "row"
+                        }}
+                      >
+                        <View
+                          style={{
+                            height: 8,
+                            width: 8,
+                            marginLeft: 4,
+                            borderRadius: 25,
+                            backgroundColor: "white"
+                          }}
+                        />
+                        <View
+                          style={{
+                            height: 8,
+                            width: 8,
+                            marginLeft: 4,
+                            borderRadius: 25,
+                            backgroundColor: "white"
+                          }}
+                        />
+                        <View
+                          style={{
+                            height: 8,
+                            width: 8,
+                            marginLeft: 4,
+                            borderRadius: 25,
+                            backgroundColor: "#C9C9C9",
+                            borderWidth: 1.5,
+                            borderColor: "#ffffff"
+                          }}
+                        />
+                      </View>
+                    </View>
+                    <View
+                      style={{}}
+                      // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                    >
+                      <View
+                        style={{ height: 40 }}
+                        // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                      >
+                        <Text
+                          style={{
+                            fontSize: 14,
+                            textAlign: "center",
+                            marginTop: 5
+                          }}
+                        >
+                          Nike F03 Whites
+                        </Text>
+                        <View
+                          style={styles.count}
+                          // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                        >
+                          <View
+                            style={styles.add}
+                            onPress={() =>
+                              this.setState({
+                                counter: this.state.counter - 1,
+                                plus: false,
+                                minus: true
+                              })
+                            }
+                          >
+                            {/* Imag path */}
+                            <Image
+                              source={require("../../assets/icons/sub.png")}
+                              style={{ height: 12, width: 12, height: 10 }}
+                              resizeMode={"contain"}
+                            />
+                          </View>
+
+                          <View style={styles.numb}>
+                            <Text
+                              style={[
+                                { fontSize: 26 },
+                                this.state.counter > 0
+                                  ? { color: FontColor.blue }
+                                  : { color: FontColor.blue }
+                              ]}
+                            >
+                              {this.state.counter}
+                            </Text>
+                          </View>
+                          <View
+                            style={styles.add}
+                            onPress={() =>
+                              this.setState({
+                                counter: this.state.counter + 1,
+                                plus: true,
+                                minus: false
+                              })
+                            }
+                          >
+                            <Image
+                              source={require("../../assets/icons/add.png")}
+                              style={{ height: 14, width: 14 }}
+                              resizeMode={"contain"}
+                            />
+                          </View>
+                        </View>
+                      </View>
+                    </View>
+
+                    <View
+                      style={styles.priceTagMain}
+                      // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                    >
+                      <View style={styles.priceTag}>
+                        <Text style={{ color: FontColor.black }}>$49.99</Text>
+                      </View>
+                      <View style={styles.priceChange}>
+                        <Text style={{ color: FontColor.white, fontSize: 12 }}>
+                          Price Change
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                );
+              })}
+            </View>
+            <View style={styles.main}>
+              {this.state.arr.map((item, index) => {
+                return (
+                  <View
+                    // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                    style={styles.card}
+                    //    onPress={() => this.props.navigation.navigate("ItemDetails")}
+                  >
+                    <View style={{}}>
+                      <Image
+                        source={require("../../assets/icons/xavier-teo-SxAXphIPWeg-unsplash-2.png")}
+                        style={{ height: 120, width: "100%", borderRadius: 10 }}
+                        resizeMode={"stretch"}
+                      />
+                      <View
+                        style={{
+                          //   borderWidth: 1,
+                          bottom: 8,
+                          position: "absolute",
+                          //   height: 20,
+                          right: 7,
+                          alignSelf: "flex-end",
+                          //   width: 180,
+                          //   backgroundColor: "red",
+                          flexDirection: "row"
+                        }}
+                      >
+                        <View
+                          style={{
+                            height: 8,
+                            width: 8,
+                            marginLeft: 4,
+                            borderRadius: 25,
+                            backgroundColor: "white"
+                          }}
+                        />
+                        <View
+                          style={{
+                            height: 8,
+                            width: 8,
+                            marginLeft: 4,
+                            borderRadius: 25,
+                            backgroundColor: "white"
+                          }}
+                        />
+                        <View
+                          style={{
+                            height: 8,
+                            width: 8,
+                            marginLeft: 4,
+                            borderRadius: 25,
+                            backgroundColor: "#C9C9C9",
+                            borderWidth: 1.5,
+                            borderColor: "#ffffff"
+                          }}
+                        />
+                      </View>
+                    </View>
+                    <View
+                      style={{}}
+                      // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                    >
+                      <View
+                        style={{ height: 40 }}
+                        // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                      >
+                        <Text
+                          style={{
+                            fontSize: 14,
+                            textAlign: "center",
+                            marginTop: 5
+                          }}
+                        >
+                          Nike F03 Whites
+                        </Text>
+                        <View
+                          style={styles.count}
+                          // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                        >
+                          <View
+                            style={styles.add}
+                            onPress={() =>
+                              this.setState({
+                                counter: this.state.counter - 1,
+                                plus: false,
+                                minus: true
+                              })
+                            }
+                          >
+                            {/* Imag path */}
+                            <Image
+                              source={require("../../assets/icons/sub.png")}
+                              style={{ height: 12, width: 12, height: 10 }}
+                              resizeMode={"contain"}
+                            />
+                          </View>
+
+                          <View style={styles.numb}>
+                            <Text
+                              style={[
+                                { fontSize: 26 },
+                                this.state.counter > 0
+                                  ? { color: FontColor.blue }
+                                  : { color: FontColor.blue }
+                              ]}
+                            >
+                              {this.state.counter}
+                            </Text>
+                          </View>
+                          <View
+                            style={styles.add}
+                            onPress={() =>
+                              this.setState({
+                                counter: this.state.counter + 1,
+                                plus: true,
+                                minus: false
+                              })
+                            }
+                          >
+                            <Image
+                              source={require("../../assets/icons/add.png")}
+                              style={{ height: 14, width: 14 }}
+                              resizeMode={"contain"}
+                            />
+                          </View>
+                        </View>
+                      </View>
+                    </View>
+
+                    <View
+                      style={styles.priceTagMain}
+                      // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                    >
+                      <View style={styles.priceTag}>
+                        <Text style={{ color: FontColor.black }}>$49.99</Text>
+                      </View>
+                      <View style={styles.priceChange}>
+                        <Text style={{ color: FontColor.white, fontSize: 12 }}>
+                          Price Change
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                );
+              })}
+            </View>
+            <View style={styles.main}>
+              {this.state.arr.map((item, index) => {
+                return (
+                  <View
+                    // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                    style={styles.card}
+                    //    onPress={() => this.props.navigation.navigate("ItemDetails")}
+                  >
+                    <View style={{}}>
+                      <Image
+                        source={require("../../assets/icons/xavier-teo-SxAXphIPWeg-unsplash-2.png")}
+                        style={{ height: 120, width: "100%", borderRadius: 10 }}
+                        resizeMode={"stretch"}
+                      />
+                      <View
+                        style={{
+                          //   borderWidth: 1,
+                          bottom: 8,
+                          position: "absolute",
+                          //   height: 20,
+                          right: 7,
+                          alignSelf: "flex-end",
+                          //   width: 180,
+                          //   backgroundColor: "red",
+                          flexDirection: "row"
+                        }}
+                      >
+                        <View
+                          style={{
+                            height: 8,
+                            width: 8,
+                            marginLeft: 4,
+                            borderRadius: 25,
+                            backgroundColor: "white"
+                          }}
+                        />
+                        <View
+                          style={{
+                            height: 8,
+                            width: 8,
+                            marginLeft: 4,
+                            borderRadius: 25,
+                            backgroundColor: "white"
+                          }}
+                        />
+                        <View
+                          style={{
+                            height: 8,
+                            width: 8,
+                            marginLeft: 4,
+                            borderRadius: 25,
+                            backgroundColor: "#C9C9C9",
+                            borderWidth: 1.5,
+                            borderColor: "#ffffff"
+                          }}
+                        />
+                      </View>
+                    </View>
+                    <View
+                      style={{}}
+                      // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                    >
+                      <View
+                        style={{ height: 40 }}
+                        // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                      >
+                        <Text
+                          style={{
+                            fontSize: 14,
+                            textAlign: "center",
+                            marginTop: 5
+                          }}
+                        >
+                          Nike F03 Whites
+                        </Text>
+                        <View
+                          style={styles.count}
+                          // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                        >
+                          <View
+                            style={styles.add}
+                            onPress={() =>
+                              this.setState({
+                                counter: this.state.counter - 1,
+                                plus: false,
+                                minus: true
+                              })
+                            }
+                          >
+                            {/* Imag path */}
+                            <Image
+                              source={require("../../assets/icons/sub.png")}
+                              style={{ height: 12, width: 12, height: 10 }}
+                              resizeMode={"contain"}
+                            />
+                          </View>
+
+                          <View style={styles.numb}>
+                            <Text
+                              style={[
+                                { fontSize: 26 },
+                                this.state.counter > 0
+                                  ? { color: FontColor.blue }
+                                  : { color: FontColor.blue }
+                              ]}
+                            >
+                              {this.state.counter}
+                            </Text>
+                          </View>
+                          <View
+                            style={styles.add}
+                            onPress={() =>
+                              this.setState({
+                                counter: this.state.counter + 1,
+                                plus: true,
+                                minus: false
+                              })
+                            }
+                          >
+                            <Image
+                              source={require("../../assets/icons/add.png")}
+                              style={{ height: 14, width: 14 }}
+                              resizeMode={"contain"}
+                            />
+                          </View>
+                        </View>
+                      </View>
+                    </View>
+
+                    <View
+                      style={styles.priceTagMain}
+                      // onPress={() => this.props.navigation.navigate("ItemDetails")}
+                    >
+                      <View style={styles.priceTag}>
+                        <Text style={{ color: FontColor.black }}>$49.99</Text>
+                      </View>
+                      <View style={styles.priceChange}>
+                        <Text style={{ color: FontColor.white, fontSize: 12 }}>
+                          Price Change
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                );
+              })}
+            </View>
+          </ScrollView>
+        </View>
       </View>
     );
   }
@@ -206,59 +643,17 @@ const styles = StyleSheet.create({
 
     backgroundColor: "#ffffff"
   },
-  main2: {
-    height: 40,
-    flexDirection: "row",
-    backgroundColor: "#F1F1F1",
-    marginTop: 10
-  },
-  scene: {
-    flex: 1
-  },
-  button: {
-    width: "20%",
-    justifyContent: "center",
-    alignContent: "center",
-    marginTop: 7,
-    marginBottom: 7,
-    borderWidth: 1,
-    paddingTop: 10,
-    paddingBottom: 10,
-    alignItems: "center",
-    borderRadius: 20,
-    backgroundColor: "white"
-  },
-  buttonPress: {
-    width: "20%",
-    justifyContent: "center",
-    alignContent: "center",
-    marginTop: 7,
-    marginBottom: 7,
-    borderWidth: 1,
-    paddingTop: 10,
-    paddingBottom: 10,
-    alignItems: "center",
-    borderRadius: 20,
-    backgroundColor: "green"
-  },
-  welcome: {
-    fontFamily: "Nunito-Bold",
-    color: "#000000"
-  },
-  welcomePress: {
-    fontFamily: "Nunito-Bold",
-    color: "#ffffff"
-  },
+
   main: {
     borderWidth: 0,
     justifyContent: "center",
-    flexWrap: "wrap",
+    // flexWrap: "wrap",
     flexDirection: "row"
     // justifyContent: "space-around"
   },
   card: {
     height: 180,
-    // width: 168,
+    width: "49%",
     borderRadius: 10,
     backgroundColor: "#ffffff",
     shadowColor: "#000",
@@ -270,9 +665,9 @@ const styles = StyleSheet.create({
     shadowRadius: 2.22,
 
     elevation: 3,
-    marginTop: 6,
-    marginLeft: 4,
-    marginRight: 4
+    marginTop: 2,
+    marginLeft: 1,
+    marginRight: 1
     // zIndex: 10
     // borderWidth: 1
   },

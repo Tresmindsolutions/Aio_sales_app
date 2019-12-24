@@ -36,6 +36,7 @@ import LookBook2 from "./LookBook2";
 import LastOrder from "./LastOrder";
 import OrderHistory from "./OrderHistory";
 import Account2 from "./Account2";
+import Map1 from "./Map1";
 // import LastOrder2 from "./LastOrder2";
 
 const AppNavigator = createStackNavigator(
@@ -176,6 +177,12 @@ const AppNavigator = createStackNavigator(
 
     ReceivePayment3: {
       screen: ReceivePayment3,
+      navigationOptions: () => ({
+        header: null
+      })
+    },
+    Map1: {
+      screen: Map1,
       navigationOptions: () => ({
         header: null
       })

@@ -213,7 +213,7 @@ class CreateProduct extends Component {
                 style={styles.viewInput}
                 keyboardType="numeric"
                 placeholder="Input item number"
-                placeholderTextColor="#7b7b7b"
+                placeholderTextColor={theme.gray}
                 //  onChangeText={email => this.setState({ email })}
               />
             </View>
@@ -222,7 +222,7 @@ class CreateProduct extends Component {
               <TextInput
                 style={styles.viewInput}
                 placeholder="Input description"
-                placeholderTextColor="#7b7b7b"
+                placeholderTextColor={theme.gray}
                 //  onChangeText={email => this.setState({ email })}
               />
             </View>
@@ -231,7 +231,7 @@ class CreateProduct extends Component {
               <TextInput
                 style={styles.viewInput}
                 placeholder="Input case count"
-                placeholderTextColor="#7b7b7b"
+                placeholderTextColor={theme.gray}
                 //  onChangeText={email => this.setState({ email })}
               />
             </View>
@@ -273,7 +273,7 @@ class CreateProduct extends Component {
                 style={styles.viewInput}
                 keyboardType="numeric"
                 placeholder="Input price"
-                placeholderTextColor="#7b7b7b"
+                placeholderTextColor={theme.gray}
                 //  onChangeText={email => this.setState({ email })}
               />
             </View>
@@ -282,7 +282,7 @@ class CreateProduct extends Component {
               <TextInput
                 style={styles.viewInput}
                 placeholder="Input SRP"
-                placeholderTextColor="#7b7b7b"
+                placeholderTextColor={theme.gray}
                 //  onChangeText={email => this.setState({ email })}
               />
             </View>
@@ -292,7 +292,7 @@ class CreateProduct extends Component {
                 <TextInput
                   style={{ fontSize: 12, width: "85%" }}
                   placeholder="Input unit UPC"
-                  placeholderTextColor="#7b7b7b"
+                  placeholderTextColor={theme.gray}
                   //  onChangeText={email => this.setState({ email })}
                 />
                 <Image
@@ -308,7 +308,7 @@ class CreateProduct extends Component {
                 <TextInput
                   style={{ fontSize: 12, width: "85%" }}
                   placeholder="Input case UPC"
-                  placeholderTextColor="#7b7b7b"
+                  placeholderTextColor={theme.gray}
                   //  onChangeText={email => this.setState({ email })}
                 />
                 <Image
@@ -323,7 +323,7 @@ class CreateProduct extends Component {
               <TextInput
                 style={styles.viewInput}
                 placeholder="Input inventory"
-                placeholderTextColor="#7b7b7b"
+                placeholderTextColor={theme.gray}
                 //  onChangeText={email => this.setState({ email })}
               />
             </View>

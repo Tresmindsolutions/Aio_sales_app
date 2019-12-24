@@ -115,7 +115,7 @@ class OpenBalances extends Component {
           {//    contentToMap ?
           this.state.contentToMap.map((item, index) => {
             return (
-              <View style={{ width: "100%" }}>
+              <View style={{ width: "100%", marginTop: 4 }}>
                 <TouchableOpacity
                   style={styles.CardView1}
                   onPress={() =>
@@ -411,7 +411,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
 
-    elevation: 4
+    elevation: 2
   },
   buttonLeft: {
     height: 26,

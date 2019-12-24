@@ -97,7 +97,7 @@ export default class RoutesSchedules2 extends Component {
                         shadowOpacity: 0.22,
                         shadowRadius: 2.22,
 
-                        elevation: 3
+                        elevation: 2
                       }}
                     >
                       <View
