@@ -111,6 +111,10 @@ export default class Order extends Component {
 
         <View style={{ height: 50 }}>
           <ScrollView
+          //  style={{backgroundColor:"#F1F1F1", height:30}}
+           backgroundColor="#F1F1F1"
+          style={{backgroundColor:"#F1F1F1"}}
+           contentContainerStyle={{alignItems:"center", height:50}}
             horizontal={true}
             style={{ height: 0 }}
             showsVerticalScrollIndicator={false}
@@ -127,7 +131,7 @@ export default class Order extends Component {
                     : theme.grayDark,
                   justifyContent: "center",
                   alignItems: "center",
-                  paddingHorizontal: 15
+                  paddingHorizontal: 30, paddingLeft:40
                 }}
                 onPress={() => {
                   this.setState({
@@ -159,7 +163,7 @@ export default class Order extends Component {
                     : theme.grayDark,
                   justifyContent: "center",
                   alignItems: "center",
-                  paddingHorizontal: 15
+                  paddingHorizontal: 20
                 }}
                 onPress={() => {
                   this.setState({
@@ -187,7 +191,7 @@ export default class Order extends Component {
                 style={{
                   justifyContent: "center",
                   alignItems: "center",
-                  paddingHorizontal: 15,
+                  paddingHorizontal: 30,
                   borderBottomWidth: this.state.Category1 ? 2 : 0,
                   borderBottomColor: this.state.Category1
                     ? theme.blue
@@ -219,7 +223,7 @@ export default class Order extends Component {
                 style={{
                   justifyContent: "center",
                   alignItems: "center",
-                  paddingHorizontal: 15,
+                  paddingHorizontal: 30,
                   borderBottomWidth: this.state.Category2 ? 2 : 0,
                   borderBottomColor: this.state.Category2
                     ? theme.blue
@@ -251,7 +255,7 @@ export default class Order extends Component {
                 style={{
                   justifyContent: "center",
                   alignItems: "center",
-                  paddingHorizontal: 15,
+                  paddingHorizontal: 30, paddingRight:40,
                   borderBottomWidth: this.state.Category3 ? 2 : 0,
                   borderBottomColor: this.state.Category3
                     ? theme.blue

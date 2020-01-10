@@ -37,15 +37,15 @@ class CreateProduct extends Component {
         <GlobalHeader
           backgroundColor={"transparent"}
           //    leftArrow={true}
-          //     leftSetting={true}
+              // leftSetting={true}
           OneHeadingEnable={true}
-          twoWords={1}
-          HeadingText="Product"
-          //     elevation={4}
+          // twoWords={1}
+          HeadingText="Create New Product"
+              // elevation={4}
           leftArrowSmall={true}
           // rightSearchAdd={true}
           //     TwoHeadingEnable = {true}
-          //     order="order"
+              // order="order"
           //     name="name"
           //     rightThreeIcons = {true}
           //     deleteRight={true}
@@ -318,11 +318,20 @@ class CreateProduct extends Component {
                 />
               </View>
             </View>
-            <View style={{ marginBottom: 15 }}>
+            <View style={{ marginBottom: 0 }}>
               <Text style={styles.textStyle}>Inventory</Text>
               <TextInput
                 style={styles.viewInput}
                 placeholder="Input inventory"
+                placeholderTextColor={theme.gray}
+                //  onChangeText={email => this.setState({ email })}
+              />
+            </View>
+            <View style={{ marginBottom: 15 }}>
+              <Text style={styles.textStyle}>Route Schedule</Text>
+              <TextInput
+                style={styles.viewInput}
+                placeholder="Route Schedule"
                 placeholderTextColor={theme.gray}
                 //  onChangeText={email => this.setState({ email })}
               />
@@ -473,16 +482,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     // marginTop: 20,
     marginBottom: 10,
-    backgroundColor: "#ffffff",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1
-    },
-    shadowOpacity: 0.22,
-    shadowRadius: 2.22,
-
-    elevation: 3
   },
   lastBottomButton: {
     height: 40,

@@ -62,8 +62,8 @@ export default class RoutesSchedules2 extends Component {
             //  TwoHeadingEnable={true}
             //  order="Receive Payment"
             //  name="Abrix Woonaccessoires BV"
-            //     rightThreeIcons = {true}
-            //     deleteRight={true}
+                // rightThreeIcons = {true}
+                // deleteRight={true}
             navigation={this.props.navigation}
           />
 

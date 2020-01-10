@@ -16,12 +16,12 @@ export default class Accounts extends Component {
     return (
       <View style={styles.container}>
         <GlobalHeader
-          //     backgroundColor={"transparent"}
+              backgroundColor={"transparent"}
           //   leftArrow={true}
           //     leftSetting={true}
           OneHeadingEnable={true}
-          twoWords={1}
-          HeadingText="Accounts"
+          // twoWords={1}
+          HeadingText="Create New Accounts"
           //     elevation={4}
           leftArrowSmall={true}
           //   rightSearchAdd={false}
@@ -59,7 +59,7 @@ export default class Accounts extends Component {
                     marginLeft: 5
                   }}
                 >
-                  Account Name
+                  Business Name
                 </Text>
                 <TextInput
                   value="Abrix Woonaccessoires BV"
@@ -88,7 +88,7 @@ export default class Accounts extends Component {
                 />
               </View>
               <View>
-                <Text style={styles.textInputHeadingStyle}>Address</Text>
+                <Text style={styles.textInputHeadingStyle}>Address 2</Text>
                 <TextInput
                   placeholderTextColor="#000000"
                   style={styles.textInputStyle}
@@ -121,6 +121,7 @@ export default class Accounts extends Component {
                 <Text style={styles.textInputHeadingStyle}>Zipcode</Text>
                 <TextInput
                   value="9722"
+                  keyboardType="numeric"
                   placeholderTextColor="#000000"
                   style={styles.textInputStyle}
                 />
@@ -129,6 +130,7 @@ export default class Accounts extends Component {
                 <Text style={styles.textInputHeadingStyle}>Phone number</Text>
                 <TextInput
                   value="04006452582"
+                  keyboardType="numeric"
                   placeholderTextColor="#000000"
                   style={styles.textInputStyle}
                 />
@@ -137,6 +139,7 @@ export default class Accounts extends Component {
                 <Text style={styles.textInputHeadingStyle}>Mobile number</Text>
                 <TextInput
                   value="0420111658"
+                  keyboardType="numeric"
                   placeholderTextColor="#000000"
                   style={styles.textInputStyle}
                 />
@@ -145,6 +148,7 @@ export default class Accounts extends Component {
                 <Text style={styles.textInputHeadingStyle}>Fax number</Text>
                 <TextInput
                   value="0864520218729"
+                  keyboardType="numeric"
                   placeholderTextColor="#000000"
                   style={styles.textInputStyle}
                 />
@@ -204,14 +208,14 @@ const styles = StyleSheet.create({
     // paddingLeft:5,
     fontSize: 10,
     backgroundColor: "#fff",
-    shadowColor: "#00000029",
-    shadowOffset: {
-      width: 0,
-      height: 1
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 3
+    // shadowColor: "#00000029",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 1
+    // },
+    // shadowOpacity: 0.2,
+    // shadowRadius: 1.41,
+    // elevation: 3
   },
   accountView: {
     backgroundColor: "#148BFF",

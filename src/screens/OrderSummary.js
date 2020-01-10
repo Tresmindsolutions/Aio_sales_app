@@ -673,7 +673,7 @@ export default class ItemDetails extends Component {
                     marginBottom: 5
                   }}
                 >
-                  <Text style={{ color: "#3D3D3D", fontSize: 15 }}>
+                  <Text style={{ color: "#3D3D3D", fontSize: 16 }}>
                     Quantity
                   </Text>
                   <View
@@ -692,7 +692,7 @@ export default class ItemDetails extends Component {
                         source={require("../../assets/icons/minusIcon.png")}
                       />
                     </TouchableOpacity>
-                    <Text style={{ color: "#148BFF", fontSize: 15 }}>22</Text>
+                    <Text style={{ color: "#148BFF", fontSize: 16 }}>22</Text>
                     <TouchableOpacity>
                       <Image
                         style={{ width: 17, height: 17, marginBottom: 2 }}
@@ -709,7 +709,7 @@ export default class ItemDetails extends Component {
                     marginBottom: 5
                   }}
                 >
-                  <Text style={{ color: "#3D3D3D", fontSize: 13 }}>Price</Text>
+                  <Text style={{ color: "#3D3D3D", fontSize: 14 }}>Price</Text>
                   <View
                     style={{
                       height: 20,
@@ -720,7 +720,7 @@ export default class ItemDetails extends Component {
                       borderColor: "#F5F5F5"
                     }}
                   >
-                    <Text style={{ color: "#3D3D3D", fontSize: 15 }}>99.9</Text>
+                    <Text style={{ color: "#3D3D3D", fontSize: 16 }}>99.9</Text>
                   </View>
                 </View>
 
@@ -732,11 +732,11 @@ export default class ItemDetails extends Component {
                   }}
                 >
                   <View style={{ flexDirection: "row" }}>
-                    <Text style={{ color: "#3D3D3D", fontSize: 13 }}>
+                    <Text style={{ color: "#3D3D3D", fontSize: 14 }}>
                       Discount
                     </Text>
                     <Text
-                      style={{ color: "#3D3D3D", fontSize: 11, marginTop: 2 }}
+                      style={{ color: "#3D3D3D", fontSize: 12, marginTop: 2 }}
                     >
                       {"  "}(% or $)
                     </Text>
@@ -751,7 +751,7 @@ export default class ItemDetails extends Component {
                       borderColor: "#F5F5F5"
                     }}
                   >
-                    <Text style={{ color: "#3D3D3D", fontSize: 15 }}>0.00</Text>
+                    <Text style={{ color: "#3D3D3D", fontSize: 16 }}>0.00</Text>
                   </View>
                 </View>
               </View>
@@ -761,14 +761,14 @@ export default class ItemDetails extends Component {
                   onPress={() => this.setState({ visible: false })}
                   style={styles.cancelButton}
                 >
-                  <Text style={{ fontSize: 15, color: "#878787" }}>Cancel</Text>
+                  <Text style={{ fontSize: 16, color: "#878787" }}>Cancel</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                   onPress={() => this.setState({ visible: false })}
                   style={styles.callButton}
                 >
-                  <Text style={{ fontSize: 15, color: FontColor.white }}>
+                  <Text style={{ fontSize: 16, color: FontColor.white }}>
                     Save
                   </Text>
                 </TouchableOpacity>
@@ -811,12 +811,12 @@ const styles = StyleSheet.create({
   popopCallView: {
     marginHorizontal: -20,
     justifyContent: "center",
-    height: 75,
+    height: 85,
     alignItems: "center",
     borderWidth: 1
   },
   heading1: {
-    fontSize: 11,
+    fontSize: 12,
     marginTop: 8,
     color: "#878787"
   },
@@ -863,7 +863,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: "48%",
-    height: 35,
+    height: 38,
     shadowColor: "#00000029",
     shadowOffset: {
       width: 0,
@@ -880,6 +880,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: "48%",
+    height: 38,
     shadowColor: "#00000029",
     shadowOffset: {
       width: 0,

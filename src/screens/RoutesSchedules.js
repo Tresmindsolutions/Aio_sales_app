@@ -75,6 +75,7 @@ export default class RoutesSchedules extends Component {
             HeadingText="Routes Schedules"
             //     elevation={4}
             leftArrowSmall={true}
+            rightAdd={true}
             // rightSearchAdd={true}
             //  TwoHeadingEnable={true}
             //  order="Receive Payment"

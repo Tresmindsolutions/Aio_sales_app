@@ -745,18 +745,19 @@ const styles = StyleSheet.create({
   },
   bottomButtons: {
     height: 40,
-    // borderWidth:1,
+    borderWidth:1, borderColor:"#0000004D",
+    backgroundColor:"#fff",
     justifyContent: "center",
     borderRadius: 5,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 1,
+    // },
+    // shadowOpacity: 0.20,
+    // shadowRadius: 1.41,
 
-    elevation: 1
+    // elevation: 2,
   },
   lastBottomButton: {
     height: 40,

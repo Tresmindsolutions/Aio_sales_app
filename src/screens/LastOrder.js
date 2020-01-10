@@ -23,32 +23,32 @@ class LastOrder extends Component {
       contentToMap: [
         {
           Name: "Abix Woonaaccessories BV",
-          Date: "17/9/2019",
+          Date: "9/17/2019",
           Price: "876,576"
         },
         {
           Name: "Abix Woonaaccessories BV",
-          Date: "17/9/2019",
+          Date: "9/17/2019",
           Price: "987,567"
         },
         {
           Name: "Abix Woonaaccessories BV",
-          Date: "17/9/2019",
+          Date: "9/17/2019",
           Price: "676,557"
         },
         {
           Name: "Abix Woonaaccessories BV",
-          Date: "17/9/2019",
+          Date: "9/17/2019",
           Price: "159,776"
         },
         {
           Name: "Abix Woonaaccessories BV",
-          Date: "17/9/2019",
+          Date: "9/17/2019",
           Price: "157,00"
         },
         {
           Name: "Zain Hasan",
-          Date: "17/9/2019",
+          Date: "9/17/2019",
           Price: "209,897"
         }
       ]

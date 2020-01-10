@@ -255,7 +255,7 @@ const AppNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName: "Login"
+    initialRouteName: "Receivepayment4"
   }
 );
 

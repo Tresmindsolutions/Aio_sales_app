@@ -23,17 +23,17 @@ class OrderHistory extends Component {
       contentToMap: [
         {
           Name: "565 Items",
-          Date: "17/9/2019",
+          Date: "9/17/2019",
           Price: "876,576"
         },
         {
           Name: "565 Items",
-          Date: "17/9/2019",
+          Date: "9/17/2019",
           Price: "987,567"
         },
         {
           Name: "565 Items",
-          Date: "17/9/2019",
+          Date: "9/17/2019",
           Price: "676,557"
         }
       ]

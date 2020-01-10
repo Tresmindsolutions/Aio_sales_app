@@ -309,7 +309,7 @@ export default class Invoice extends Component {
 
             <View style={styles.btnRow}>
               <TouchableOpacity style={styles.btn}>
-                <Text style={styles.btnTxt}>Edit Invoice</Text>
+                <Text style={styles.btnTxt}>Edit Order</Text>
               </TouchableOpacity>
 
               <TouchableOpacity

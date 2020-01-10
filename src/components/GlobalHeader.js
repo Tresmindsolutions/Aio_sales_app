@@ -117,7 +117,7 @@ export default class GlobalHeader extends Component {
                   alignItems: "center"
                 }
               : {
-                  flex: 4,
+                  flex: 5.6,
                   // borderWidth: 1,
                   // justifyContent: "center",
                   // alignItems: "center"
@@ -176,7 +176,21 @@ export default class GlobalHeader extends Component {
             paddingRight: 5
           }}
         >
-          {this.props.rightSearchAdd == true ? (
+          {
+            this.props.rightAdd == true ? (
+              <View style={{ flexDirection: "row" }}>
+                <TouchableOpacity
+                  style={{ borderWidth: 0, marginRight: 5 }}
+                  onPress={() => this.props.navigation.navigate("Accounts")}
+                >
+                  <MaterialIcons
+                    name="add"
+                    size={32}
+                    color={FontColor.grayDark}
+                  />
+                </TouchableOpacity>
+              </View>
+            ) : this.props.rightSearchAdd == true ? (
             <View style={{ flexDirection: "row" }}>
               <TouchableOpacity style={{ borderWidth: 0, marginRight: 5 }}>
                 <MaterialIcons
